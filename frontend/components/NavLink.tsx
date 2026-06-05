@@ -18,7 +18,7 @@ const NavLink = ({ href, label }: NavLinkProps) => {
     <Link
       href={href}
       className={`
-        px-3 py-1.5 rounded-md text-sm transition-colors
+        px-3 py-1.5 rounded-md text-base transition-colors
         ${isActive ? "font-bold" : "hover:bg-zinc-200 text-zinc-700"}
       `}
     >
