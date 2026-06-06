@@ -9,6 +9,7 @@ import {
   RAIS_GAMES,
 } from "@/constants/skills";
 import Image from "next/image";
+import ScrollReveal from "@/components/ScrollReveal";
 
 interface SkillTag {
   name: string;
@@ -60,140 +61,152 @@ const AboutMePage = () => {
                 <span className="font-bold uppercase">Experience</span>
               </h2>
               {/* NorthFina Oy Experience */}
-              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
-                <div>
-                  {/* Date of experience */}
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Sep 2024 - Feb 2026
-                  </p>
-                </div>
-                <div>
-                  {/* Role, company name and experience description */}
-                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                    Full-Stack Developer, NorthFina Oy
-                  </p>
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Designed and developed full-stack applications using Next.js
-                    and TypeScript, with serverless backends powered by Azure
-                    Functions. Built scalable internal tools and platforms for
-                    internal users to improve their efficiency across teams.
-                    Worked closely with cross-functional teams, including
-                    developers, designers, and product managers, to implement
-                    features with best practises.{" "}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
-                    {/* Skill Tags*/}
-                    {NORTHFINA_SKILLS.map((skill: SkillTag) => (
-                      <SkillTag key={skill.name} name={skill.name} />
-                    ))}
+              <ScrollReveal delay={0}>
+                <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                  <div>
+                    {/* Date of experience */}
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Sep 2024 - Feb 2026
+                    </p>
+                  </div>
+                  <div>
+                    {/* Role, company name and experience description */}
+                    <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                      Full-Stack Developer, NorthFina Oy
+                    </p>
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Designed and developed full-stack applications using
+                      Next.js and TypeScript, with serverless backends powered
+                      by Azure Functions. Built scalable internal tools and
+                      platforms for internal users to improve their efficiency
+                      across teams. Worked closely with cross-functional teams,
+                      including developers, designers, and product managers, to
+                      implement features with best practises.{" "}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
+                      {/* Skill Tags*/}
+                      {NORTHFINA_SKILLS.map((skill: SkillTag) => (
+                        <SkillTag key={skill.name} name={skill.name} />
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
               {/* Espoo Game Lab Experience */}
-              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
-                <div>
-                  {/* Date of experience */}
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Mar 2023 - Sep 2024{" "}
-                  </p>
-                </div>
-                <div>
-                  {/* Role, company name and experience description */}
-                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                    Software Developer(Game programming), Espoo Game LAB{" "}
-                  </p>
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    As an Espoo Game LAB program participant, my primary
-                    responsibility is game programming. I used Unity and C# to
-                    bring our projects to life.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
-                    {/* Skill Tags*/}
-                    {ESPOO_GAME_LAB.map((skill: SkillTag) => (
-                      <SkillTag key={skill.name} name={skill.name} />
-                    ))}
+              <ScrollReveal delay={100}>
+                <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                  <div>
+                    {/* Date of experience */}
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Mar 2023 - Sep 2024{" "}
+                    </p>
+                  </div>
+                  <div>
+                    {/* Role, company name and experience description */}
+                    <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                      Software Developer(Game programming), Espoo Game LAB{" "}
+                    </p>
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      As an Espoo Game LAB program participant, my primary
+                      responsibility is game programming. I used Unity and C# to
+                      bring our projects to life.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
+                      {/* Skill Tags*/}
+                      {ESPOO_GAME_LAB.map((skill: SkillTag) => (
+                        <SkillTag key={skill.name} name={skill.name} />
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
               {/* Integrify Experience*/}
-              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
-                <div>
-                  {/* Date of experience */}
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Mar 2023 - Sep 2024{" "}
-                  </p>
-                </div>
-                <div>
-                  {/* Role, company name and experience description */}
-                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                    Full-stack Developer Trainee, Integrify Oy (Remote){" "}
-                  </p>
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Joined and was accepted into Integrify Oy's comprehensive
-                    full stack training program, where I'll be honing my skills
-                    in frontend, backend, DevOps, and Cloud technologies.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-4 justify-center sm:justify-start">
-                    {/* Skill Tags*/}
-                    {INTEGRIFY_OY.map((skill: SkillTag) => (
-                      <SkillTag key={skill.name} name={skill.name} />
-                    ))}
+              <ScrollReveal delay={200}>
+                <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                  <div>
+                    {/* Date of experience */}
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Mar 2023 - Sep 2024{" "}
+                    </p>
+                  </div>
+                  <div>
+                    {/* Role, company name and experience description */}
+                    <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                      Full-stack Developer Trainee, Integrify Oy (Remote){" "}
+                    </p>
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Joined and was accepted into Integrify Oy's comprehensive
+                      full stack training program, where I'll be honing my
+                      skills in frontend, backend, DevOps, and Cloud
+                      technologies.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-4 justify-center sm:justify-start">
+                      {/* Skill Tags*/}
+                      {INTEGRIFY_OY.map((skill: SkillTag) => (
+                        <SkillTag key={skill.name} name={skill.name} />
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
+              ``
               {/* Clarusway Experience*/}
-              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
-                <div>
-                  {/* Date of experience */}
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Mar 2023 - Sep 2024{" "}
-                  </p>
-                </div>
-                <div>
-                  {/* Role, company name and experience description */}
-                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                    Full-stack Developer Trainee, Clarusway (Remote){" "}
-                  </p>
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Collaborated within a team to successfully design and
-                    develop 15+ web projects, ranging from small-scale
-                    applications to complex systems. Notably, contributed to two
-                    significant projects: Stock app and Fireblog app.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
-                    {/* Skill Tags*/}
-                    {CLARUSWAY.map((skill: SkillTag) => (
-                      <SkillTag key={skill.name} name={skill.name} />
-                    ))}
+              <ScrollReveal delay={300}>
+                <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                  <div>
+                    {/* Date of experience */}
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Mar 2023 - Sep 2024{" "}
+                    </p>
+                  </div>
+                  <div>
+                    {/* Role, company name and experience description */}
+                    <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                      Full-stack Developer Trainee, Clarusway (Remote){" "}
+                    </p>
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Collaborated within a team to successfully design and
+                      develop 15+ web projects, ranging from small-scale
+                      applications to complex systems. Notably, contributed to
+                      two significant projects: Stock app and Fireblog app.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
+                      {/* Skill Tags*/}
+                      {CLARUSWAY.map((skill: SkillTag) => (
+                        <SkillTag key={skill.name} name={skill.name} />
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
               {/* Rais Games Experience*/}
-              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
-                <div>
-                  {/* Date of experience */}
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Mar 2021 - Feb 2022
-                  </p>
-                </div>
-                <div>
-                  {/* Role, company name and experience description */}
-                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                    Junior Game Developer, Rais Games Ltd.(Remote){" "}
-                  </p>
-                  <p className="text-sm sm:text-base text-center sm:text-left">
-                    Designed and developed 10+ games with many prototypes for
-                    IOS and Android platforms. Collaborated with game designers
-                    and artists.{" "}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
-                    {/* Skill Tags*/}
-                    {RAIS_GAMES.map((skill: SkillTag) => (
-                      <SkillTag key={skill.name} name={skill.name} />
-                    ))}
+              <ScrollReveal delay={400}>
+                <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                  <div>
+                    {/* Date of experience */}
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Mar 2021 - Feb 2022
+                    </p>
+                  </div>
+                  <div>
+                    {/* Role, company name and experience description */}
+                    <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                      Junior Game Developer, Rais Games Ltd.(Remote){" "}
+                    </p>
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                      Designed and developed 10+ games with many prototypes for
+                      IOS and Android platforms. Collaborated with game
+                      designers and artists.{" "}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
+                      {/* Skill Tags*/}
+                      {RAIS_GAMES.map((skill: SkillTag) => (
+                        <SkillTag key={skill.name} name={skill.name} />
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
             {/* View Full Resume Button to open my resume on another tab.*/}
             <div className="flex items-center justify-center sm:justify-start gap-2 mt-8">
