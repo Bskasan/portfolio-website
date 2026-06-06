@@ -4,11 +4,11 @@ const HomeAboutMe = () => {
     <div className="flex flex-col items-center mx-auto justify-center gap-4 max-w-3xl w-full">
       <section>
         <Image
-          src="/images/bekir-kasan.png"
+          src="/images/developer-station.png"
           alt="Developer at workstation"
           width={200}
           height={200}
-          className="rounded-full mx-auto mb-4 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48"
+          className="rounded-full mx-auto mb-4 w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40"
         />
         <h1 className="text-3xl sm:text-4xlfont-bold text-center">
           Bekir Kasan
