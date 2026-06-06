@@ -1,8 +1,219 @@
+import SkillTag from "@/components/SkillTag";
+import SocialLinks from "@/components/SocialLinks";
+import { LuNewspaper } from "react-icons/lu";
+import {
+  CLARUSWAY,
+  ESPOO_GAME_LAB,
+  INTEGRIFY_OY,
+  NORTHFINA_SKILLS,
+  RAIS_GAMES,
+} from "@/constants/skills";
+import Image from "next/image";
+
+interface SkillTag {
+  name: string;
+}
+
 const AboutMePage = () => {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50">
-      <main className="flex flex-1 w-full max-w-6xl flex-col items-center justify-between py-32 px-16 bg-zinc-50 sm:items-start">
-        <p>This is the about me page.</p>
+    <div className="flex flex-1 items-center justify-center">
+      <main className="flex w-full max-w-400 items-center justify-between py-32 px-16 sm:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <section className="sticky top-8 self-start">
+            <Image
+              src="/images/profile-pic-bekir.jpg"
+              alt="Bekir Kasan Profile Picture"
+              width={200}
+              height={200}
+              style={{ objectFit: "cover" }}
+              className="rounded-full mx-auto mb-4 w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52"
+            />
+            <h1 className="text-3xl sm:text-4xlfont-bold text-center font-semibold">
+              Bekir Sadik Kasan
+            </h1>
+            <h2 className="text-xl sm:text-2xl font-semibold text-center">
+              Software Developer
+            </h2>
+            <p className="text-sm sm:text-base text-center sm:text-center mt-4">
+              Building reliable full-stack applications with performance,
+              accessibility, and scalability in mind.
+            </p>
+            <SocialLinks />
+          </section>
+          <section>
+            {/* Description About Me */}
+            <p className="text-sm sm:text-base text-center sm:text-left">
+              I'm <span className="font-bold">Full-Stack Developer</span> with
+              3+ years of production experience building cloud-native
+              applications, serverless APIs, and data-driven internal platforms
+              using TypeScript, React/Next.js, Node.js, and SQL. Hands-on
+              experience deploying and monitoring containerised workloads,
+              managing cloud infrastructure, and integrating with PostgreSQL and
+              NoSQL databases. Experienced in agile product teams,
+              cross-functional collaboration, and taking ownership from
+              implementation through deployment and observability. Fast learner
+              with a strong product mindset.
+            </p>
+            <div>
+              {/* Experience Header*/}
+              <h2 className="text-lg sm:text-xl text-center sm:text-left mt-8 mb-4">
+                <span className="font-bold uppercase">Experience</span>
+              </h2>
+              {/* NorthFina Oy Experience */}
+              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                <div>
+                  {/* Date of experience */}
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Sep 2024 - Feb 2026
+                  </p>
+                </div>
+                <div>
+                  {/* Role, company name and experience description */}
+                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                    Full-Stack Developer, NorthFina Oy
+                  </p>
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Designed and developed full-stack applications using Next.js
+                    and TypeScript, with serverless backends powered by Azure
+                    Functions. Built scalable internal tools and platforms for
+                    internal users to improve their efficiency across teams.
+                    Worked closely with cross-functional teams, including
+                    developers, designers, and product managers, to implement
+                    features with best practises.{" "}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
+                    {/* Skill Tags*/}
+                    {NORTHFINA_SKILLS.map((skill: SkillTag) => (
+                      <SkillTag key={skill.name} name={skill.name} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {/* Espoo Game Lab Experience */}
+              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                <div>
+                  {/* Date of experience */}
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Mar 2023 - Sep 2024{" "}
+                  </p>
+                </div>
+                <div>
+                  {/* Role, company name and experience description */}
+                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                    Software Developer(Game programming), Espoo Game LAB{" "}
+                  </p>
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    As an Espoo Game LAB program participant, my primary
+                    responsibility is game programming. I used Unity and C# to
+                    bring our projects to life.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
+                    {/* Skill Tags*/}
+                    {ESPOO_GAME_LAB.map((skill: SkillTag) => (
+                      <SkillTag key={skill.name} name={skill.name} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {/* Integrify Experience*/}
+              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                <div>
+                  {/* Date of experience */}
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Mar 2023 - Sep 2024{" "}
+                  </p>
+                </div>
+                <div>
+                  {/* Role, company name and experience description */}
+                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                    Full-stack Developer Trainee, Integrify Oy (Remote){" "}
+                  </p>
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Joined and was accepted into Integrify Oy's comprehensive
+                    full stack training program, where I'll be honing my skills
+                    in frontend, backend, DevOps, and Cloud technologies.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4 justify-center sm:justify-start">
+                    {/* Skill Tags*/}
+                    {INTEGRIFY_OY.map((skill: SkillTag) => (
+                      <SkillTag key={skill.name} name={skill.name} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {/* Clarusway Experience*/}
+              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                <div>
+                  {/* Date of experience */}
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Mar 2023 - Sep 2024{" "}
+                  </p>
+                </div>
+                <div>
+                  {/* Role, company name and experience description */}
+                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                    Full-stack Developer Trainee, Clarusway (Remote){" "}
+                  </p>
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Collaborated within a team to successfully design and
+                    develop 15+ web projects, ranging from small-scale
+                    applications to complex systems. Notably, contributed to two
+                    significant projects: Stock app and Fireblog app.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
+                    {/* Skill Tags*/}
+                    {CLARUSWAY.map((skill: SkillTag) => (
+                      <SkillTag key={skill.name} name={skill.name} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {/* Rais Games Experience*/}
+              <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">
+                <div>
+                  {/* Date of experience */}
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Mar 2021 - Feb 2022
+                  </p>
+                </div>
+                <div>
+                  {/* Role, company name and experience description */}
+                  <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
+                    Junior Game Developer, Rais Games Ltd.(Remote){" "}
+                  </p>
+                  <p className="text-sm sm:text-base text-center sm:text-left">
+                    Designed and developed 10+ games with many prototypes for
+                    IOS and Android platforms. Collaborated with game designers
+                    and artists.{" "}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
+                    {/* Skill Tags*/}
+                    {RAIS_GAMES.map((skill: SkillTag) => (
+                      <SkillTag key={skill.name} name={skill.name} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* View Full Resume Button to open my resume on another tab.*/}
+            <div className="flex items-center justify-center sm:justify-start gap-2 mt-8">
+              <LuNewspaper
+                className="inline-block mr-2 text-gray-600"
+                size={18}
+              />
+              <p className="text-sm sm:text-base text-center sm:text-left">
+                <a
+                  href="https://drive.google.com/file/d/16RNy5_vLgXSg3g34M6WkkJ641xdzhjby/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:underline font-bold"
+                >
+                  View Full Resume
+                </a>
+              </p>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   );
