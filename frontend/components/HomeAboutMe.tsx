@@ -14,12 +14,8 @@ const HomeAboutMe = () => {
         />
 
         <div className="flex flex-col items-center justify-center gap-1">
-          <h1 className="text-3xl sm:text-4xl font-bold text-center">
-            Bekir Kasan
-          </h1>
-          <h2 className="text-xl sm:text-2xl font-semibold text-center">
-            Software Developer
-          </h2>
+          <h1 className="text-3xl sm:text-4xl font-bold text-center">Bekir Kasan</h1>
+          <h2 className="text-xl sm:text-2xl font-semibold text-center">Software Developer</h2>
           <h3 className="text-base sm:text-lg text-center">
             Full Stack Developer & Game Developer
           </h3>
@@ -31,22 +27,19 @@ const HomeAboutMe = () => {
           <p className="text-sm sm:text-base text-center sm:text-left">
             Hi 👋 I'm <span className="font-bold">Bekir</span>, a{" "}
             <span className="font-bold">Software Engineer</span> based in
-            <span className="font-bold"> Espoo, Finland</span>. I'm a hobbyist
-            turned professional developer who enjoys all things computers and
-            software engineering. In my most recent role, I worked as a
-            Full-Stack Web Developer at Northfina Oy (Etufillari Oy), where I
-            focused on building scalable web applications using Next.js,
-            TypeScript, Node.js, and Azure Cloud Services.
+            <span className="font-bold"> Espoo, Finland</span>. I'm a hobbyist turned professional
+            developer who enjoys all things computers and software engineering. In my most recent
+            role, I worked as a Full-Stack Web Developer at Northfina Oy (Etufillari Oy), where I
+            focused on building scalable web applications using Next.js, TypeScript, Node.js, and
+            Azure Cloud Services.
           </p>
           <p className="text-sm sm:text-base text-center sm:text-left">
-            I also enjoy coding on stream, learning in public, and improving
-            together with others. Alongside web development, I’m interested in
-            game development as a hobbyist and enjoy exploring low-level
-            programming to better understand how software works under the hood.
+            I also enjoy coding on stream, learning in public, and improving together with others.
+            Alongside web development, I’m interested in game development as a hobbyist and enjoy
+            exploring low-level programming to better understand how software works under the hood.
           </p>
           <p className="text-sm sm:text-base text-center sm:text-left">
-            When I’m not coding, I’m probably playing drums, lifting weights, or
-            playing games.
+            When I’m not coding, I’m probably playing drums, lifting weights, or playing games.
           </p>
           <p className="text-sm sm:text-base text-center sm:text-left">
             Currently working on my own hobby project,
@@ -61,9 +54,8 @@ const HomeAboutMe = () => {
                 MindBase
               </a>
             </span>
-             which is a personal content management app that helps you save,
-            organize, and schedule the articles, videos, podcasts, and other
-            resources you want to consume later.
+             which is a personal content management app that helps you save, organize, and schedule
+            the articles, videos, podcasts, and other resources you want to consume later.
           </p>
         </div>
       </section>
