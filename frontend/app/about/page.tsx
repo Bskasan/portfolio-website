@@ -10,6 +10,15 @@ import {
 } from "@/constants/skills";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import {
+  CLARUSWAY_LINK,
+  ESPOO_GAME_LAB_LINK,
+  ETUFILLARI_LINK,
+  INTEGRIFY_LINK,
+  NORTHFINA_LINK,
+  RAIS_GAMES_LINK,
+  RESUME_LINK,
+} from "@/constants/links";
 
 interface SkillTag {
   name: string;
@@ -72,7 +81,25 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Full-Stack Developer, NorthFina Oy
+                      Full-Stack Developer,{" "}
+                      <a
+                        href={NORTHFINA_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        NorthFina Oy
+                      </a>{" "}
+                      (
+                      <a
+                        href={ETUFILLARI_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Etufillari Oy
+                      </a>
+                      )
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
                       Designed and developed full-stack applications using
@@ -104,7 +131,15 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Software Developer(Game programming), Espoo Game LAB{" "}
+                      Software Developer(Game programming),{" "}
+                      <a
+                        href={ESPOO_GAME_LAB_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Espoo Game LAB
+                      </a>{" "}
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
                       As an Espoo Game LAB program participant, my primary
@@ -132,7 +167,16 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Full-stack Developer Trainee, Integrify Oy (Remote){" "}
+                      Full-stack Developer Trainee,{" "}
+                      <a
+                        href={INTEGRIFY_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Integrify Oy
+                      </a>{" "}
+                      (Remote){" "}
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
                       Joined and was accepted into Integrify Oy's comprehensive
@@ -162,7 +206,16 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Full-stack Developer Trainee, Clarusway (Remote){" "}
+                      Full-stack Developer Trainee,{" "}
+                      <a
+                        href={CLARUSWAY_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Clarusway
+                      </a>{" "}
+                      (Remote){" "}
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
                       Collaborated within a team to successfully design and
@@ -191,7 +244,16 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Junior Game Developer, Rais Games Ltd.(Remote){" "}
+                      Junior Game Developer,{" "}
+                      <a
+                        href={RAIS_GAMES_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Rais Games Ltd.
+                      </a>{" "}
+                      (Remote){" "}
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
                       Designed and developed 10+ games with many prototypes for
@@ -216,7 +278,7 @@ const AboutMePage = () => {
               />
               <p className="text-sm sm:text-base text-center sm:text-left">
                 <a
-                  href="https://drive.google.com/file/d/16RNy5_vLgXSg3g34M6WkkJ641xdzhjby/view?usp=sharing"
+                  href={RESUME_LINK.source}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:underline font-bold"
