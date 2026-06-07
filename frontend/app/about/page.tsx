@@ -10,6 +10,15 @@ import {
 } from "@/constants/skills";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import {
+  CLARUSWAY_LINK,
+  ESPOO_GAME_LAB_LINK,
+  ETUFILLARI_LINK,
+  INTEGRIFY_LINK,
+  NORTHFINA_LINK,
+  RAIS_GAMES_LINK,
+  RESUME_LINK,
+} from "@/constants/links";
 
 interface SkillTag {
   name: string;
@@ -32,28 +41,24 @@ const AboutMePage = () => {
             <h1 className="text-3xl sm:text-4xlfont-bold text-center font-semibold">
               Bekir Sadik Kasan
             </h1>
-            <h2 className="text-xl sm:text-2xl font-semibold text-center">
-              Software Developer
-            </h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-center">Software Developer</h2>
             <p className="text-sm sm:text-base text-center sm:text-center mt-4">
-              Building reliable full-stack applications with performance,
-              accessibility, and scalability in mind.
+              Building reliable full-stack applications with performance, accessibility, and
+              scalability in mind.
             </p>
             <SocialLinks />
           </section>
           <section>
             {/* Description About Me */}
             <p className="text-sm sm:text-base text-center sm:text-left">
-              I'm <span className="font-bold">Full-Stack Developer</span> with
-              3+ years of production experience building cloud-native
-              applications, serverless APIs, and data-driven internal platforms
-              using TypeScript, React/Next.js, Node.js, and SQL. Hands-on
-              experience deploying and monitoring containerised workloads,
-              managing cloud infrastructure, and integrating with PostgreSQL and
-              NoSQL databases. Experienced in agile product teams,
-              cross-functional collaboration, and taking ownership from
-              implementation through deployment and observability. Fast learner
-              with a strong product mindset.
+              I'm <span className="font-bold">Full-Stack Developer</span> with 3+ years of
+              production experience building cloud-native applications, serverless APIs, and
+              data-driven internal platforms using TypeScript, React/Next.js, Node.js, and SQL.
+              Hands-on experience deploying and monitoring containerised workloads, managing cloud
+              infrastructure, and integrating with PostgreSQL and NoSQL databases. Experienced in
+              agile product teams, cross-functional collaboration, and taking ownership from
+              implementation through deployment and observability. Fast learner with a strong
+              product mindset.
             </p>
             <div>
               {/* Experience Header*/}
@@ -72,16 +77,33 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Full-Stack Developer, NorthFina Oy
+                      Full-Stack Developer,{" "}
+                      <a
+                        href={NORTHFINA_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        NorthFina Oy
+                      </a>{" "}
+                      (
+                      <a
+                        href={ETUFILLARI_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Etufillari Oy
+                      </a>
+                      )
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
-                      Designed and developed full-stack applications using
-                      Next.js and TypeScript, with serverless backends powered
-                      by Azure Functions. Built scalable internal tools and
-                      platforms for internal users to improve their efficiency
-                      across teams. Worked closely with cross-functional teams,
-                      including developers, designers, and product managers, to
-                      implement features with best practises.{" "}
+                      Designed and developed full-stack applications using Next.js and TypeScript,
+                      with serverless backends powered by Azure Functions. Built scalable internal
+                      tools and platforms for internal users to improve their efficiency across
+                      teams. Worked closely with cross-functional teams, including developers,
+                      designers, and product managers, to implement features with best
+                      practises.{" "}
                     </p>
                     <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
                       {/* Skill Tags*/}
@@ -104,12 +126,19 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Software Developer(Game programming), Espoo Game LAB{" "}
+                      Software Developer(Game programming),{" "}
+                      <a
+                        href={ESPOO_GAME_LAB_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Espoo Game LAB
+                      </a>{" "}
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
-                      As an Espoo Game LAB program participant, my primary
-                      responsibility is game programming. I used Unity and C# to
-                      bring our projects to life.
+                      As an Espoo Game LAB program participant, my primary responsibility is game
+                      programming. I used Unity and C# to bring our projects to life.
                     </p>
                     <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
                       {/* Skill Tags*/}
@@ -132,13 +161,21 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Full-stack Developer Trainee, Integrify Oy (Remote){" "}
+                      Full-stack Developer Trainee,{" "}
+                      <a
+                        href={INTEGRIFY_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Integrify Oy
+                      </a>{" "}
+                      (Remote){" "}
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
-                      Joined and was accepted into Integrify Oy's comprehensive
-                      full stack training program, where I'll be honing my
-                      skills in frontend, backend, DevOps, and Cloud
-                      technologies.
+                      Joined and was accepted into Integrify Oy's comprehensive full stack training
+                      program, where I'll be honing my skills in frontend, backend, DevOps, and
+                      Cloud technologies.
                     </p>
                     <div className="flex flex-wrap gap-2 mt-4 justify-center sm:justify-start">
                       {/* Skill Tags*/}
@@ -162,13 +199,21 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Full-stack Developer Trainee, Clarusway (Remote){" "}
+                      Full-stack Developer Trainee,{" "}
+                      <a
+                        href={CLARUSWAY_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Clarusway
+                      </a>{" "}
+                      (Remote){" "}
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
-                      Collaborated within a team to successfully design and
-                      develop 15+ web projects, ranging from small-scale
-                      applications to complex systems. Notably, contributed to
-                      two significant projects: Stock app and Fireblog app.
+                      Collaborated within a team to successfully design and develop 15+ web
+                      projects, ranging from small-scale applications to complex systems. Notably,
+                      contributed to two significant projects: Stock app and Fireblog app.
                     </p>
                     <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
                       {/* Skill Tags*/}
@@ -191,12 +236,20 @@ const AboutMePage = () => {
                   <div>
                     {/* Role, company name and experience description */}
                     <p className="text-base sm:text-lg text-center sm:text-left font-semibold mb-2 -pb-2">
-                      Junior Game Developer, Rais Games Ltd.(Remote){" "}
+                      Junior Game Developer,{" "}
+                      <a
+                        href={RAIS_GAMES_LINK.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-gray-700 hover:underline"
+                      >
+                        Rais Games Ltd.
+                      </a>{" "}
+                      (Remote){" "}
                     </p>
                     <p className="text-sm sm:text-base text-center sm:text-left">
-                      Designed and developed 10+ games with many prototypes for
-                      IOS and Android platforms. Collaborated with game
-                      designers and artists.{" "}
+                      Designed and developed 10+ games with many prototypes for IOS and Android
+                      platforms. Collaborated with game designers and artists.{" "}
                     </p>
                     <div className="flex flex-wrap gap-2 mt-2 justify-center sm:justify-start">
                       {/* Skill Tags*/}
@@ -210,13 +263,10 @@ const AboutMePage = () => {
             </div>
             {/* View Full Resume Button to open my resume on another tab.*/}
             <div className="flex items-center justify-center sm:justify-start gap-2 mt-8">
-              <LuNewspaper
-                className="inline-block mr-2 text-gray-600"
-                size={18}
-              />
+              <LuNewspaper className="inline-block mr-2 text-gray-600" size={18} />
               <p className="text-sm sm:text-base text-center sm:text-left">
                 <a
-                  href="https://drive.google.com/file/d/16RNy5_vLgXSg3g34M6WkkJ641xdzhjby/view?usp=sharing"
+                  href={RESUME_LINK.source}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:underline font-bold"

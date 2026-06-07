@@ -7,10 +7,7 @@ interface ScrollRevealProps {
   delay?: number; // stagger support in ms e.g. 100, 200
 }
 
-export default function ScrollReveal({
-  children,
-  delay = 0,
-}: ScrollRevealProps) {
+export default function ScrollReveal({ children, delay = 0 }: ScrollRevealProps) {
   const { ref, isVisible } = useScrollReveal();
 
   return (

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "Running lint-staged (lint + format)..."
+npx lint-staged
+
+echo "Checking Next.js build..."
+npx next build
