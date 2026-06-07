@@ -2,6 +2,6 @@ echo "🔍 Running lint-staged (lint + format)..."
 npx lint-staged
 
 echo "🏗️ Checking Next.js build..."
-npm run build
+npx next build
 
 
