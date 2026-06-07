@@ -25,7 +25,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-mono">
         <NavBar />
         <main>{children}</main>
-        <SocialLinks />
       </body>
     </html>
   );
