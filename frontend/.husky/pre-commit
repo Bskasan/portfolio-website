@@ -1,7 +1,8 @@
-echo "🔍 Running lint-staged (lint + format)..."
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running lint-staged (lint + format)..."
 npx lint-staged
 
-echo "🏗️ Checking Next.js build..."
+echo "Checking Next.js build..."
 npx next build
-
-
