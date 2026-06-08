@@ -1,6 +1,6 @@
 // TODO: Fetch real blog posts from your CMS or API (e.g. Sanity, Contentful, or a custom endpoint)
 
-import { BlogPostMetaData } from "@/lib/types/posts";
+import { BlogPostContent, BlogPostMetaData } from "@/lib/types/posts";
 
 // Example: const posts = await fetchAllPosts()
 export const MOCK_POSTS: BlogPostMetaData[] = [
@@ -21,7 +21,7 @@ export const MOCK_POSTS: BlogPostMetaData[] = [
 
 // TODO: Fetch real blog content from your CMS or API (e.g. Sanity, Contentful, or a custom endpoint)
 // Example: const post = await fetchPostBySlug(params.slug)
-export const MOCK_BLOG_POST_CONTENT = {
+export const MOCK_BLOG_POST_CONTENT: BlogPostContent = {
   title: "Understanding React Server Components: A Deep Dive",
   date: "June 5, 2026",
   readTime: "8 min read",
