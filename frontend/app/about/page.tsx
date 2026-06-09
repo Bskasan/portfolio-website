@@ -29,7 +29,7 @@ const AboutMePage = () => {
     <div className="flex flex-1 items-center justify-center">
       <main className="flex w-full max-w-400 items-center justify-between py-32 px-16 sm:items-start">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <section className="sticky top-8 self-start">
+          <section className="lg:sticky top-8 self-start">
             <Image
               src="/images/profile-pic-bekir.jpg"
               alt="Bekir Kasan Profile Picture"
