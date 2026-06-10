@@ -5,4 +5,5 @@ export type SourceLink = {
 export type NavLink = {
   href: string;
   label: string;
+  isVisible: boolean;
 };

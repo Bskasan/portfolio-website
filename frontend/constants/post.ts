@@ -17,6 +17,19 @@ export const MOCK_POSTS: BlogPostMetaData[] = [
     excerpt:
       "React Server Components have fundamentally changed how we think about rendering in React applications. We break down what they are, how they work under the hood, and when you should — and shouldn't — reach for them.",
   },
+  {
+    slug: "understanding-react-components",
+    title: "Understanding React Server Components: A Deep Dive",
+    date: "June 5, 2026",
+    readTime: "8 min read",
+    author: {
+      name: "Bekir Kasan",
+      role: "Fullstack Developer",
+    },
+    tags: ["React", "Next.js", "Performance"],
+    excerpt:
+      "React Server Components have fundamentally changed how we think about rendering in React applications. We break down what they are, how they work under the hood, and when you should — and shouldn't — reach for them.",
+  },
 ];
 
 // TODO: Fetch real blog content from your CMS or API (e.g. Sanity, Contentful, or a custom endpoint)
