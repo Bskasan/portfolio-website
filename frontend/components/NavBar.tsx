@@ -3,7 +3,7 @@ import NavLink from "./NavLink";
 
 const NavBar = () => {
   return (
-    <header className="w-full bg-white backdrop-blur-sm">
+    <header className="w-full bg-white backdrop-blur-sm" style={{ viewTransitionName: "navbar" }}>
       <nav
         className="mx-auto flex h-28 max-w-4xl items-center justify-between px-4"
         aria-label="Main navigation"
