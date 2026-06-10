@@ -8,7 +8,7 @@ export const MOCK_PROJECTS: ProjectMetaData[] = [
     name: "MindBase",
     description:
       "Personal content management app that helps you save, organize, and schedule the articles, podcasts, and other resources you want to consume later. Built for the kind of people who bookmark everything and read nothing — until now.",
-    thumbnail: "/images/mindbase-logo.png", // TODO: Replace with a real screenshot
+    thumbnail: "/images/mind-base-thumbnail.png", // TODO: Replace with a real screenshot
     liveUrl: "https://mindbase-ten.vercel.app/",
     githubUrl: null, // TODO: Add GitHub repo URL when ready
     techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],

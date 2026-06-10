@@ -9,8 +9,6 @@ _Tech Stack:_
 
 ##### TODO
 
-- Create mindbase logo and your logo
-- Complete your github sponsor account
 - Basic Contact with me page / Sponsor me page for github sponsor
 - Write test for your projects and blogs pages
 - Before deploy, make sure you have a blog post, or just write working on it... wait for it...
@@ -30,3 +28,5 @@ Done:
 - [x] Create projects page. Add this website as a project add your stack for this project.
 - [x] Don't let scroll your photo on mobile
 - [x] Change bg color of blogs list page.
+- [x] Create mindbase logo and your logo
+- [x] Complete your github sponsor account

@@ -1,4 +1,5 @@
 import DivisionLine from "@/components/DivisionLine";
+import SocialLinks from "@/components/SocialLinks";
 import { MOCK_POSTS } from "@/constants/post";
 import Link from "next/link";
 
@@ -16,6 +17,8 @@ const BlogsPage = () => {
             Thoughts on frontend engineering, React, and building great user experiences.
           </p>
         </div>
+
+        <SocialLinks />
 
         <div className="w-full mt-8 mb-2">
           <DivisionLine />

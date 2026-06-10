@@ -3,6 +3,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import { MOCK_PROJECTS } from "@/constants/mock-projects";
 import Image from "next/image";
+import SocialLinks from "@/components/SocialLinks";
 
 const ThumbnailPlaceholder = ({ name }: { name: string }) => (
   <div className="w-full h-full flex items-center justify-center bg-zinc-100 border border-zinc-200 rounded-xl">
@@ -26,6 +27,8 @@ const ProjectsPage = () => {
             Things I've built — side projects, tools, and experiments.
           </p>
         </div>
+
+        <SocialLinks />
 
         <div className="w-full mt-8 mb-2">
           <DivisionLine />
