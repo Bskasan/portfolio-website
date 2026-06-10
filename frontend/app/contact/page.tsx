@@ -1,4 +1,3 @@
-import ContactForm from "@/components/ContactForm";
 import PersonalMetaData from "@/components/PersonalMetaData";
 
 const ContactPage = () => {
@@ -29,7 +28,6 @@ const ContactPage = () => {
               </a>
             </div>
           </section>
-          <ContactForm />
         </main>
       </div>
     </>
