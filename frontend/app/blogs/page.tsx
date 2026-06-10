@@ -11,9 +11,6 @@ const BlogsPage = () => {
       <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-8">
         {/* Page Header */}
         <div className="w-full mb-2">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 mb-3">
-            Writing
-          </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">Blog</h1>
           <p className="mt-3 text-base text-gray-500 max-w-lg">
             Thoughts on frontend engineering, React, and building great user experiences.

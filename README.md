@@ -9,7 +9,6 @@ _Tech Stack:_
 
 ##### TODO
 
-- Change bg color of blogs list page.
 - Create mindbase logo and your logo
 - Complete your github sponsor account
 - Basic Contact with me page / Sponsor me page for github sponsor
@@ -30,3 +29,4 @@ Done:
 - [x] Add mindbase as project ( in progress )- Add animation for switching between pages.
 - [x] Create projects page. Add this website as a project add your stack for this project.
 - [x] Don't let scroll your photo on mobile
+- [x] Change bg color of blogs list page.

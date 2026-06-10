@@ -17,13 +17,10 @@ const ProjectsPage = () => {
   const projects = MOCK_PROJECTS;
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50">
-      <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-8 bg-zinc-50">
+    <div className="flex flex-col flex-1 items-center justify-center">
+      <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-8">
         {/* Page Header */}
         <div className="w-full mb-2">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 mb-3">
-            Work
-          </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">Projects</h1>
           <p className="mt-3 text-base text-gray-500 max-w-lg">
             Things I've built — side projects, tools, and experiments.
