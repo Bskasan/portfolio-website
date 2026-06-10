@@ -9,15 +9,15 @@ _Tech Stack:_
 
 ##### TODO
 
-- Basic Contact with me page / Sponsor me page for github sponsor
+- Figure out blog part
+- Purchase domain for your website
 - Write test for your projects and blogs pages
 - Fix all hydration errors
 - Before deploy, make sure you have a blog post, or just write working on it... wait for it...
 - Write tests for important pages or components
+- You can play with the projects grid layout ( make it grid ), it should open custom modal including details of thep project, then user can open the project.
 - Deploy your portfolio
 - Husky setup have some bugs, so work on them at the end
-- Add Games section for the future
-  - Create games page, but don't make it visible
 
 Done:
 
@@ -32,3 +32,7 @@ Done:
 - [x] Change bg color of blogs list page.
 - [x] Create mindbase logo and your logo
 - [x] Complete your github sponsor account
+- [x] Basic Contact with me page / Sponsor me page for github sponsor
+- [x] Animation for page transition
+- [x] Created games and contact me page, next time create game page with your games and just turn is active prop to true
+- [x] Fixed small required changes on the website
