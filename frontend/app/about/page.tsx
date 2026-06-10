@@ -30,7 +30,7 @@ const AboutMePage = () => {
     <div className="flex flex-1 items-center justify-center">
       <main className="flex w-full max-w-400 items-center justify-between py-32 px-16 sm:items-start">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <PersonalMetaData />
+          <PersonalMetaData isSticky={true} />
           <section>
             {/* Description About Me */}
             <p className="text-sm sm:text-base text-center sm:text-left">

@@ -1,9 +1,13 @@
 import Image from "next/image";
 import SocialLinks from "@/components/SocialLinks";
 
-const PersonalMetaData = () => {
+interface PersonalMetaDataProps {
+  isSticky?: boolean;
+}
+
+const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
   return (
-    <section className="lg:sticky top-8 self-start">
+    <section className={isSticky ? "lg:sticky top-8 self-start" : "self-start"}>
       <Image
         src="/images/profile-pic-bekir.jpg"
         alt="Bekir Kasan Profile Picture"
