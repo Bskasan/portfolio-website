@@ -18,7 +18,7 @@ export const MOCK_POSTS: BlogPostMetaData[] = [
       "React Server Components have fundamentally changed how we think about rendering in React applications. We break down what they are, how they work under the hood, and when you should — and shouldn't — reach for them.",
   },
   {
-    slug: "understanding-react-server-components",
+    slug: "understanding-react-components",
     title: "Understanding React Server Components: A Deep Dive",
     date: "June 5, 2026",
     readTime: "8 min read",

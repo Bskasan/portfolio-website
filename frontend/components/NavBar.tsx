@@ -9,7 +9,7 @@ const NavBar = () => {
         aria-label="Main navigation"
       >
         <div className="flex items-center mx-auto space-x-4">
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.filter((link) => link.isVisible).map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
         </div>

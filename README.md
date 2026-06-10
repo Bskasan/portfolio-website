@@ -11,11 +11,13 @@ _Tech Stack:_
 
 - Basic Contact with me page / Sponsor me page for github sponsor
 - Write test for your projects and blogs pages
+- Fix all hydration errors
 - Before deploy, make sure you have a blog post, or just write working on it... wait for it...
 - Write tests for important pages or components
 - Deploy your portfolio
 - Husky setup have some bugs, so work on them at the end
 - Add Games section for the future
+  - Create games page, but don't make it visible
 
 Done:
 

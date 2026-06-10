@@ -19,6 +19,7 @@ import {
   RAIS_GAMES_LINK,
   RESUME_LINK,
 } from "@/constants/links";
+import PersonalMetaData from "@/components/PersonalMetaData";
 
 interface SkillTag {
   name: string;
@@ -29,25 +30,7 @@ const AboutMePage = () => {
     <div className="flex flex-1 items-center justify-center">
       <main className="flex w-full max-w-400 items-center justify-between py-32 px-16 sm:items-start">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <section className="lg:sticky top-8 self-start">
-            <Image
-              src="/images/profile-pic-bekir.jpg"
-              alt="Bekir Kasan Profile Picture"
-              width={200}
-              height={200}
-              style={{ objectFit: "cover" }}
-              className="rounded-full mx-auto mb-4 w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52"
-            />
-            <h1 className="text-3xl sm:text-4xlfont-bold text-center font-semibold">
-              Bekir Sadik Kasan
-            </h1>
-            <h2 className="text-xl sm:text-2xl font-semibold text-center">Software Developer</h2>
-            <p className="text-sm sm:text-base text-center sm:text-center mt-4">
-              Building reliable full-stack applications with performance, accessibility, and
-              scalability in mind.
-            </p>
-            <SocialLinks />
-          </section>
+          <PersonalMetaData />
           <section>
             {/* Description About Me */}
             <p className="text-sm sm:text-base text-center sm:text-left">
