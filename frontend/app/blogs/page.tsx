@@ -1,12 +1,13 @@
 import DivisionLine from "@/components/DivisionLine";
+import AnimatedNavLink from "@/components/NavLink";
 import PageWrapper from "@/components/PageWrapper";
 import SocialLinks from "@/components/SocialLinks";
-import { MOCK_POSTS } from "@/constants/post";
+import { getAllPosts } from "@/lib/blogs";
 import Link from "next/link";
 
 const BlogsPage = () => {
   // TODO: Replace MOCK_POSTS with real posts fetched from your API or CMS
-  const posts = MOCK_POSTS;
+  const posts = getAllPosts();
 
   return (
     <PageWrapper>
@@ -31,9 +32,9 @@ const BlogsPage = () => {
           <ul className="w-full flex flex-col">
             {posts.map((post, index) => (
               <li key={post.slug}>
-                <Link
+                <AnimatedNavLink
                   href={`/blogs/${post.slug}`}
-                  className="group flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-10 py-8 w-full transition-colors"
+                  classNameAttr="group flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-10 py-8 w-full transition-colors"
                 >
                   {/* Date Column */}
                   <div className="shrink-0 w-32 text-sm text-gray-400 pt-1">{post.date}</div>
@@ -72,7 +73,7 @@ const BlogsPage = () => {
                       </span>
                     </div>
                   </div>
-                </Link>
+                </AnimatedNavLink>
 
                 <DivisionLine />
               </li>

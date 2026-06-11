@@ -1,5 +1,5 @@
 import { NAV_LINKS } from "@/constants/navbar";
-import NavLink from "./NavLink";
+import AnimatedNavLink from "./NavLink";
 
 const NavBar = () => {
   return (
@@ -10,7 +10,9 @@ const NavBar = () => {
       >
         <div className="flex items-center mx-auto space-x-4">
           {NAV_LINKS.filter((link) => link.isVisible).map((link) => (
-            <NavLink key={link.href} href={link.href} label={link.label} />
+            <AnimatedNavLink key={link.href} href={link.href}>
+              {link.label}
+            </AnimatedNavLink>
           ))}
         </div>
       </nav>
