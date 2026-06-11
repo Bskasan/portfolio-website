@@ -10,6 +10,8 @@ _Tech Stack:_
 ##### TODO
 
 - Figure out blog part
+  - We'll most probably mdx with next.js for our blogs
+  - For newsletter, we'll find a better way in the future.
 - Purchase domain for your website
 - Write test for your projects and blogs pages
 - Fix all hydration errors
