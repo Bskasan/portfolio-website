@@ -14,15 +14,10 @@ _Tech Stack:_
 - Research about mindbase before deployment, improve different approaches
   - Scheduling is not good solution for the problem.
   - Talk with AI, find a new name and maybe new requirements.
-- Figure out blog part
-  - We'll most probably mdx with next.js for our blogs
-  - For newsletter, we'll find a better way in the future.
+- Setup github actions that will check build errors, linter errors and etc. on eact stage.
 - Purchase domain for your website
 - Write test for your projects and blogs pages
-- Fix all hydration errors
 - Before deploy, make sure you have a blog post, or just write working on it... wait for it...
-- Write tests for important pages or components
-- You can play with the projects grid layout ( make it grid ), it should open custom modal including details of thep project, then user can open the project.
 - Deploy your portfolio
 - Husky setup have some bugs, so work on them at the end
 
@@ -43,3 +38,4 @@ Done:
 - [x] Animation for page transition
 - [x] Created games and contact me page, next time create game page with your games and just turn is active prop to true
 - [x] Fixed small required changes on the website
+- [x] Fix all hydration errors
