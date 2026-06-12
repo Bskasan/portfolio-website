@@ -9,6 +9,11 @@ _Tech Stack:_
 
 ##### TODO
 
+- [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/)
+  - Similar grid structure...
+- Research about mindbase before deployment, improve different approaches
+  - Scheduling is not good solution for the problem.
+  - Talk with AI, find a new name and maybe new requirements.
 - Figure out blog part
   - We'll most probably mdx with next.js for our blogs
   - For newsletter, we'll find a better way in the future.
