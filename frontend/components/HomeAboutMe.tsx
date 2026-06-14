@@ -46,7 +46,7 @@ const HomeAboutMe = () => {
             <span>
               {" "}
               <a
-                href="https://github.com/bekirkas/mindbase"
+                href="https://mindbase-ten.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-bold text-gray-700 hover:underline"
