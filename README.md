@@ -11,6 +11,8 @@ _Tech Stack:_
 
 - [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/)
   - Similar grid structure...
+- [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/)
+  - Similar grid structure...
 - Research about mindbase before deployment, improve different approaches
   - Scheduling is not good solution for the problem.
   - Talk with AI, find a new name and maybe new requirements.
