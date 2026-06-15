@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SocialLinks from "@/components/SocialLinks";
+import SocialLinks from "@/components/elements/SocialLinks";
 
 interface PersonalMetaDataProps {
   isSticky?: boolean;

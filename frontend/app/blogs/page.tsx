@@ -1,7 +1,7 @@
-import DivisionLine from "@/components/DivisionLine";
-import AnimatedNavLink from "@/components/NavLink";
-import PageWrapper from "@/components/PageWrapper";
-import SocialLinks from "@/components/SocialLinks";
+import DivisionLine from "@/components/elements/DivisionLine";
+import AnimatedNavLink from "@/components/navbar/NavLink";
+import PageWrapper from "@/components/animated/PageWrapper";
+import SocialLinks from "@/components/elements/SocialLinks";
 import { getAllPosts } from "@/lib/blogs";
 import Link from "next/link";
 

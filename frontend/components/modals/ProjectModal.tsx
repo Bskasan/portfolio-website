@@ -5,18 +5,13 @@ import "./ProjectModal.css";
 import { ProjectMetaData } from "@/lib/types/project";
 import { CloseIcon } from "../icons/CloseIcon";
 import { ExternalLinkIcon } from "../icons/ExternalLinkIcon";
+import { STATUS_STYLES } from "@/constants/styles";
 
 interface ProjectModalProps {
   project: ProjectMetaData | null;
   open: boolean;
   onClose: () => void;
 }
-
-const STATUS_STYLES: Record<string, string> = {
-  completed: "bg-emerald-100 text-emerald-700",
-  "in progress": "bg-amber-100 text-amber-700",
-  archived: "bg-slate-100 text-slate-600",
-};
 
 export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -29,7 +24,7 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
       dialog.showModal();
       document.body.style.overflow = "hidden"; // lock background scroll
     } else if (!open && dialog.open) {
-      dialog.close(); // triggers the native `close` event handled below
+      dialog.close();
     }
   }, [open]);
 

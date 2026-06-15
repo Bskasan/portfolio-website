@@ -1,17 +1,4 @@
-/*
-  ProjectModal.css
-  --------------------------------------------------------------------------
-  We keep the ANIMATION + ::backdrop styling in plain CSS instead of Tailwind
-  for two reasons:
-    1. @starting-style and transition-behavior: allow-discrete have no stable
-       Tailwind utility across versions — writing them by hand is clearer.
-    2. ::backdrop styling is more robust here than relying on the `backdrop:`
-       variant being enabled in your Tailwind build.
-  Everything else (colors, spacing, layout) stays in Tailwind on the component.
-*/
-
 .project-modal {
-  /* "Resting" (open) state */
   opacity: 1;
   transform: scale(1);
 

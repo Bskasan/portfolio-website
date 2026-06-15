@@ -1,5 +1,5 @@
-import SkillTag from "@/components/SkillTag";
-import SocialLinks from "@/components/SocialLinks";
+import SkillTag from "@/components/elements/SkillTag";
+import SocialLinks from "@/components/elements/SocialLinks";
 import { LuNewspaper } from "react-icons/lu";
 import {
   CLARUSWAY,
@@ -9,7 +9,7 @@ import {
   RAIS_GAMES,
 } from "@/constants/skills";
 import Image from "next/image";
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal from "@/components/elements/ScrollReveal";
 import {
   CLARUSWAY_LINK,
   ESPOO_GAME_LAB_LINK,
@@ -19,8 +19,8 @@ import {
   RAIS_GAMES_LINK,
   RESUME_LINK,
 } from "@/constants/links";
-import PersonalMetaData from "@/components/PersonalMetaData";
-import PageWrapper from "@/components/PageWrapper";
+import PersonalMetaData from "@/components/pages/PersonalMetaData";
+import PageWrapper from "@/components/animated/PageWrapper";
 
 interface SkillTag {
   name: string;

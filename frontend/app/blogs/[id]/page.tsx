@@ -1,5 +1,5 @@
-import DivisionLine from "@/components/DivisionLine";
-import PageWrapper from "@/components/PageWrapper";
+import DivisionLine from "@/components/elements/DivisionLine";
+import PageWrapper from "@/components/animated/PageWrapper";
 import { getAllSlugs, getPostFrontmatter } from "@/lib/blogs";
 
 // Pre-render every post at build time as static HTML

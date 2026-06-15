@@ -1,10 +1,10 @@
 "use client";
 
-import DivisionLine from "@/components/DivisionLine";
+import DivisionLine from "@/components/elements/DivisionLine";
 import { MOCK_PROJECTS } from "@/constants/mock-projects";
 import Image from "next/image";
-import SocialLinks from "@/components/SocialLinks";
-import PageWrapper from "@/components/PageWrapper";
+import SocialLinks from "@/components/elements/SocialLinks";
+import PageWrapper from "@/components/animated/PageWrapper";
 import { ProjectMetaData } from "@/lib/types/project";
 import { useState } from "react";
 import { ProjectModal } from "@/components/modals/ProjectModal";
