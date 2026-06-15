@@ -9,7 +9,9 @@ _Tech Stack:_
 
 ##### TODO
 
-- [ ] Vercel deployment and Github Actions for Vercel ( Checking build errors )
+- [ ] Vercel deployment and Github Actions for Vercel ( Checking build errors, linter, etc. )
+  - [ ] .yaml file
+  - [ ] Basic husky implementation
 - [ ] Buy your domain for portfolio website
 - [ ] Connect your domain to your website on vercel
 - [ ] Make sure your application responsive and looking good as production
@@ -24,9 +26,7 @@ _Tech Stack:_
 - Research about mindbase before deployment, improve different approaches
   - Scheduling is not good solution for the problem.
   - Talk with AI, find a new name and maybe new requirements.
-- Setup github actions that will check build errors, linter errors and etc. on eact stage.
-- Before deploy, make sure you have a blog post, or just write working on it... wait for it...
-- Deploy your portfolio
+
 - Husky setup have some bugs, so work on them at the end
 
 Done:
