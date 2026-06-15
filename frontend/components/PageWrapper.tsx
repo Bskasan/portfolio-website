@@ -1,6 +1,5 @@
 "use client";
 
-import { HTMLAttributes } from "react";
 import { HTMLMotionProps, motion } from "framer-motion";
 
 const PageWrapper = (props: HTMLMotionProps<"div">) => {

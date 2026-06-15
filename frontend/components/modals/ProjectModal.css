@@ -1,0 +1,74 @@
+/*
+  ProjectModal.css
+  --------------------------------------------------------------------------
+  We keep the ANIMATION + ::backdrop styling in plain CSS instead of Tailwind
+  for two reasons:
+    1. @starting-style and transition-behavior: allow-discrete have no stable
+       Tailwind utility across versions — writing them by hand is clearer.
+    2. ::backdrop styling is more robust here than relying on the `backdrop:`
+       variant being enabled in your Tailwind build.
+  Everything else (colors, spacing, layout) stays in Tailwind on the component.
+*/
+
+.project-modal {
+  /* "Resting" (open) state */
+  opacity: 1;
+  transform: scale(1);
+
+  /*
+    `allow-discrete` lets the discrete `display` and `overlay` properties take
+    part in the transition. Without it, the browser flips display:none instantly
+    and you'd never see the exit animation.
+  */
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease,
+    overlay 200ms ease allow-discrete,
+    display 200ms ease allow-discrete;
+}
+
+/*
+  @starting-style defines the values the element animates FROM the very first
+  time it becomes visible. This is what makes the *entry* animation work.
+*/
+@starting-style {
+  .project-modal[open] {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* The closed state is also the target the exit animation moves toward. */
+.project-modal:not([open]) {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+/* The dimmed/blurred layer behind the modal. */
+.project-modal::backdrop {
+  background: rgba(2, 6, 23, 0.6); /* slate-950 @ 60% */
+  backdrop-filter: blur(2px);
+  opacity: 1;
+  transition:
+    opacity 200ms ease,
+    overlay 200ms ease allow-discrete,
+    display 200ms ease allow-discrete;
+}
+
+@starting-style {
+  .project-modal[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.project-modal:not([open])::backdrop {
+  opacity: 0;
+}
+
+/* Accessibility floor: never animate for users who asked not to. */
+@media (prefers-reduced-motion: reduce) {
+  .project-modal,
+  .project-modal::backdrop {
+    transition: none;
+  }
+}

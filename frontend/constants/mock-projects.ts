@@ -13,7 +13,7 @@ export const MOCK_PROJECTS: ProjectMetaData[] = [
     githubUrl: null, // TODO: Add GitHub repo URL when ready
     techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
     year: "2026",
-    status: "Live",
+    status: "In Progress",
   },
   {
     id: "portfolio",
@@ -25,6 +25,6 @@ export const MOCK_PROJECTS: ProjectMetaData[] = [
     githubUrl: null, // TODO: Add GitHub repo URL when ready
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     year: "2026",
-    status: "Live",
+    status: "In Progress",
   },
 ];
