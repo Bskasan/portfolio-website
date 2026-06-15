@@ -1,5 +1,5 @@
-import HomeAboutMe from "@/components/HomeAboutMe";
-import PageWrapper from "@/components/PageWrapper";
+import PageWrapper from "@/components/animated/PageWrapper";
+import HomeAboutMe from "@/components/pages/HomeAboutMe";
 
 const HomePage = () => {
   return (

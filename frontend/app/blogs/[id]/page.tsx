@@ -1,6 +1,7 @@
-import DivisionLine from "@/components/DivisionLine";
-import PageWrapper from "@/components/PageWrapper";
+import DivisionLine from "@/components/elements/DivisionLine";
+import PageWrapper from "@/components/animated/PageWrapper";
 import { getAllSlugs, getPostFrontmatter } from "@/lib/blogs";
+import Tag from "@/components/elements/Tag";
 
 // Pre-render every post at build time as static HTML
 export function generateStaticParams() {
@@ -30,12 +31,7 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
           <header className="w-full mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
               {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs font-medium tracking-widest uppercase text-gray-500 border border-gray-300 rounded-full px-3 py-1"
-                >
-                  {tag}
-                </span>
+                <Tag key={tag} name={tag} />
               ))}
             </div>
 

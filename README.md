@@ -9,18 +9,25 @@ _Tech Stack:_
 
 ##### TODO
 
-- [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/)
-  - Similar grid structure...
-- [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/)
-  - Similar grid structure...
+- [ ] Vercel deployment and Github Actions for Vercel ( Checking build errors, linter, etc. )
+  - [ ] .yaml file
+  - [ ] Basic husky implementation
+- [ ] Buy your domain for portfolio website
+- [ ] Connect your domain to your website on vercel
+- [ ] Make sure your application responsive and looking good as production
+- [ ] Write your first blog post about creating your porfolio and how you should have one nowadays why I've created it.
+- [ ] Implement Google Analytics
+- [ ] Check performance metrics ( Especially for your blogs page, etc. places where you use static rendering)
+- [ ] Publish your portfolio website on Linkedin and Github ( Maybe as post on twitter and linkedin)
+- [ ] Implement testing feature for your components
+  - Check docs for more info...
+
+---
+
 - Research about mindbase before deployment, improve different approaches
   - Scheduling is not good solution for the problem.
   - Talk with AI, find a new name and maybe new requirements.
-- Setup github actions that will check build errors, linter errors and etc. on eact stage.
-- Purchase domain for your website
-- Write test for your projects and blogs pages
-- Before deploy, make sure you have a blog post, or just write working on it... wait for it...
-- Deploy your portfolio
+
 - Husky setup have some bugs, so work on them at the end
 
 Done:
@@ -41,3 +48,4 @@ Done:
 - [x] Created games and contact me page, next time create game page with your games and just turn is active prop to true
 - [x] Fixed small required changes on the website
 - [x] Fix all hydration errors
+- [x] [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/) & Implement similar structure.
