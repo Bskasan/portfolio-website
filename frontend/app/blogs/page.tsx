@@ -4,6 +4,7 @@ import PageWrapper from "@/components/animated/PageWrapper";
 import SocialLinks from "@/components/elements/SocialLinks";
 import { getAllPosts } from "@/lib/blogs";
 import Link from "next/link";
+import Tag from "@/components/elements/Tag";
 
 const BlogsPage = () => {
   // TODO: Replace MOCK_POSTS with real posts fetched from your API or CMS
@@ -44,12 +45,7 @@ const BlogsPage = () => {
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">
                       {post.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs font-medium tracking-widest uppercase text-gray-400"
-                        >
-                          {tag}
-                        </span>
+                        <Tag key={tag} name={tag} />
                       ))}
                     </div>
 
