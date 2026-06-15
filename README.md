@@ -13,9 +13,11 @@ _Tech Stack:_
 - [ ] Buy your domain for portfolio website
 - [ ] Connect your domain to your website on vercel
 - [ ] Make sure your application responsive and looking good as production
+- [ ] Write your first blog post about creating your porfolio and how you should have one nowadays why I've created it.
 - [ ] Implement Google Analytics
 - [ ] Publish your portfolio website on Linkedin and Github ( Maybe as post on twitter and linkedin)
 - [ ] Implement testing feature for your components
+  - Check docs for more info...
 
 ---
 
@@ -23,8 +25,6 @@ _Tech Stack:_
   - Scheduling is not good solution for the problem.
   - Talk with AI, find a new name and maybe new requirements.
 - Setup github actions that will check build errors, linter errors and etc. on eact stage.
-- Purchase domain for your website
-- Write test for your projects and blogs pages
 - Before deploy, make sure you have a blog post, or just write working on it... wait for it...
 - Deploy your portfolio
 - Husky setup have some bugs, so work on them at the end
