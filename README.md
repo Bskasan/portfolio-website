@@ -9,10 +9,16 @@ _Tech Stack:_
 
 ##### TODO
 
-- [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/)
-  - Similar grid structure...
-- [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/)
-  - Similar grid structure...
+- [ ] Vercel deployment and Github Actions for Vercel ( Checking build errors )
+- [ ] Buy your domain for portfolio website
+- [ ] Connect your domain to your website on vercel
+- [ ] Make sure your application responsive and looking good as production
+- [ ] Implement Google Analytics
+- [ ] Publish your portfolio website on Linkedin and Github ( Maybe as post on twitter and linkedin)
+- [ ] Implement testing feature for your components
+
+---
+
 - Research about mindbase before deployment, improve different approaches
   - Scheduling is not good solution for the problem.
   - Talk with AI, find a new name and maybe new requirements.
@@ -41,3 +47,4 @@ Done:
 - [x] Created games and contact me page, next time create game page with your games and just turn is active prop to true
 - [x] Fixed small required changes on the website
 - [x] Fix all hydration errors
+- [x] [Check Mert Bulan's projects page and implement similar structure to your website](https://mertbulan.com/work/) & Implement similar structure.
