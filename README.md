@@ -17,6 +17,7 @@ _Tech Stack:_
 - [ ] Make sure your application responsive and looking good as production
 - [ ] Write your first blog post about creating your porfolio and how you should have one nowadays why I've created it.
 - [ ] Implement Google Analytics
+- [ ] Check performance metrics ( Especially for your blogs page, etc. places where you use static rendering)
 - [ ] Publish your portfolio website on Linkedin and Github ( Maybe as post on twitter and linkedin)
 - [ ] Implement testing feature for your components
   - Check docs for more info...
