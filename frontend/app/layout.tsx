@@ -13,6 +13,9 @@ const robotoMono = Roboto_Mono({
 export const metadata: Metadata = {
   title: "Bekir Kasan",
   description: "Bekir Kasan's personal portfolio website.",
+  icons: {
+    icon: "/images/ronindev-logo.png",
+  },
 };
 
 export default function RootLayout({
