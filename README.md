@@ -9,14 +9,14 @@ _Tech Stack:_
 
 ##### TODO
 
-- [ ] Vercel deployment and Github Actions for Vercel ( Checking build errors, linter, etc. )
+- [x] Vercel deployment and Github Actions for Vercel ( Checking build errors, linter, etc. )
   - [ ] .yaml file
   - [ ] Basic husky implementation
-- [ ] Buy your domain for portfolio website
-- [ ] Connect your domain to your website on vercel
+- [x] Buy your domain for portfolio website
+- [x] Connect your domain to your website on vercel
 - [ ] Make sure your application responsive and looking good as production
 - [ ] Write your first blog post about creating your porfolio and how you should have one nowadays why I've created it.
-- [ ] Implement Google Analytics
+- [ ] Implement _Google Analytics_ or _Vercel Analytics_
 - [ ] Check performance metrics ( Especially for your blogs page, etc. places where you use static rendering)
 - [ ] Publish your portfolio website on Linkedin and Github ( Maybe as post on twitter and linkedin)
 - [ ] Implement testing feature for your components
