@@ -11,7 +11,7 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "cd .. && husky frontend/.husky"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
