@@ -6,6 +6,7 @@ import { ProjectMetaData } from "@/lib/types/project";
 import { CloseIcon } from "../icons/CloseIcon";
 import { ExternalLinkIcon } from "../icons/ExternalLinkIcon";
 import { STATUS_STYLES } from "@/constants/styles";
+import Image from "next/image";
 
 interface ProjectModalProps {
   project: ProjectMetaData | null;
@@ -70,7 +71,7 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
       {/* Inner panel owns ALL padding so the dialog edge === backdrop. */}
       <div className="flex flex-col">
         {project.thumbnail && (
-          <img
+          <Image
             src={project.thumbnail}
             alt={`Screenshot of ${project.name}`}
             className="h-72 w-full rounded-t-2xl object-cover"

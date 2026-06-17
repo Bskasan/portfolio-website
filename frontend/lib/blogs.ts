@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import { BlogMeta } from "./types/blogMeta";
 import matter from "gray-matter";
 import { BlogPostFrontmatter, BlogPostMetaData } from "./types/posts";
 

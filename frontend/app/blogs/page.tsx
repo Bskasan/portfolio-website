@@ -3,7 +3,6 @@ import AnimatedNavLink from "@/components/navbar/NavLink";
 import PageWrapper from "@/components/animated/PageWrapper";
 import SocialLinks from "@/components/elements/SocialLinks";
 import { getAllPosts } from "@/lib/blogs";
-import Link from "next/link";
 import Tag from "@/components/elements/Tag";
 
 const BlogsPage = () => {
@@ -31,7 +30,7 @@ const BlogsPage = () => {
           {/* Post List */}
           {/* TODO: Map over real fetched posts once API is connected */}
           <ul className="w-full flex flex-col">
-            {posts.map((post, index) => (
+            {posts.map((post) => (
               <li key={post.slug}>
                 <AnimatedNavLink
                   href={`/blogs/${post.slug}`}
