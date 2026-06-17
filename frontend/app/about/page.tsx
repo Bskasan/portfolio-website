@@ -28,7 +28,7 @@ const AboutMePage = () => {
   return (
     <PageWrapper>
       <div className="flex flex-1 items-center justify-center">
-        <main className="flex w-full max-w-400 items-center justify-between py-32 px-16 sm:items-start">
+        <main className="flex w-full max-w-400 items-center justify-between py-16 px-4 sm:items-start sm:px-8 lg:py-32 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <PersonalMetaData isSticky={true} />
             <section>
@@ -169,7 +169,6 @@ const AboutMePage = () => {
                     </div>
                   </div>
                 </ScrollReveal>
-                ``
                 {/* Clarusway Experience*/}
                 <ScrollReveal delay={300}>
                   <div className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 mb-6">

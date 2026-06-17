@@ -74,6 +74,8 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
           <Image
             src={project.thumbnail}
             alt={`Screenshot of ${project.name}`}
+            width={640}
+            height={288}
             className="h-72 w-full rounded-t-2xl object-cover"
           />
         )}

@@ -12,7 +12,7 @@ const BlogsPage = () => {
   return (
     <PageWrapper>
       <div className="flex flex-col flex-1 items-center justify-center">
-        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-8">
+        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-4 sm:px-8">
           {/* Page Header */}
           <div className="flex flex-col items-center mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">Blog</h1>
