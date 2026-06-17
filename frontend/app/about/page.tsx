@@ -1,5 +1,4 @@
 import SkillTag from "@/components/elements/SkillTag";
-import SocialLinks from "@/components/elements/SocialLinks";
 import { LuNewspaper } from "react-icons/lu";
 import {
   CLARUSWAY,
@@ -8,7 +7,6 @@ import {
   NORTHFINA_SKILLS,
   RAIS_GAMES,
 } from "@/constants/skills";
-import Image from "next/image";
 import ScrollReveal from "@/components/elements/ScrollReveal";
 import {
   CLARUSWAY_LINK,
@@ -36,7 +34,7 @@ const AboutMePage = () => {
             <section>
               {/* Description About Me */}
               <p className="text-sm sm:text-base text-center sm:text-left">
-                I'm <span className="font-bold">Full-Stack Developer</span> with 3+ years of
+                I&apos;m <span className="font-bold">Full-Stack Developer</span> with 3+ years of
                 production experience building cloud-native applications, serverless APIs, and
                 data-driven internal platforms using TypeScript, React/Next.js, Node.js, and SQL.
                 Hands-on experience deploying and monitoring containerised workloads, managing cloud
@@ -158,8 +156,8 @@ const AboutMePage = () => {
                         (Remote){" "}
                       </p>
                       <p className="text-sm sm:text-base text-center sm:text-left">
-                        Joined and was accepted into Integrify Oy's comprehensive full stack
-                        training program, where I'll be honing my skills in frontend, backend,
+                        Joined and was accepted into Integrify Oy&apos;s comprehensive full stack
+                        training program, where I&apos;ll be honing my skills in frontend, backend,
                         DevOps, and Cloud technologies.
                       </p>
                       <div className="flex flex-wrap gap-2 mt-4 justify-center sm:justify-start">

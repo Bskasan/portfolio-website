@@ -31,7 +31,7 @@ const ProjectsPage = () => {
           <div className="flex flex-col items-center mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">Projects</h1>
             <p className="mt-3 text-base text-gray-500 max-w-lg text-center">
-              Things I've built — side projects, tools, and experiments.
+              Things I&apos;ve built — side projects, tools, and experiments.
             </p>
           </div>
 

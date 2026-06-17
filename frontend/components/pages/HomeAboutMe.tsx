@@ -25,21 +25,23 @@ const HomeAboutMe = () => {
 
         <div className="flex flex-col items-center justify-center gap-2 mt-6 sm:mt-8">
           <p className="text-sm sm:text-base text-center sm:text-left">
-            Hi 👋 I'm <span className="font-bold">Bekir</span>, a{" "}
+            Hi 👋 I&apos;m <span className="font-bold">Bekir</span>, a{" "}
             <span className="font-bold">Software Engineer</span> based in
-            <span className="font-bold"> Espoo, Finland</span>. I'm a hobbyist turned professional
-            developer who enjoys all things computers and software engineering. In my most recent
-            role, I worked as a Full-Stack Web Developer at Northfina Oy (Etufillari Oy), where I
-            focused on building scalable web applications using Next.js, TypeScript, Node.js, and
-            Azure Cloud Services.
+            <span className="font-bold"> Espoo, Finland</span>. I&apos;m a hobbyist turned
+            professional developer who enjoys all things computers and software engineering. In my
+            most recent role, I worked as a Full-Stack Web Developer at Northfina Oy (Etufillari
+            Oy), where I focused on building scalable web applications using Next.js, TypeScript,
+            Node.js, and Azure Cloud Services.
           </p>
           <p className="text-sm sm:text-base text-center sm:text-left">
             I also enjoy coding on stream, learning in public, and improving together with others.
-            Alongside web development, I’m interested in game development as a hobbyist and enjoy
-            exploring low-level programming to better understand how software works under the hood.
+            Alongside web development, I&apos;m interested in game development as a hobbyist and
+            enjoy exploring low-level programming to better understand how software works under the
+            hood.
           </p>
           <p className="text-sm sm:text-base text-center sm:text-left">
-            When I’m not coding, I’m probably playing drums, lifting weights, or playing games.
+            When I&apos;m not coding, I&apos;m probably playing drums, lifting weights, or playing
+            games.
           </p>
           <p className="text-sm sm:text-base text-center sm:text-left">
             Currently working on my own hobby project,
