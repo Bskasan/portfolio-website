@@ -26,7 +26,7 @@ const ProjectsPage = () => {
   return (
     <PageWrapper>
       <div className="flex flex-col flex-1 items-center justify-center">
-        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-8">
+        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-4 sm:px-8">
           {/* Page Header */}
           <div className="flex flex-col items-center mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">Projects</h1>
@@ -43,7 +43,7 @@ const ProjectsPage = () => {
 
           {/* Project List */}
           {/* TODO: Map over real fetched projects once API is connected */}
-          <ul className="w-full grid grid-cols-4 gap-72">
+          <ul className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {projects.map((project) => (
               <li key={project.id}>
                 <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 py-10 w-full">
@@ -65,17 +65,17 @@ const ProjectsPage = () => {
                     )}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl" />
                   </a>
-
-                  {/* Content */}
-                  <ProjectModal
-                    project={selected}
-                    open={selected !== null}
-                    onClose={() => setSelected(null)}
-                  />
                 </div>
               </li>
             ))}
           </ul>
+
+          {/* Content */}
+          <ProjectModal
+            project={selected}
+            open={selected !== null}
+            onClose={() => setSelected(null)}
+          />
 
           {/* Empty State */}
           {/* TODO: Remove once real projects are loading */}

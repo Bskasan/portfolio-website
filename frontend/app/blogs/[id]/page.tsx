@@ -26,7 +26,7 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
   return (
     <PageWrapper>
       <div className="flex flex-col flex-1 items-center justify-center">
-        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-32 px-4 sm:px-6">
+        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-20 px-4 sm:px-6 lg:py-32">
           {/* Post Header */}
           <header className="w-full mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
@@ -39,7 +39,7 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
               {post.title}
             </h1>
 
-            <div className="flex items-center gap-4 text-sm text-gray-500">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500">
               <span className="font-medium text-gray-700">{post.author.name}</span>
               <span>·</span>
               <span>{post.author.role}</span>

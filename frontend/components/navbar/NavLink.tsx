@@ -30,7 +30,7 @@ const AnimatedNavLink = ({ href, children, classNameAttr }: NavLinkProps) => {
         });
       }}
       className={`
-        px-3 py-1.5 rounded-md text-base transition-colors
+        px-2 py-1.5 rounded-md text-sm transition-colors sm:px-3 sm:text-base
         ${classNameAttr}
         ${isActive ? "font-bold" : "hover:bg-zinc-200 text-zinc-700"}
       `}
