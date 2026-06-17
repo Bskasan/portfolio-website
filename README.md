@@ -14,7 +14,7 @@ _Tech Stack:_
   - [x] Basic husky implementation
 - [x] Buy your domain for portfolio website
 - [x] Connect your domain to your website on vercel
-- [ ] Make sure your application responsive and looking good as production
+- [x] Make sure your application responsive and looking good as production
 - [ ] Write your first blog post about creating your porfolio and how you should have one nowadays why I've created it.
 - [ ] Implement _Google Analytics_ or _Vercel Analytics_
 - [ ] Check performance metrics ( Especially for your blogs page, etc. places where you use static rendering)
