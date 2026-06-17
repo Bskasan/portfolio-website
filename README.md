@@ -9,6 +9,8 @@ _Tech Stack:_
 
 ##### TODO
 
+testing husky
+
 - [x] Vercel deployment and Github Actions for Vercel ( Checking build errors, linter, etc. )
   - [x] .yaml file
   - [x] Basic husky implementation
