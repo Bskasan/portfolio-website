@@ -10,8 +10,8 @@ _Tech Stack:_
 ##### TODO
 
 - [x] Vercel deployment and Github Actions for Vercel ( Checking build errors, linter, etc. )
-  - [ ] .yaml file
-  - [ ] Basic husky implementation
+  - [x] .yaml file
+  - [x] Basic husky implementation
 - [x] Buy your domain for portfolio website
 - [x] Connect your domain to your website on vercel
 - [ ] Make sure your application responsive and looking good as production
