@@ -22,6 +22,8 @@ testing husky
 - [ ] Check performance metrics ( Especially for your blogs page, etc. places where you use static rendering)
 - [ ] Publish your portfolio website on Linkedin and Github ( Maybe as post on twitter and linkedin)
 - [ ] Implement testing feature for your components
+- [ ] Check github actions optimization for future
+- [ ] After your third blog post, check performance and implement another solution get better blog analytics.
   - Check docs for more info...
 
 ---
