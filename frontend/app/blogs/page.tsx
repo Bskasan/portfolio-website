@@ -1,13 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import DivisionLine from "@/components/elements/DivisionLine";
 import AnimatedNavLink from "@/components/navbar/NavLink";
 import PageWrapper from "@/components/animated/PageWrapper";
 import SocialLinks from "@/components/elements/SocialLinks";
-import { getAllPosts } from "@/lib/blogs";
 import Tag from "@/components/elements/Tag";
 
 const BlogsPage = () => {
   // TODO: Replace MOCK_POSTS with real posts fetched from your API or CMS
-  const posts = getAllPosts();
+
+  // const posts = getAllPosts();
+  // TODO: Update here once you have your blog post.
+  const posts: any = [];
 
   return (
     <PageWrapper>
@@ -30,7 +33,7 @@ const BlogsPage = () => {
           {/* Post List */}
           {/* TODO: Map over real fetched posts once API is connected */}
           <ul className="w-full flex flex-col">
-            {posts.map((post) => (
+            {posts?.map((post: any) => (
               <li key={post.slug}>
                 <AnimatedNavLink
                   href={`/blogs/${post.slug}`}
@@ -43,7 +46,7 @@ const BlogsPage = () => {
                   <div className="flex flex-col flex-1 gap-2">
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">
-                      {post.tags.map((tag) => (
+                      {post.tags.map((tag: any) => (
                         <Tag key={tag} name={tag} />
                       ))}
                     </div>
