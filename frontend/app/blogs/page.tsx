@@ -20,7 +20,8 @@ const BlogsPage = () => {
           <div className="flex flex-col items-center mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">Blog</h1>
             <p className="mt-3 text-base text-gray-500 max-w-lg text-center">
-              Thoughts on frontend engineering, React, and building great user experiences.
+              Thoughts on full-stack engineering, indie game development, and the solutions found
+              along the way.
             </p>
           </div>
 
