@@ -12,8 +12,6 @@ defaults:
 jobs:
   check:
     runs-on: ubuntu-latest
-    container:
-      image: node:24
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
