@@ -1,7 +1,7 @@
 "use client";
 
 import DivisionLine from "@/components/elements/DivisionLine";
-import { MOCK_PROJECTS } from "@/constants/mock-projects";
+import { MOCK_PROJECTS } from "@/constants/projects";
 import Image from "next/image";
 import SocialLinks from "@/components/elements/SocialLinks";
 import PageWrapper from "@/components/animated/PageWrapper";
@@ -56,6 +56,7 @@ const ProjectsPage = () => {
                       src={project.thumbnail}
                       alt={`${project.name} thumbnail`}
                       width={320}
+                      loading="eager"
                       height={320}
                       className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
