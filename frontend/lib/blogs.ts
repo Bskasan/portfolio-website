@@ -37,3 +37,14 @@ export function getPostFrontmatter(slug: string): BlogPostFrontmatter {
   const { data } = matter(raw);
   return data as BlogPostFrontmatter;
 }
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = getPostFrontmatter(id);
+  return { title: post.title, description: post.excerpt };
+}
+
+// Pre-render every post at build time as static HTML
+export function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ id: slug }));
+}

@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
+
 import { pageAnimation } from "@/lib/animations/pageAnimation";
 import { useTransitionRouter } from "next-view-transitions";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 

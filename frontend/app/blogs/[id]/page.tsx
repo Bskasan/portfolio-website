@@ -1,21 +1,11 @@
 import DivisionLine from "@/components/elements/DivisionLine";
 import PageWrapper from "@/components/animated/PageWrapper";
-import { getAllSlugs, getPostFrontmatter } from "@/lib/blogs";
 import Tag from "@/components/elements/Tag";
 
-// Pre-render every post at build time as static HTML
-export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ id: slug }));
-}
+import { getPostFrontmatter } from "@/lib/blogs";
 
 // Any /blogs/[id] not in the list above returns 404
 export const dynamicParams = false;
-
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const post = getPostFrontmatter(id);
-  return { title: post.title, description: post.excerpt };
-}
 
 const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;

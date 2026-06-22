@@ -1,7 +1,8 @@
 import PersonalMetaData from "@/components/pages/PersonalMetaData";
 import DivisionLine from "@/components/elements/DivisionLine";
-import { FiMail, FiHeart } from "react-icons/fi";
 import PageWrapper from "@/components/animated/PageWrapper";
+
+import { FiMail, FiHeart } from "react-icons/fi";
 
 const ContactPage = () => {
   return (

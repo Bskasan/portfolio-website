@@ -61,8 +61,6 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
   const statusClass =
     STATUS_STYLES[project.status.key.toLowerCase()] ?? "bg-slate-100 text-slate-600";
 
-  console.log(statusClass);
-
   return (
     <dialog
       ref={dialogRef}

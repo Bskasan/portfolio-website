@@ -1,5 +1,5 @@
-import { NAV_LINKS } from "@/constants/navbar";
 import AnimatedNavLink from "./NavLink";
+import { NAV_LINKS } from "@/constants/navbar";
 
 const NavBar = () => {
   return (

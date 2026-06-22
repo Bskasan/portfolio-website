@@ -1,23 +1,16 @@
 "use client";
 
 import DivisionLine from "@/components/elements/DivisionLine";
-import { MOCK_PROJECTS } from "@/constants/projects";
 import Image from "next/image";
 import SocialLinks from "@/components/elements/SocialLinks";
 import PageWrapper from "@/components/animated/PageWrapper";
+
+import { MOCK_PROJECTS } from "@/constants/projects";
 import { ProjectMetaData } from "@/lib/types/project";
 import { useState } from "react";
 import { ProjectModal } from "@/components/modals/ProjectModal";
+import { ThumbnailPlaceholder } from "@/components/elements/ThumbnailPlaceholder";
 
-const ThumbnailPlaceholder = ({ name }: { name: string }) => (
-  <div className="w-full h-full flex items-center justify-center bg-zinc-100 border border-zinc-200 rounded-xl">
-    <span className="text-2xl font-bold text-zinc-300 tracking-tight select-none">
-      {name.charAt(0)}
-    </span>
-  </div>
-);
-
-// TODO: Replace MOCK_PROJECTS with real data fetched from your API or CMS
 const projects: ProjectMetaData[] = MOCK_PROJECTS;
 
 const ProjectsPage = () => {
@@ -77,8 +70,6 @@ const ProjectsPage = () => {
             onClose={() => setSelected(null)}
           />
 
-          {/* Empty State */}
-          {/* TODO: Remove once real projects are loading */}
           {projects.length === 0 && (
             <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2">
               <p className="text-lg font-medium">No projects yet.</p>
