@@ -1,4 +1,4 @@
-import { socialLinks } from "@/constants/socialLinks";
+import { lastValueOfLinks, socialLinks } from "@/constants/socialLinks";
 import { SocialLink } from "@/lib/types/socials";
 
 const SocialLinks = () => {
@@ -19,7 +19,7 @@ const SocialLinks = () => {
                 >
                   {link.name}
                   <Icon size={24} />
-                  {link.name !== "Email" && <span>-</span>}
+                  {link.name !== lastValueOfLinks.name && <span>-</span>}
                 </a>
               </li>
             );

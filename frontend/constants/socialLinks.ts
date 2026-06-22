@@ -1,6 +1,6 @@
 import { SocialLink } from "@/lib/types/socials";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaSquareXTwitter, FaTwitch } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 export const socialLinks: SocialLink[] = [
@@ -24,4 +24,11 @@ export const socialLinks: SocialLink[] = [
     url: "b.kasan@hotmail.com",
     icon: MdEmail,
   },
+  {
+    name: "Twitch",
+    url: "https://www.twitch.tv/ronindevvv",
+    icon: FaTwitch,
+  },
 ];
+
+export const lastValueOfLinks: SocialLink = Object.values(socialLinks).at(-1) as SocialLink;
