@@ -13,7 +13,10 @@ export const MOCK_PROJECTS: ProjectMetaData[] = [
     githubUrl: null, // TODO: Add GitHub repo URL when ready
     techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
     year: "2026",
-    status: "In Progress",
+    status: {
+      key: "notready",
+      value: "In Progress",
+    },
   },
   {
     id: "portfolio",
@@ -25,6 +28,24 @@ export const MOCK_PROJECTS: ProjectMetaData[] = [
     githubUrl: null, // TODO: Add GitHub repo URL when ready
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     year: "2026",
-    status: "In Progress",
+    status: {
+      key: "archived",
+      value: "Done",
+    },
+  },
+  {
+    id: "pomodoro-obs-layer",
+    name: "Pomodoro OBS Layer For Streamers",
+    description:
+      "A sleek, lightweight Pomodoro timer designed as an OBS Browser Source overlay for Twitch/YouTube streamers. Features a modern design, persistent state, and easy customization via URL parameters.",
+    thumbnail: "/images/pomodoro-icon-new.png",
+    liveUrl: "https://bskasan.github.io/pomodoro-obs-overlay/",
+    githubUrl: "https://github.com/Bskasan/pomodoro-obs-overlay",
+    techStack: ["JavaScript", "HTML5/CSS", "Github Pages"],
+    year: "2026",
+    status: {
+      key: "archived",
+      value: "Done",
+    },
   },
 ];

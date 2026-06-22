@@ -7,5 +7,10 @@ export type ProjectMetaData = {
   githubUrl: string | null;
   techStack: string[];
   year: string;
-  status: string;
+  status: ProjectStatus;
+};
+
+export type ProjectStatus = {
+  key: string;
+  value: string;
 };

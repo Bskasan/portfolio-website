@@ -58,7 +58,8 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
 
   const titleId = `project-modal-title-${project.id}`;
   const descId = `project-modal-desc-${project.id}`;
-  const statusClass = STATUS_STYLES[project.status.toLowerCase()] ?? "bg-slate-100 text-slate-600";
+  const statusClass =
+    STATUS_STYLES[project.status.key.toLowerCase()] ?? "bg-slate-100 text-slate-600";
 
   return (
     <dialog
@@ -90,7 +91,7 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
               {/* Meta row: status badge + year */}
               <div className="flex items-center gap-2 text-xs text-slate-500">
                 <span className={`rounded-full px-2 py-0.5 font-medium ${statusClass}`}>
-                  {project.status}
+                  {project.status.value}
                 </span>
                 <span aria-hidden="true">&bull;</span>
                 <span>{project.year}</span>
