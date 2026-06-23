@@ -1,7 +1,6 @@
 import DivisionLine from "@/components/elements/DivisionLine";
 import PageWrapper from "@/components/animated/PageWrapper";
 import TagElement from "@/components/elements/Tag";
-import PostImage from "@/components/PostImage";
 
 import { getPostFrontmatter } from "@/lib/blogs";
 import { Tag } from "@/lib/types/blogMeta";
