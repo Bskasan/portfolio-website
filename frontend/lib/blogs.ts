@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { BlogPostFrontmatter, BlogPostMetaData } from "./types/posts";
+import { Tag } from "./types/blogMeta";
 
 const contentDir = path.join(process.cwd(), "content");
 
@@ -18,7 +19,7 @@ export function getAllPosts(): BlogPostMetaData[] {
         date: fm.date ?? "",
         readTime: fm.readTime ?? "",
         excerpt: fm.excerpt ?? "",
-        tags: fm.tags ?? [], // ← undefined can't happen now
+        tagNames: fm.tags?.map((tag: Tag) => tag.name) ?? [],
         author: fm.author ?? { name: "", role: "" },
       };
     })

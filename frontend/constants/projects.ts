@@ -26,7 +26,7 @@ export const MOCK_PROJECTS: ProjectMetaData[] = [
     thumbnail: "/images/ronindev-logo.png", // TODO: Add a real screenshot of your portfolio
     liveUrl: "/", // TODO: Replace with your actual portfolio URL when deployed
     githubUrl: null, // TODO: Add GitHub repo URL when ready
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Github Actions(CI)", "Husky"],
     year: "2026",
     status: {
       key: "archived",

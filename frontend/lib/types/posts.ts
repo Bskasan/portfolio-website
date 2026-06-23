@@ -1,3 +1,5 @@
+import { Tag } from "./blogMeta";
+
 export type Author = {
   name: string;
   role: string;
@@ -24,7 +26,7 @@ export interface BlogPostMetaData {
   date: string;
   readTime: string;
   excerpt: string;
-  tags: string[];
+  tagNames: string[];
   author: Author;
 }
 
@@ -32,8 +34,11 @@ export interface BlogPostFrontmatter {
   title: string;
   date: string;
   readTime: string;
+  baseImageUrl: string;
+  imageFilePath: string;
+  alt: string;
   excerpt: string;
   intro: string;
-  tags: string[];
+  tags: Tag[];
   author: Author;
 }

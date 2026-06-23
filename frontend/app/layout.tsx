@@ -12,7 +12,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bekir Kasan",
+  title: "Bekir Kasan - Portfolio & Personal Blog",
   description: "Bekir Kasan's personal portfolio website.",
   icons: {
     icon: "/images/ronindev-logo.png",
