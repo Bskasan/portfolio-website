@@ -10,12 +10,6 @@ import { getAllPosts } from "@/lib/blogs";
 const BlogsPage = () => {
   const posts = getAllPosts();
 
-  console.log(
-    posts.map((post: any) => {
-      console.log(post?.tags);
-    }),
-  );
-
   return (
     <PageWrapper>
       <div className="flex flex-col flex-1 items-center justify-center">
