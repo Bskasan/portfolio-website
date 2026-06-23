@@ -14,7 +14,9 @@ async function PostImage({
   );
 
   // image contains width, height, and blurDataURL
-  return <Image src={image} alt={alt} className="my-4 rounded-3xl" loading="eager" />;
+  return (
+    <Image src={image} alt={alt} className="my-4 rounded-3xl" loading="eager" placeholder="blur" />
+  );
 }
 
 export default PostImage;
