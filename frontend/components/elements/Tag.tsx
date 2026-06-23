@@ -3,7 +3,7 @@ interface TagProps {
   name: string;
 }
 
-const Tag = ({ key, name }: TagProps) => {
+const TagElement = ({ key, name }: TagProps) => {
   return (
     <span
       key={key}
@@ -14,4 +14,4 @@ const Tag = ({ key, name }: TagProps) => {
   );
 };
 
-export default Tag;
+export default TagElement;

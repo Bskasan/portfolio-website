@@ -1,8 +1,10 @@
 import DivisionLine from "@/components/elements/DivisionLine";
 import PageWrapper from "@/components/animated/PageWrapper";
-import Tag from "@/components/elements/Tag";
+import TagElement from "@/components/elements/Tag";
+import PostImage from "@/components/PostImage";
 
 import { getPostFrontmatter } from "@/lib/blogs";
+import { Tag } from "@/lib/types/blogMeta";
 
 // Any /blogs/[id] not in the list above returns 404
 export const dynamicParams = false;
@@ -20,12 +22,12 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
           {/* Post Header */}
           <header className="w-full mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
-              {post.tags.map((tag) => (
-                <Tag key={tag} name={tag} />
+              {post.tags.map((tag: Tag) => (
+                <TagElement key={tag.key} name={tag.name} />
               ))}
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 leading-tight mb-6">
               {post.title}
             </h1>
 
@@ -43,23 +45,30 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
           <DivisionLine />
 
           {/* Intro (from frontmatter, keeps your distinct lead styling) */}
-          <p className="w-full mt-10 mb-10 text-lg sm:text-xl text-gray-600 leading-relaxed font-light max-w-3xl">
-            {post.intro}
+          <p className="flex flex-col mx-auto w-full mt-10 mb-10 text-sm sm:text-base italic text-gray-600 leading-relaxed  max-w-4xl">
+            &quot;{post.intro}&quot;
           </p>
 
           <DivisionLine />
 
-          {/* MDX body — replaces your manual sections.map */}
-          <article className="prose prose-lg prose-gray w-full mt-10 max-w-3xl">
+          <div className="w-full">
+            <PostImage
+              imageFilename={post.baseImageUrl}
+              imageFilePath={post.imageFilePath}
+              alt={post.alt}
+            />
+          </div>
+
+          <article className="prose prose-lg text-base prose-gray w-full mt-10 max-w-4xl flex flex-col mx-auto leading leading-relaxed">
             <Content />
           </article>
 
-          <div className="w-full max-w-3xl mt-16">
+          <div className="w-full max-w-4xl mt-16 mx-auto">
             <DivisionLine />
           </div>
 
           {/* Author Footer */}
-          <footer className="w-full max-w-3xl mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <footer className="w-full mx-auto max-w-4xl mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-900 text-white font-bold text-lg shrink-0">
               {post.author.name.charAt(0)}
             </div>

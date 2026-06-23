@@ -3,14 +3,18 @@ import DivisionLine from "@/components/elements/DivisionLine";
 import AnimatedNavLink from "@/components/navbar/NavLink";
 import PageWrapper from "@/components/animated/PageWrapper";
 import SocialLinks from "@/components/elements/SocialLinks";
-import Tag from "@/components/elements/Tag";
+import TagElement from "@/components/elements/Tag";
+
+import { getAllPosts } from "@/lib/blogs";
 
 const BlogsPage = () => {
-  // TODO: Replace MOCK_POSTS with real posts fetched from your API or CMS
+  const posts = getAllPosts();
 
-  // const posts = getAllPosts();
-  // TODO: Update here once you have your blog post.
-  const posts: any = [];
+  console.log(
+    posts.map((post: any) => {
+      console.log(post?.tags);
+    }),
+  );
 
   return (
     <PageWrapper>
@@ -47,8 +51,8 @@ const BlogsPage = () => {
                   <div className="flex flex-col flex-1 gap-2">
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">
-                      {post.tags.map((tag: any) => (
-                        <Tag key={tag} name={tag} />
+                      {post.tagNames.map((tagName: string) => (
+                        <TagElement key={tagName} name={tagName} />
                       ))}
                     </div>
 
@@ -73,11 +77,11 @@ const BlogsPage = () => {
                     </div>
                   </div>
                 </AnimatedNavLink>
-
-                <DivisionLine />
               </li>
             ))}
           </ul>
+
+          <DivisionLine />
 
           {/* Empty State — shown when no posts exist */}
           {/* TODO: Remove once real posts are loading */}
