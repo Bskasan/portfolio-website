@@ -51,14 +51,6 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
 
           <DivisionLine />
 
-          <div className="w-full">
-            <PostImage
-              imageFilename={post.baseImageUrl}
-              imageFilePath={post.imageFilePath}
-              alt={post.alt}
-            />
-          </div>
-
           <article className="prose prose-lg text-base prose-gray w-full mt-10 max-w-4xl flex flex-col mx-auto leading leading-relaxed">
             <Content />
           </article>
