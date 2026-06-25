@@ -1,8 +1,9 @@
+import "../styles/globals.css";
+import NavBar from "@/components/navbar/NavBar";
+
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
-import "../styles/globals.css";
 import { ViewTransitions } from "next-view-transitions";
-import NavBar from "@/components/navbar/NavBar";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const robotoMono = Roboto_Mono({

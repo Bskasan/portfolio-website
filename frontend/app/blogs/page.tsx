@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import DivisionLine from "@/components/elements/DivisionLine";
 import AnimatedNavLink from "@/components/navbar/NavLink";
 import PageWrapper from "@/components/animated/PageWrapper";
@@ -6,6 +5,7 @@ import SocialLinks from "@/components/elements/SocialLinks";
 import TagElement from "@/components/elements/Tag";
 
 import { getAllPosts } from "@/lib/blogs";
+import { BlogPostMetaData } from "@/lib/types/posts";
 
 const BlogsPage = () => {
   const posts = getAllPosts();
@@ -30,9 +30,8 @@ const BlogsPage = () => {
           </div>
 
           {/* Post List */}
-          {/* TODO: Map over real fetched posts once API is connected */}
           <ul className="w-full flex flex-col">
-            {posts?.map((post: any) => (
+            {posts?.map((post: BlogPostMetaData) => (
               <li key={post.slug}>
                 <AnimatedNavLink
                   href={`/blogs/${post.slug}`}
