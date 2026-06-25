@@ -11,6 +11,7 @@ export const dynamicParams = false;
 const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const post = getPostFrontmatter(id);
+
   // The MDX body (your sections) is imported and rendered as a component
   const { default: Content } = await import(`@/content/${id}.mdx`);
 

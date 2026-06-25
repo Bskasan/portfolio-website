@@ -1,12 +1,13 @@
 "use client"; // Next.js App Router: this component is interactive (refs, effects)
 
-import { useEffect, useRef } from "react";
 import "./ProjectModal.css";
+import Image from "next/image";
+
+import { useEffect, useRef } from "react";
 import { ProjectMetaData } from "@/lib/types/project";
 import { CloseIcon } from "../icons/CloseIcon";
 import { ExternalLinkIcon } from "../icons/ExternalLinkIcon";
 import { STATUS_STYLES } from "@/constants/styles";
-import Image from "next/image";
 
 interface ProjectModalProps {
   project: ProjectMetaData | null;
@@ -14,7 +15,7 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
+const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -152,4 +153,6 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
       </div>
     </dialog>
   );
-}
+};
+
+export default ProjectModal;

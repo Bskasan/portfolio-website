@@ -1,8 +1,6 @@
 import { ProjectMetaData } from "@/lib/types/project";
 
-// TODO: Fetch real projects from your CMS or API
-// Example: const projects = await fetchAllProjects()
-export const MOCK_PROJECTS: ProjectMetaData[] = [
+export const PROJECTS: ProjectMetaData[] = [
   {
     id: "mindbase",
     name: "MindBase",

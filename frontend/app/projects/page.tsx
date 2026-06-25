@@ -4,14 +4,14 @@ import DivisionLine from "@/components/elements/DivisionLine";
 import Image from "next/image";
 import SocialLinks from "@/components/elements/SocialLinks";
 import PageWrapper from "@/components/animated/PageWrapper";
+import ProjectModal from "@/components/modals/ProjectModal";
 
-import { MOCK_PROJECTS } from "@/constants/projects";
 import { ProjectMetaData } from "@/lib/types/project";
 import { useState } from "react";
-import { ProjectModal } from "@/components/modals/ProjectModal";
 import { ThumbnailPlaceholder } from "@/components/elements/ThumbnailPlaceholder";
+import { PROJECTS } from "@/constants/projects";
 
-const projects: ProjectMetaData[] = MOCK_PROJECTS;
+const projects: ProjectMetaData[] = PROJECTS;
 
 const ProjectsPage = () => {
   const [selected, setSelected] = useState<ProjectMetaData | null>(null);

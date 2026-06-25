@@ -1,13 +1,9 @@
 import SkillTag from "@/components/elements/SkillTag";
-import { LuNewspaper } from "react-icons/lu";
-import {
-  CLARUSWAY,
-  ESPOO_GAME_LAB,
-  INTEGRIFY_OY,
-  NORTHFINA_SKILLS,
-  RAIS_GAMES,
-} from "@/constants/skills";
 import ScrollReveal from "@/components/elements/ScrollReveal";
+import PersonalMetaData from "@/components/pages/PersonalMetaData";
+import PageWrapper from "@/components/animated/PageWrapper";
+
+import { LuNewspaper } from "react-icons/lu";
 import {
   CLARUSWAY_LINK,
   ESPOO_GAME_LAB_LINK,
@@ -17,8 +13,13 @@ import {
   RAIS_GAMES_LINK,
   RESUME_LINK,
 } from "@/constants/links";
-import PersonalMetaData from "@/components/pages/PersonalMetaData";
-import PageWrapper from "@/components/animated/PageWrapper";
+import {
+  CLARUSWAY,
+  ESPOO_GAME_LAB,
+  INTEGRIFY_OY,
+  NORTHFINA_SKILLS,
+  RAIS_GAMES,
+} from "@/constants/skills";
 
 interface SkillTag {
   name: string;
