@@ -19,21 +19,12 @@ testing husky
 - [x] Make sure your application responsive and looking good as production
 - [x] Implement _Google Analytics_ or _Vercel Analytics_
 - [x] Remove current blog post
-- [ ] Write your first blog post about creating your porfolio and how you should have one nowadays why I've created it.
-- [ ] Check performance metrics ( Especially for your blogs page, etc. places where you use static rendering)
-- [ ] Publish your portfolio website on Linkedin and Github ( Maybe as post on twitter and linkedin)
-- [ ] Implement testing feature for your components
-- [ ] Check github actions optimization for future
-- [ ] After your third blog post, check performance and implement another solution get better blog analytics.
-  - Check docs for more info...
+- [x] Write your first blog post about creating your porfolio and how you should have one nowadays why I've created it.
+- [x] Check performance metrics ( Especially for your blogs page, etc. places where you use static rendering)
+- [x] Publish your portfolio website on Linkedin and Github ( Maybe as post on twitter and linkedin)
+- [x] Check github actions optimization for future
 
----
 
-- Research about mindbase before deployment, improve different approaches
-  - Scheduling is not good solution for the problem.
-  - Talk with AI, find a new name and maybe new requirements.
-
-- Husky setup have some bugs, so work on them at the end
 
 Done:
 
