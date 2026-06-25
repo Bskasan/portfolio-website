@@ -25,5 +25,6 @@ export const RAIS_GAMES_LINK: SourceLink = {
 };
 
 export const RESUME_LINK: SourceLink = {
-  source: "https://drive.google.com/file/d/16RNy5_vLgXSg3g34M6WkkJ641xdzhjby/view?usp=sharing",
+  source:
+    "https://docs.google.com/document/d/1MFthHf1ABMBy_Xot9nvDqBpt6c884N73/edit?usp=sharing&ouid=104315356177089885029&rtpof=true&sd=true",
 };
