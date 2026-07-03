@@ -1,26 +1,57 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/*
+  Enable class-based dark mode. By default Tailwind v4's `dark:` variant follows
+  the OS `prefers-color-scheme`; this override makes it respond to a `.dark`
+  class on <html> instead, which the theme toggle sets (see hooks/useTheme.ts).
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Elevated surfaces + borders. Light values mirror the existing
+     white / zinc-50 / zinc-200 look; only ever consumed via `dark:` utilities. */
+  --surface: #ffffff;
+  --surface-2: #f4f4f5;
+  --line: #e4e4e7;
+  color-scheme: light;
 }
 
+.dark {
+  --background: #090040; /* deep indigo — the dark-theme page background */
+  --foreground: #ededed;
+  /* Indigo family derived from the background, lightened for elevation. */
+  --surface: #16104f; /* cards, modal panel */
+  --surface-2: #241a6b; /* chips, hover fills (one step higher) */
+  --line: #2f2678; /* borders / dividers */
+  color-scheme: dark;
+}
+
+/*
+  Colors point at the `--background` / `--foreground` variables above (which
+  `.dark` overrides) so the `bg-background` / `text-foreground` utilities follow
+  the active theme instead of baking in the light values. Kept non-inline so
+  `--font-mono` is still emitted for `body { font-family: var(--font-mono) }`.
+*/
 @theme {
   --font-mono: var(--font-roboto-mono), monospace;
-  --color-background: #ffffff;
-  --color-foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
 }
 
 body {
   font-family: var(--font-mono);
+  background: var(--background);
+  color: var(--foreground);
+  /* Only perceptible while toggling themes; static rendering is unaffected. */
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 ::view-transition-group(root) {

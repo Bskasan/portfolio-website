@@ -16,8 +16,10 @@ const BlogsPage = () => {
         <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-4 sm:px-8">
           {/* Page Header */}
           <div className="flex flex-col items-center mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">Blog</h1>
-            <p className="mt-3 text-base text-gray-500 max-w-lg text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight dark:text-gray-100">
+              Blog
+            </h1>
+            <p className="mt-3 text-base text-gray-500 max-w-lg text-center dark:text-gray-400">
               Thoughts on full-stack engineering, indie game development, and the solutions found
               along the way.
             </p>
@@ -38,7 +40,9 @@ const BlogsPage = () => {
                   classNameAttr="group flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-10 py-8 w-full transition-colors"
                 >
                   {/* Date Column */}
-                  <div className="shrink-0 w-32 text-sm text-gray-400 pt-1">{post.date}</div>
+                  <div className="shrink-0 w-32 text-sm text-gray-400 pt-1 dark:text-gray-500">
+                    {post.date}
+                  </div>
 
                   {/* Content Column */}
                   <div className="flex flex-col flex-1 gap-2">
@@ -50,21 +54,21 @@ const BlogsPage = () => {
                     </div>
 
                     {/* Title */}
-                    <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 group-hover:text-gray-600 transition-colors leading-snug">
+                    <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 group-hover:text-gray-600 transition-colors leading-snug dark:text-gray-100 dark:group-hover:text-gray-300">
                       {post.title}
                     </h2>
 
                     {/* Excerpt */}
-                    <p className="text-sm sm:text-base text-gray-500 leading-relaxed line-clamp-2">
+                    <p className="text-sm sm:text-base text-gray-500 leading-relaxed line-clamp-2 dark:text-gray-400">
                       {post.excerpt}
                     </p>
 
                     {/* Footer Meta */}
-                    <div className="flex items-center gap-3 mt-1 text-sm text-gray-400">
+                    <div className="flex items-center gap-3 mt-1 text-sm text-gray-400 dark:text-gray-500">
                       <span>{post.author.name}</span>
                       <span>·</span>
                       <span>{post.readTime}</span>
-                      <span className="ml-auto text-gray-900 font-medium group-hover:underline underline-offset-4 text-sm hidden sm:block">
+                      <span className="ml-auto text-gray-900 font-medium group-hover:underline underline-offset-4 text-sm hidden sm:block dark:text-gray-100">
                         Read →
                       </span>
                     </div>
@@ -79,7 +83,7 @@ const BlogsPage = () => {
           {/* Empty State — shown when no posts exist */}
           {/* TODO: Remove once real posts are loading */}
           {posts.length === 0 && (
-            <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2">
+            <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2 dark:text-gray-500">
               <p className="text-lg font-medium">No posts yet.</p>
               <p className="text-sm">Check back soon.</p>
             </div>

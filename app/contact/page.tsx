@@ -23,18 +23,20 @@ const ContactPage = () => {
               href="mailto:b.kasan@hotmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 hover:bg-white hover:border-zinc-400 hover:shadow-sm transition-all duration-200"
+              className="group flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 hover:bg-white hover:border-zinc-400 hover:shadow-sm transition-all duration-200 dark:border-line dark:bg-surface dark:hover:bg-surface-2 dark:hover:border-indigo-500"
             >
-              <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-zinc-200 group-hover:border-zinc-300 transition-colors">
-                <FiMail className="w-5 h-5 text-gray-500" />
+              <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-zinc-200 group-hover:border-zinc-300 transition-colors dark:bg-surface-2 dark:border-line dark:group-hover:border-indigo-500">
+                <FiMail className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </span>
               <div className="flex flex-col gap-1">
-                <span className="text-lg font-semibold text-gray-900">Hire me</span>
-                <span className="text-sm text-gray-500">
+                <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                  Hire me
+                </span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">
                   Open to freelance and full-time opportunities.
                 </span>
               </div>
-              <span className="text-sm font-medium text-gray-400 group-hover:text-gray-900 transition-colors mt-auto">
+              <span className="text-sm font-medium text-gray-400 group-hover:text-gray-900 transition-colors mt-auto dark:text-gray-500 dark:group-hover:text-gray-100">
                 b.kasan@hotmail.com →
               </span>
             </a>
@@ -44,18 +46,20 @@ const ContactPage = () => {
               href="https://github.com/sponsors/Bskasan"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 hover:bg-white hover:border-zinc-400 hover:shadow-sm transition-all duration-200"
+              className="group flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 hover:bg-white hover:border-zinc-400 hover:shadow-sm transition-all duration-200 dark:border-line dark:bg-surface dark:hover:bg-surface-2 dark:hover:border-indigo-500"
             >
-              <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-zinc-200 group-hover:border-zinc-300 transition-colors">
-                <FiHeart className="w-5 h-5 text-gray-500" />
+              <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-zinc-200 group-hover:border-zinc-300 transition-colors dark:bg-surface-2 dark:border-line dark:group-hover:border-indigo-500">
+                <FiHeart className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </span>
               <div className="flex flex-col gap-1">
-                <span className="text-lg font-semibold text-gray-900">Sponsor me</span>
-                <span className="text-sm text-gray-500">
+                <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                  Sponsor me
+                </span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">
                   Support my open-source work on GitHub.
                 </span>
               </div>
-              <span className="text-sm font-medium text-gray-400 group-hover:text-gray-900 transition-colors mt-auto">
+              <span className="text-sm font-medium text-gray-400 group-hover:text-gray-900 transition-colors mt-auto dark:text-gray-500 dark:group-hover:text-gray-100">
                 github.com/sponsors/Bskasan →
               </span>
             </a>

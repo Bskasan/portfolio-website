@@ -66,7 +66,7 @@ const AboutMePage = () => {
                           href={NORTHFINA_LINK.source}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-bold text-gray-700 hover:underline"
+                          className="font-bold text-gray-700 hover:underline dark:text-gray-300"
                         >
                           NorthFina Oy
                         </a>{" "}
@@ -75,7 +75,7 @@ const AboutMePage = () => {
                           href={ETUFILLARI_LINK.source}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-bold text-gray-700 hover:underline"
+                          className="font-bold text-gray-700 hover:underline dark:text-gray-300"
                         >
                           Etufillari Oy
                         </a>
@@ -115,7 +115,7 @@ const AboutMePage = () => {
                           href={ESPOO_GAME_LAB_LINK.source}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-bold text-gray-700 hover:underline"
+                          className="font-bold text-gray-700 hover:underline dark:text-gray-300"
                         >
                           Espoo Game LAB
                         </a>{" "}
@@ -150,7 +150,7 @@ const AboutMePage = () => {
                           href={INTEGRIFY_LINK.source}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-bold text-gray-700 hover:underline"
+                          className="font-bold text-gray-700 hover:underline dark:text-gray-300"
                         >
                           Integrify Oy
                         </a>{" "}
@@ -187,7 +187,7 @@ const AboutMePage = () => {
                           href={CLARUSWAY_LINK.source}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-bold text-gray-700 hover:underline"
+                          className="font-bold text-gray-700 hover:underline dark:text-gray-300"
                         >
                           Clarusway
                         </a>{" "}
@@ -224,7 +224,7 @@ const AboutMePage = () => {
                           href={RAIS_GAMES_LINK.source}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-bold text-gray-700 hover:underline"
+                          className="font-bold text-gray-700 hover:underline dark:text-gray-300"
                         >
                           Rais Games Ltd.
                         </a>{" "}
@@ -246,13 +246,16 @@ const AboutMePage = () => {
               </div>
               {/* View Full Resume Button to open my resume on another tab.*/}
               <div className="flex items-center justify-center sm:justify-start gap-2 mt-8">
-                <LuNewspaper className="inline-block mr-2 text-gray-600" size={18} />
+                <LuNewspaper
+                  className="inline-block mr-2 text-gray-600 dark:text-gray-400"
+                  size={18}
+                />
                 <p className="text-sm sm:text-base text-center sm:text-left">
                   <a
                     href={RESUME_LINK.source}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:underline font-bold"
+                    className="text-gray-600 hover:underline font-bold dark:text-gray-400"
                   >
                     View Full Resume
                   </a>

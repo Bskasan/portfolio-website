@@ -4,7 +4,7 @@ import { HTMLMotionProps, motion } from "framer-motion";
 
 const PageWrapper = (props: HTMLMotionProps<"div">) => {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-background">
       <motion.div
         {...props}
         initial={{ opacity: 0 }}

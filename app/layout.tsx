@@ -20,6 +20,21 @@ export const metadata: Metadata = {
   },
 };
 
+// Runs synchronously before first paint to apply the saved (or OS-preferred)
+// theme, preventing a flash of the wrong theme. Stringified because it must
+// execute during HTML parse, before React hydrates.
+const themeInitScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem("theme");
+    var isDark = stored
+      ? stored === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (isDark) document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,8 +42,11 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" className={`${robotoMono.variable}`}>
+      {/* suppressHydrationWarning: the script above mutates the <html> class
+          before hydration, so the client class intentionally differs. */}
+      <html lang="en" className={`${robotoMono.variable}`} suppressHydrationWarning>
         <body className="min-h-full flex flex-col font-mono">
+          <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
           <NavBar />
           <main>{children}</main>
           <GoogleAnalytics gaId="G-VP78F2NX1H" />

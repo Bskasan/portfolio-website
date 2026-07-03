@@ -27,12 +27,14 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
               ))}
             </div>
 
-            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 leading-tight mb-6 dark:text-gray-100">
               {post.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500">
-              <span className="font-medium text-gray-700">{post.author.name}</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
+              <span className="font-medium text-gray-700 dark:text-gray-300">
+                {post.author.name}
+              </span>
               <span>·</span>
               <span>{post.author.role}</span>
               <span>·</span>
@@ -45,13 +47,13 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
           <DivisionLine />
 
           {/* Intro (from frontmatter, keeps your distinct lead styling) */}
-          <p className="flex flex-col mx-auto w-full mt-10 mb-10 text-sm sm:text-base italic text-gray-600 leading-relaxed  max-w-4xl">
+          <p className="flex flex-col mx-auto w-full mt-10 mb-10 text-sm sm:text-base italic text-gray-600 leading-relaxed  max-w-4xl dark:text-gray-400">
             &quot;{post.intro}&quot;
           </p>
 
           <DivisionLine />
 
-          <article className="prose prose-lg text-base prose-gray w-full mt-10 max-w-4xl flex flex-col mx-auto leading leading-relaxed">
+          <article className="prose prose-lg text-base prose-gray w-full mt-10 max-w-4xl flex flex-col mx-auto leading leading-relaxed dark:prose-invert">
             <Content />
           </article>
 
@@ -61,12 +63,12 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
 
           {/* Author Footer */}
           <footer className="w-full mx-auto max-w-4xl mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-900 text-white font-bold text-lg shrink-0">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-900 text-white font-bold text-lg shrink-0 dark:bg-gray-100 dark:text-gray-900">
               {post.author.name.charAt(0)}
             </div>
             <div>
-              <p className="font-semibold text-gray-900">{post.author.name}</p>
-              <p className="text-sm text-gray-500">{post.author.role}</p>
+              <p className="font-semibold text-gray-900 dark:text-gray-100">{post.author.name}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{post.author.role}</p>
             </div>
           </footer>
         </main>

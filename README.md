@@ -25,6 +25,7 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 | Language  | [TypeScript](https://www.typescriptlang.org/)                                                                               |
 | UI        | [React 19](https://react.dev/)                                                                                              |
 | Styling   | [Tailwind CSS v4](https://tailwindcss.com/) + `@tailwindcss/typography`                                                     |
+| Theming   | Class-based light/dark mode via a custom `useTheme` hook (`useSyncExternalStore`) — no extra dependencies                   |
 | Animation | [Framer Motion](https://www.framer.com/motion/) + [next-view-transitions](https://github.com/shuding/next-view-transitions) |
 | Content   | [MDX](https://mdxjs.com/) (`@next/mdx`, `gray-matter`, `remark-frontmatter`)                                                |
 | Icons     | [react-icons](https://react-icons.github.io/react-icons/)                                                                   |
@@ -39,7 +40,8 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 - **MDX-powered blog** — posts are plain `.mdx` files in `content/`. Frontmatter (title, date, tags, author, read time, excerpt) is parsed with `gray-matter`, and each post is pre-rendered as static HTML at build time via `generateStaticParams`.
 - **Project gallery** — a responsive grid of project thumbnails that open detail modals with description, tech stack, status, and live/GitHub links.
 - **Smooth navigation** — page transitions and scroll-reveal animations powered by Framer Motion and the View Transitions API.
-- **Responsive by design** — laid out to look clean and professional across mobile, iPad, and desktop.
+- **Light & dark mode** — an accessible theme toggle in the navbar (moon/sun icons) with no-flash initialization, `localStorage` persistence, and the OS preference as the default — built with a small custom hook, no extra dependencies.
+- **Responsive by design** — laid out to look clean and professional across mobile, iPad, and desktop, with a dedicated mobile navbar that collapses the links into a hamburger dropdown (the theme toggle stays in the bar).
 - **Strict quality gates** — linting and format checks run automatically before `dev`, `build`, and on every commit.
 
 ## Project Structure
@@ -54,13 +56,14 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 │   │   └── [id]/         # Individual MDX post pages
 │   ├── contact/          # Contact / hire / sponsor
 │   ├── games/            # (WIP, hidden from nav)
-│   └── layout.tsx        # Root layout, fonts, analytics, navbar
-├── components/           # Reusable UI (navbar, modals, elements, animations)
+│   └── layout.tsx        # Root layout, fonts, analytics, navbar, theme init
+├── components/           # Reusable UI (navbar + mobile menu + theme toggle, modals, elements, animations)
 ├── constants/            # Static data: nav links, skills, projects, socials
 ├── content/              # Blog posts as .mdx files
+├── hooks/                # Custom React hooks (useTheme, useScrollReveal)
 ├── lib/                  # Helpers (blog loading) and shared types
 ├── public/images/        # Static images and thumbnails
-├── styles/globals.css    # Global styles + Tailwind
+├── styles/globals.css    # Global styles, theme tokens + Tailwind
 └── mdx-components.tsx     # MDX component overrides
 ```
 
@@ -118,7 +121,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Adding a Project
 
-Add an entry to `MOCK_PROJECTS` in [`constants/projects.ts`](constants/projects.ts) with a name, description, thumbnail, tech stack, status, and optional live/GitHub URLs.
+Add an entry to `PROJECTS` in [`constants/projects.ts`](constants/projects.ts) with a name, description, thumbnail, tech stack, status, and optional live/GitHub URLs.
+
+## Theming (light & dark)
+
+The site ships both a light and a dark theme:
+
+- The active theme is a `.dark` class on `<html>`, flipped by the navbar toggle. Tailwind's `dark:` variant is wired to that class (`@custom-variant dark` in [`styles/globals.css`](styles/globals.css)) rather than the OS media query.
+- A tiny inline script in the root layout applies the saved (or OS-preferred) theme **before first paint**, so there's no flash of the wrong theme.
+- [`hooks/useTheme.ts`](hooks/useTheme.ts) reads and toggles the theme via `useSyncExternalStore` and persists the choice to `localStorage` (with cross-tab sync).
+- Colors come from semantic tokens in `globals.css` — `--background` / `--foreground` plus `--surface` / `--surface-2` / `--line` for elevated cards, chips, and borders (all overridden under `.dark`, where the dark palette is an indigo family derived from `#090040`). Components use Tailwind `dark:` utilities (`dark:bg-surface`, `dark:border-line`, …); to theme new markup, add `dark:` classes alongside the light ones.
 
 ## Connect
 

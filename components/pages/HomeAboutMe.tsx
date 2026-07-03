@@ -51,7 +51,7 @@ const HomeAboutMe = () => {
                 href="https://mindbase-ten.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold text-gray-700 hover:underline"
+                className="font-bold text-gray-700 hover:underline dark:text-gray-300"
               >
                 MindBase
               </a>
