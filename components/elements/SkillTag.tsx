@@ -16,6 +16,8 @@ const SkillTag = ({ name }: SkillTagProps) => {
         whitespace-nowrap select-none cursor-default
         transition-colors duration-150 ease-in-out
         hover:bg-neutral-900 hover:text-white
+        dark:border-neutral-100 dark:text-neutral-100
+        dark:hover:bg-neutral-100 dark:hover:text-neutral-900
       "
     >
       {name}

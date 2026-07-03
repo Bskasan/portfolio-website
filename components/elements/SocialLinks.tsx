@@ -15,7 +15,7 @@ const SocialLinks = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.name}
-                  className="flex items-center gap-2 text-sm sm:text-base font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                  className="flex items-center gap-2 text-sm sm:text-base font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200 dark:text-gray-300 dark:hover:text-gray-100"
                 >
                   {link.name}
                   <Icon size={24} />

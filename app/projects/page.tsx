@@ -22,8 +22,10 @@ const ProjectsPage = () => {
         <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-4 sm:px-8">
           {/* Page Header */}
           <div className="flex flex-col items-center mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">Projects</h1>
-            <p className="mt-3 text-base text-gray-500 max-w-lg text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight dark:text-gray-100">
+              Projects
+            </h1>
+            <p className="mt-3 text-base text-gray-500 max-w-lg text-center dark:text-gray-400">
               Things I&apos;ve built — side projects, tools, and experiments. You can check my
               github page to see more about my projects.
             </p>
@@ -71,7 +73,7 @@ const ProjectsPage = () => {
           />
 
           {projects.length === 0 && (
-            <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2">
+            <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2 dark:text-gray-500">
               <p className="text-lg font-medium">No projects yet.</p>
               <p className="text-sm">Check back soon.</p>
             </div>
