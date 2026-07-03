@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
 
-cd frontend
 echo "Checking Next.js build..."
 npx next build

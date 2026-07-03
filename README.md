@@ -45,7 +45,7 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 ## Project Structure
 
 ```
-frontend/
+.
 ├── app/                  # App Router routes
 │   ├── page.tsx          # Home
 │   ├── about/            # About + experience timeline
