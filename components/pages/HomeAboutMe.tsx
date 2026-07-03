@@ -17,7 +17,7 @@ const HomeAboutMe = () => {
           <h1 className="text-3xl sm:text-4xl font-bold text-center">Bekir Kasan</h1>
           <h2 className="text-xl sm:text-2xl font-semibold text-center">Software Developer</h2>
           <h3 className="text-base sm:text-lg text-center">
-            Full Stack Developer & Game Developer
+            Full Stack Developer & Indie Game Developer
           </h3>
         </div>
 

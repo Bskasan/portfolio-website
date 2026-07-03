@@ -38,7 +38,6 @@ const ProjectsPage = () => {
           </div>
 
           {/* Project List */}
-          {/* TODO: Map over real fetched projects once API is connected */}
           <ul className="w-full flex flex-wrap justify-center gap-6 sm:gap-8 mt-2">
             {projects.map((project) => (
               <li key={project.id} className="w-full sm:w-80">

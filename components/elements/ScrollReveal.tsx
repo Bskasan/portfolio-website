@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
-  delay?: number; // stagger support in ms e.g. 100, 200
+  delay?: number;
 }
 
 export default function ScrollReveal({ children, delay = 0 }: ScrollRevealProps) {
