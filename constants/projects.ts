@@ -22,8 +22,8 @@ export const PROJECTS: ProjectMetaData[] = [
     description:
       "The very site you're on. A minimal, fast personal portfolio built to showcase projects and writing without getting in the way. Designed with intention — clean typography, subtle structure, zero clutter.",
     thumbnail: "/images/ronindev-logo.png", // TODO: Add a real screenshot of your portfolio
-    liveUrl: "/", // TODO: Replace with your actual portfolio URL when deployed
-    githubUrl: null, // TODO: Add GitHub repo URL when ready
+    liveUrl: "https://www.bskasan.dev/", // TODO: Replace with your actual portfolio URL when deployed
+    githubUrl: "https://github.com/Bskasan/real-portfolio", // TODO: Add GitHub repo URL when ready
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Github Actions(CI)", "Husky"],
     year: "2026",
     status: {
