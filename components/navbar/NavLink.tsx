@@ -11,7 +11,6 @@ interface NavLinkProps {
   href: string;
   children: ReactNode;
   classNameAttr?: string;
-  // Fired right before navigation — lets the mobile menu close itself on select.
   onNavigate?: () => void;
 }
 
@@ -19,7 +18,6 @@ const AnimatedNavLink = ({ href, children, classNameAttr, onNavigate }: NavLinkP
   const pathName = usePathname();
   const router = useTransitionRouter();
 
-  // To syle active link
   const isActive = href === "/" ? pathName === "/" : pathName.startsWith(href);
 
   return (

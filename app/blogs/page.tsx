@@ -81,7 +81,6 @@ const BlogsPage = () => {
           <DivisionLine />
 
           {/* Empty State — shown when no posts exist */}
-          {/* TODO: Remove once real posts are loading */}
           {posts.length === 0 && (
             <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2 dark:text-gray-500">
               <p className="text-lg font-medium">No posts yet.</p>

@@ -42,8 +42,6 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      {/* suppressHydrationWarning: the script above mutates the <html> class
-          before hydration, so the client class intentionally differs. */}
       <html lang="en" className={`${robotoMono.variable}`} suppressHydrationWarning>
         <body className="min-h-full flex flex-col font-mono">
           <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />

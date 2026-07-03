@@ -1,10 +1,11 @@
-"use client"; // Interactive: reads the active theme and toggles it via the DOM.
+"use client";
 
 import { LuMoon, LuSun } from "react-icons/lu";
 import { useTheme } from "@/hooks/useTheme";
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
+
   // Server/hydration renders "light" (the moon), then syncs to the real theme
   // after hydration — no mismatch thanks to useSyncExternalStore.
   const isDark = theme === "dark";

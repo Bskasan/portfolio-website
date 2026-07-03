@@ -5,7 +5,6 @@ import { NAV_LINKS } from "@/constants/navbar";
 
 const NavBar = () => {
   return (
-    // relative + z-50 so the mobile dropdown overlays the page content below.
     <header
       className="relative z-50 w-full bg-white backdrop-blur-sm dark:bg-background"
       style={{ viewTransitionName: "navbar" }}

@@ -1,11 +1,11 @@
-"use client"; // Interactive: holds the menu open/close state and Escape + scroll-lock effects.
+"use client";
+
+import ThemeToggle from "./ThemeToggle";
+import AnimatedNavLink from "./NavLink";
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { LuMenu, LuX } from "react-icons/lu";
-
-import AnimatedNavLink from "./NavLink";
-import ThemeToggle from "./ThemeToggle";
 import { NAV_LINKS } from "@/constants/navbar";
 
 const MobileNav = () => {
@@ -13,7 +13,6 @@ const MobileNav = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const close = () => setOpen(false);
 
-  // Close on Escape and hand focus back to the toggle for keyboard users.
   useEffect(() => {
     if (!open) return;
 
@@ -28,7 +27,6 @@ const MobileNav = () => {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [open]);
 
-  // Lock background scroll while open so the page can't slide behind the menu.
   useEffect(() => {
     if (!open) return;
 
@@ -38,8 +36,6 @@ const MobileNav = () => {
     };
   }, [open]);
 
-  // The desktop layout takes over at `sm`; if the viewport grows while the menu
-  // is open, close it so the scroll lock is released and state stays consistent.
   useEffect(() => {
     const desktop = window.matchMedia("(min-width: 640px)");
     const handleChange = () => {
