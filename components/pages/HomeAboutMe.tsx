@@ -15,10 +15,19 @@ const HomeAboutMe = () => {
 
         <div className="flex flex-col items-center justify-center gap-1">
           <h1 className="text-3xl sm:text-4xl font-bold text-center">Bekir Kasan</h1>
+
           <h2 className="text-xl sm:text-2xl font-semibold text-center">Software Developer</h2>
+
           <h3 className="text-base sm:text-lg text-center">
             Full Stack Developer & Indie Game Developer
           </h3>
+
+          {/* Base Skills */}
+          <div className="flex flex-wrap justify-center gap-2 mt-2">
+            <span>TypeScript *</span>
+            <span>Next.js *</span>
+            <span>Azure</span>
+          </div>
         </div>
 
         <SocialLinks />
@@ -44,20 +53,9 @@ const HomeAboutMe = () => {
             games.
           </p>
           <p className="text-sm sm:text-base text-center sm:text-left">
-            Currently working on my own hobby project,
-            <span>
-              {" "}
-              <a
-                href="https://mindbase-ten.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold text-gray-700 hover:underline dark:text-gray-300"
-              >
-                MindBase
-              </a>
-            </span>
-             which is a personal content management app that helps you save, organize, and schedule
-            the articles, videos, podcasts, and other resources you want to consume later.
+            Currently, I am working on my personal projects and open to new opportunities and
+            collaborations. If you&apos;re interested in working together or just want to say hi,
+            feel free to reach out!
           </p>
         </div>
       </section>
