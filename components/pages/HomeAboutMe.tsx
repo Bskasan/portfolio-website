@@ -24,9 +24,9 @@ const HomeAboutMe = () => {
 
           {/* Base Skills */}
           <div className="flex flex-wrap justify-center gap-2 mt-2">
-            <span>TypeScript *</span>
-            <span>Next.js *</span>
-            <span>Azure</span>
+            <span className="italic">TypeScript *</span>
+            <span className="italic">Next.js *</span>
+            <span className="italic">Azure</span>
           </div>
         </div>
 
