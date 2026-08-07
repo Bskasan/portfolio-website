@@ -129,15 +129,17 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
 
           <div className="mt-2 flex flex-wrap gap-3">
             {/* liveUrl is a required string, so this always renders. */}
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer" // prevents reverse tabnabbing
-              className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-300 dark:focus-visible:outline-slate-100"
-            >
-              Visit project
-              <ExternalLinkIcon />
-            </a>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl ? project.liveUrl : "#"}
+                target="_blank"
+                rel="noopener noreferrer" // prevents reverse tabnabbing
+                className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-300 dark:focus-visible:outline-slate-100"
+              >
+                Visit project
+                <ExternalLinkIcon />
+              </a>
+            )}
 
             {project.githubUrl && (
               <a

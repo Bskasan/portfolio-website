@@ -3,10 +3,10 @@ export type ProjectMetaData = {
   name: string;
   description: string;
   thumbnail: string | null;
-  liveUrl: string;
+  liveUrl: string | null;
   githubUrl: string | null;
   techStack: string[];
-  year: string;
+  year: string | null;
   status: ProjectStatus;
 };
 

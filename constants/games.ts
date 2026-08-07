@@ -1,57 +1,79 @@
 import { ProjectMetaData } from "@/lib/types/project";
 
-export const GAMES: ProjectMetaData[] = [
+export const COURSE_GAMES: ProjectMetaData[] = [
   {
-    id: "chronos-awakening",
-    name: "Chronos Awakening",
+    id: "escape-space-game",
+    name: "Escape Space",
     description:
-      "An action-RPG set in a time-bending universe where players must manipulate past and future events to solve intricate puzzles and defeat ancient deities. Built with a heavy emphasis on community modding, it features real-time ray tracing, procedural world generation, and an innovative AI-driven dynamic dialogue system. The project serves as an open-source sandbox for developers wanting to learn advanced C++ mechanics in a production-grade custom engine.",
-    thumbnail: "/images/games/chronos-thumbnail.png",
-    liveUrl: "https://www.chronosawakening.com/",
-    githubUrl: "https://github.com/MockStudio/chronos-engine",
-    techStack: [
-      "Unreal Engine 5",
-      "C++",
-      "FMOD",
-      "Blender",
-      "AWS GameLift",
-      "Python",
-      "DirectX 12",
-      "Docker",
-      "Supabase",
-      "Google Test",
-    ],
-    year: "2026",
-    status: {
-      key: "notready",
-      value: "In Progress",
-    },
-  },
-  {
-    id: "neon-drifter",
-    name: "Neon Drifter",
-    description:
-      "A fast-paced, cyberpunk hover-racing game with synthwave aesthetics. Designed with intention — hyper-optimized graphics, zero-gravity drift mechanics, and a globally scalable multiplayer architecture without the usual matchmaking clutter.",
-    thumbnail: "/images/games/neon-drifter-logo.png",
-    liveUrl: "https://www.neondriftergame.dev/",
-    githubUrl: "https://github.com/MockStudio/neon-drifter",
-    techStack: ["Unity", "C#", "Photon Fusion", "HLSL", "Jenkins(CI)", "Figma"],
-    year: "2026",
+      "A simple space game where you control a spaceship and navigate through challenging obstacles. This project was created while I was learning the Unity Game Engine and the C# programming language.",
+    thumbnail: "/images/games/escape-space-game.png",
+    liveUrl: null,
+    githubUrl: "https://github.com/Bskasan/EscapeSpaceGame/tree/main",
+    techStack: ["Unity", "C#", "GitHub"],
+    year: null,
     status: {
       key: "archived",
       value: "Done",
     },
   },
   {
-    id: "tavern-keeper-overlay",
-    name: "Tavern Keeper Twitch Overlay",
+    id: "click-game",
+    name: "Clicky Mouse",
     description:
-      "A sleek, interactive stream overlay designed as an OBS Browser Source for Twitch streamers playing 'Tavern Keeper'. Allows viewers to spawn patrons and vote on events via chat. Features a modern UI, persistent state, and easy customization via URL parameters.",
-    thumbnail: "/images/games/tavern-icon-new.png",
-    liveUrl: "https://mockstudio.github.io/tavern-obs-overlay/",
-    githubUrl: "https://github.com/MockStudio/tavern-obs-overlay",
-    techStack: ["JavaScript", "HTML5/CSS", "Twitch API", "WebSockets"],
-    year: "2026",
+      "A simple clicker game where you click objects to earn points while avoiding bombs, which make you lose your points. This project was created while I was learning the Unity Game Engine and the C# programming language.",
+    thumbnail: "/images/games/click-game.png",
+    liveUrl: null,
+    githubUrl: "https://github.com/Bskasan/EscapeSpaceGame/tree/main",
+    techStack: ["Unity", "C#", "GitHub"],
+    year: null,
+    status: {
+      key: "archived",
+      value: "Done",
+    },
+  },
+  {
+    id: "sumo-game",
+    name: "Mini Arcade-Style Sumo Game",
+    description:
+      "An arcade-style sumo battle game where players must knock increasingly challenging waves of enemies off a floating island while collecting power-ups to gain an advantage. This project was created while learning the Unity Game Engine and the C# programming language.",
+    thumbnail: "/images/games/sumo-game.png",
+    liveUrl: null,
+    githubUrl: "https://github.com/Bskasan/MiniArcadeStyleSumoGamePrototype-ULP-",
+    techStack: ["Unity", "C#", "GitHub"],
+    year: null,
+    status: {
+      key: "archived",
+      value: "Done",
+    },
+  },
+];
+
+export const MY_GAMES: ProjectMetaData[] = [
+  {
+    id: "chinese-runner",
+    name: "Chinese Runner",
+    description:
+      "An endless runner mobile game prototype developed as part of a game developer internship assignment for Rais Games Ltd.",
+    thumbnail: "/images/games/chinese-runner.png",
+    liveUrl: null,
+    githubUrl: "https://github.com/Bskasan/ChineseRunner",
+    techStack: ["Unity", "C#"],
+    year: null,
+    status: {
+      key: "archived",
+      value: "Done",
+    },
+  },
+  {
+    id: "throwing-card-game",
+    name: "Throwing Card Game",
+    description:
+      "A card-throwing game where I learned how to implement a card-throwing mechanic and the mathematics behind it.",
+    thumbnail: "/images/games/throwing-card-game.png",
+    liveUrl: null,
+    githubUrl: "https://github.com/Bskasan/ClickyMouseGame",
+    techStack: ["Unity", "C#"],
+    year: null,
     status: {
       key: "archived",
       value: "Done",

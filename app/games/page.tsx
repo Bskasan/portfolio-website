@@ -9,9 +9,10 @@ import ProjectModal from "@/components/modals/ProjectModal";
 import { ThumbnailPlaceholder } from "@/components/elements/ThumbnailPlaceholder";
 import { ProjectMetaData } from "@/lib/types/project";
 import { useState } from "react";
-import { GAMES } from "@/constants/games";
+import { COURSE_GAMES, MY_GAMES } from "@/constants/games";
 
-const games: ProjectMetaData[] = GAMES;
+const courseGames: ProjectMetaData[] = COURSE_GAMES;
+const myGames: ProjectMetaData[] = MY_GAMES;
 
 const GamesPage = () => {
   const [selected, setSelected] = useState<ProjectMetaData | null>(null);
@@ -26,8 +27,8 @@ const GamesPage = () => {
               Games
             </h1>
             <p className="mt-3 text-base text-gray-500 max-w-lg text-center dark:text-gray-400">
-              Indie games, prototypes, and gameplay experiments. Visit my itch.io page to play my
-              games and follow my journey as an indie game developer.
+              A collection of game projects I&apos;ve developed. You can check my GitHub page to see
+              more about my game projects and source code.
             </p>
           </div>
 
@@ -37,9 +38,47 @@ const GamesPage = () => {
             <DivisionLine />
           </div>
 
+          <div className="flex flex-col items-center mx-auto my-12">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight dark:text-gray-100">
+              My Game Projects
+            </h1>
+          </div>
+
+          <ul className="w-full flex flex-wrap justify-center gap-6 sm:gap-8 mt-2">
+            {myGames.map((game) => (
+              <li key={game.id} className="w-full sm:w-80">
+                <button
+                  type="button"
+                  onClick={() => setSelected(game)}
+                  className="w-full aspect-square rounded-xl overflow-hidden block group relative cursor-pointer"
+                >
+                  {game.thumbnail ? (
+                    <Image
+                      src={game.thumbnail}
+                      alt={`${game.name} thumbnail`}
+                      width={320}
+                      loading="eager"
+                      height={320}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <ThumbnailPlaceholder name={game.name} />
+                  )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl" />
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-col items-center mx-auto my-12">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight dark:text-gray-100">
+              Course Games
+            </h1>
+          </div>
+
           {/* Game List */}
           <ul className="w-full flex flex-wrap justify-center gap-6 sm:gap-8 mt-2">
-            {games.map((game) => (
+            {courseGames.map((game) => (
               <li key={game.id} className="w-full sm:w-80">
                 <button
                   type="button"
@@ -71,12 +110,13 @@ const GamesPage = () => {
             onClose={() => setSelected(null)}
           />
 
-          {games.length === 0 && (
-            <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2 dark:text-gray-500">
-              <p className="text-lg font-medium">No games yet.</p>
-              <p className="text-sm">Check back soon.</p>
-            </div>
-          )}
+          {courseGames.length === 0 ||
+            (myGames.length === 0 && (
+              <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2 dark:text-gray-500">
+                <p className="text-lg font-medium">No games yet.</p>
+                <p className="text-sm">Check back soon.</p>
+              </div>
+            ))}
         </main>
       </div>
     </PageWrapper>
