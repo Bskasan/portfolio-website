@@ -71,7 +71,7 @@ export const MY_GAMES: ProjectMetaData[] = [
       "A card-throwing game where I learned how to implement a card-throwing mechanic and the mathematics behind it.",
     thumbnail: "/images/games/throwing-card-game.png",
     liveUrl: null,
-    githubUrl: "https://github.com/Bskasan/ClickyMouseGame",
+    githubUrl: "https://github.com/Bskasan/ThrowingCardGame",
     techStack: ["Unity", "C#"],
     year: null,
     status: {

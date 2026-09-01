@@ -2,6 +2,7 @@ import SkillTag from "@/components/elements/SkillTag";
 import ScrollReveal from "@/components/elements/ScrollReveal";
 import PersonalMetaData from "@/components/pages/PersonalMetaData";
 import PageWrapper from "@/components/animated/PageWrapper";
+import TransitionLink from "@/components/elements/TransitionLink";
 
 import { LuNewspaper } from "react-icons/lu";
 import {
@@ -11,7 +12,6 @@ import {
   INTEGRIFY_LINK,
   NORTHFINA_LINK,
   RAIS_GAMES_LINK,
-  RESUME_LINK,
 } from "@/constants/links";
 import {
   CLARUSWAY,
@@ -244,21 +244,19 @@ const AboutMePage = () => {
                   </div>
                 </ScrollReveal>
               </div>
-              {/* View Full Resume Button to open my resume on another tab.*/}
+              {/* View Full Resume: routes to the /cv page with the site's page transition. */}
               <div className="flex items-center justify-center sm:justify-start gap-2 mt-8">
                 <LuNewspaper
                   className="inline-block mr-2 text-gray-600 dark:text-gray-400"
                   size={18}
                 />
                 <p className="text-sm sm:text-base text-center sm:text-left">
-                  <a
-                    href={RESUME_LINK.source}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <TransitionLink
+                    href="/cv"
                     className="text-gray-600 hover:underline font-bold dark:text-gray-400"
                   >
                     View Full Resume
-                  </a>
+                  </TransitionLink>
                 </p>
               </div>
             </section>
