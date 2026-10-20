@@ -121,7 +121,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Adding a Project
 
-Add an entry to `PROJECTS` in [`constants/projects.ts`](constants/projects.ts) with a name, description, thumbnail, tech stack, status, and optional live/GitHub URLs.
+Add an entry to `PROJECTS` in [`constants/projects.ts`](constants/projects.ts) with a name, description, thumbnail, tech stack, status, and optional live/GitHub URLs. An optional `logo` replaces the thumbnail on the Projects page card only; the project modal keeps showing the thumbnail.
 
 ## Theming (light & dark)
 

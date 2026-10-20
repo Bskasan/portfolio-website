@@ -7,6 +7,7 @@ export const PROJECTS: ProjectMetaData[] = [
     description:
       "A small, fast, Emacs-style code editor for Windows, written in C with no dependencies. Built around three goals in a fixed order: input latency first, a small and simple program second, features third. A keystroke and its frame take about 20 microseconds, and the whole editor is a single executable under half a megabyte. It has projects, a fuzzy file finder, background search, build with jump-to-error, a git changes view, multiple cursors and themes.",
     thumbnail: "/images/projects/ronin-text-editor-thumbnail.png",
+    logo: "/images/projects/ronin-text-editor-logo.png",
     liveUrl: "https://bskasan.github.io/ronin-text-editor/",
     githubUrl: "https://github.com/Bskasan/ronin-text-editor",
     techStack: [
