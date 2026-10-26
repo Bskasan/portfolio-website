@@ -1,6 +1,7 @@
 "use client";
 
 import PageWrapper from "@/components/animated/PageWrapper";
+import EmptyState from "@/components/elements/EmptyState";
 import ProjectModal from "@/components/modals/ProjectModal";
 import PageHead from "@/components/pages/PageHead";
 import CartridgeBay from "@/components/pages/CartridgeBay";
@@ -35,10 +36,7 @@ const ProjectsPage = () => {
       {projects.length > 0 ? (
         <CartridgeBay items={projects} slotPrefix="P" onOpen={setSelected} />
       ) : (
-        <div className="flex flex-col items-center justify-center gap-2 py-20 text-phos-dim">
-          <p className="font-display text-2xl">NO CARTRIDGES FOUND.</p>
-          <p className="text-sm">Check back soon.</p>
-        </div>
+        <EmptyState title="NO CARTRIDGES FOUND." />
       )}
 
       <ProjectModal project={selected} open={selected !== null} onClose={() => setSelected(null)} />

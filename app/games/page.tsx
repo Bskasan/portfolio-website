@@ -1,6 +1,7 @@
 "use client";
 
 import PageWrapper from "@/components/animated/PageWrapper";
+import EmptyState from "@/components/elements/EmptyState";
 import ProjectModal from "@/components/modals/ProjectModal";
 import PageHead from "@/components/pages/PageHead";
 import CartridgeBay from "@/components/pages/CartridgeBay";
@@ -53,12 +54,7 @@ const GamesPage = () => {
       )}
 
       {/* Empty state: only when there are no games at all. */}
-      {allGames.length === 0 && (
-        <div className="flex flex-col items-center justify-center gap-2 py-20 text-phos-dim">
-          <p className="font-display text-2xl">NO CARTRIDGES FOUND.</p>
-          <p className="text-sm">Check back soon.</p>
-        </div>
-      )}
+      {allGames.length === 0 && <EmptyState title="NO CARTRIDGES FOUND." />}
 
       <ProjectModal project={selected} open={selected !== null} onClose={() => setSelected(null)} />
     </PageWrapper>

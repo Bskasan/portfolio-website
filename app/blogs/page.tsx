@@ -1,4 +1,5 @@
 import PageWrapper from "@/components/animated/PageWrapper";
+import EmptyState from "@/components/elements/EmptyState";
 import PageHead from "@/components/pages/PageHead";
 import TransitionLink from "@/components/elements/TransitionLink";
 import Tag from "@/components/elements/Tag";
@@ -60,12 +61,7 @@ const BlogsPage = () => {
         </p>
 
         {/* Empty State — shown when no posts exist */}
-        {posts.length === 0 && (
-          <div className="flex flex-col items-center justify-center gap-2 py-20 text-phos-dim">
-            <p className="font-display text-2xl">NO POSTS YET.</p>
-            <p>Check back soon.</p>
-          </div>
-        )}
+        {posts.length === 0 && <EmptyState title="NO POSTS YET." />}
       </div>
     </PageWrapper>
   );
