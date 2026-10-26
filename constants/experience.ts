@@ -32,7 +32,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     id: "B",
-    period: "Mar 2023 – Sep 2024",
+    period: "Mar 2024 – Sep 2024",
     role: "Software Developer (Game programming)",
     organizations: [{ name: "Espoo Game LAB", url: ESPOO_GAME_LAB_LINK.source }],
     where: "Espoo",
@@ -42,7 +42,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     id: "C",
-    period: "Mar 2023 – Sep 2024",
+    period: "Jan 2024 – Jun 2024",
     role: "Full-stack Developer Trainee",
     organizations: [{ name: "Integrify Oy", url: INTEGRIFY_LINK.source }],
     where: "Remote",
@@ -52,7 +52,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     id: "D",
-    period: "Mar 2023 – Sep 2024",
+    period: "Nov 2022 – Jul 2023",
     role: "Full-stack Developer Trainee",
     organizations: [{ name: "Clarusway", url: CLARUSWAY_LINK.source }],
     where: "Remote",
