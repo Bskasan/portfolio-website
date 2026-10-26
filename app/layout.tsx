@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Bekir Kasan - Portfolio & Personal Blog",
   description: "Bekir Kasan's personal portfolio website.",
   icons: {
-    icon: "/images/ronindev-logo.png",
+    icon: "/images/projects/ronindev-logo.png",
   },
 };
 
