@@ -2,11 +2,27 @@ import PageWrapper from "@/components/animated/PageWrapper";
 import TagElement from "@/components/elements/Tag";
 import TransitionLink from "@/components/elements/TransitionLink";
 
-import { getPostFrontmatter } from "@/lib/blogs";
+import type { Metadata } from "next";
+import { getAllSlugs, getPostFrontmatter } from "@/lib/blogs";
 import { Tag } from "@/lib/types/blogMeta";
+
+// Pre-render every post at build time as static HTML
+export function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ id: slug }));
+}
 
 // Any /blogs/[id] not in the list above returns 404
 export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const post = getPostFrontmatter(id);
+  return { title: post.title, description: post.excerpt };
+}
 
 const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
