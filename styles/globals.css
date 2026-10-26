@@ -113,6 +113,15 @@
     background: var(--room);
     scrollbar-width: thin;
     scrollbar-color: var(--phos-faint) var(--room);
+    /*
+      The sticky top bar and the fixed command line cover the top and bottom of
+      the screen. Scroll padding makes the browser keep focused elements (Tab) and
+      anchor targets clear of both, instead of scrolling them just underneath.
+    */
+    scroll-padding-top: calc(var(--screen-top) + var(--topbar-h) + 12px);
+    scroll-padding-bottom: calc(
+      var(--screen-bottom) + var(--status-h) + env(safe-area-inset-bottom, 0px) + 12px
+    );
   }
 
   body {
