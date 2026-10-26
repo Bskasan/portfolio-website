@@ -40,7 +40,7 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 - **Project gallery** — a responsive grid of project thumbnails that open detail modals with description, tech stack, status, and live/GitHub links.
 - **Smooth navigation** — page transitions and scroll-reveal animations powered by Framer Motion and the View Transitions API.
 - **Screen settings** — a PHOSPHOR (green / amber / white) and FX (off / subtle / full) control in the top-right of the screen (inside the menu on phones), with no-flash initialization, `localStorage` persistence and cross-tab sync — built with a small custom hook, no extra dependencies.
-- **Command line** — type `help` at the bottom of the screen: open pages, `open <project>`, `theme amber`, `fx off`, `read`… Keys `1`–`6` switch pages and `/` focuses the command line.
+- **Command line** — type `help` at the bottom of the screen: open pages, `open <project>`, `theme amber`, `fx off`, `read`… Keys `1`–`6` switch pages and `/` focuses the command line; `keys off` turns these single-key shortcuts off (saved per browser).
 - **Responsive by design** — on desktop and tablet the site sits inside a CRT monitor; on phones the bezel drops away and the screen runs edge to edge, with a MENU dropdown that holds the links and the screen settings.
 - **Accessible effects** — effects can be turned off, `prefers-reduced-motion` disables flicker and animations, and long blog posts switch to a calmer reading mode.
 - **Strict quality gates** — linting and format checks run automatically before `dev`, `build`, and on every commit.

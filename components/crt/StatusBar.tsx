@@ -14,6 +14,7 @@ import { useTransitionRouter } from "next-view-transitions";
 
 import { pageAnimation } from "@/lib/animations/pageAnimation";
 import { isFxLevel, isPhosphor, setFxLevel, setPhosphor } from "@/lib/screenSettings";
+import { setShortcutsEnabled, shortcutsEnabled } from "@/lib/keyboardShortcuts";
 import { OPEN_ITEM_EVENT } from "@/lib/commandEvents";
 import { NAV_LINKS } from "@/constants/navbar";
 import { PROJECTS } from "@/constants/projects";
@@ -59,8 +60,9 @@ const HELP = [
   "  read               open the latest blog post",
   "  theme green|amber|white   change phosphor colour",
   "  fx off|subtle|full         change screen effects",
+  "  keys on|off        turn the single-key shortcuts on or off",
   "  whoami | date | boot | clear",
-  "SHORTCUTS: 1-6 switch pages · / focuses this line · ESC closes windows",
+  "SHORTCUTS: 1-6 switch pages · / focuses this line · ESC closes windows (KEYS OFF disables 1-6 and /)",
 ];
 
 const BOOT_LINES = [
@@ -139,6 +141,7 @@ const StatusBar = ({ posts }: StatusBarProps) => {
   useEffect(() => {
     const onKeyDown = (event: globalThis.KeyboardEvent) => {
       if (isTyping(event.target) || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (!shortcutsEnabled()) return;
       if (document.querySelector("dialog[open]")) return;
 
       const links = NAV_LINKS.filter((link) => link.isVisible);
@@ -272,6 +275,19 @@ const StatusBar = ({ posts }: StatusBarProps) => {
       setLog([]);
       setConsoleOpen(false);
       return;
+    }
+    if (command === "keys" || command === "shortcuts") {
+      if (arg === "on" || arg === "off") {
+        setShortcutsEnabled(arg === "on");
+        return out(
+          arg === "on"
+            ? "Keyboard shortcuts ON: 1-6 switch pages, / focuses this line."
+            : "Keyboard shortcuts OFF. Type KEYS ON to turn them back on.",
+        );
+      }
+      return out(
+        `Keyboard shortcuts are ${shortcutsEnabled() ? "ON" : "OFF"}. Use: keys on or keys off.`,
+      );
     }
     if (command === "sudo") {
       go("/contact");
