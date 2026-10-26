@@ -53,7 +53,7 @@ const HomeScreen = ({ postCount }: HomeScreenProps) => {
           </p>
           <p className="mt-1.5 text-phos-dim">Full-stack developer &amp; indie game developer</p>
           <div
-            className="mt-3.5 flex flex-wrap gap-3.5 font-display text-[22px] tracking-[0.08em]"
+            className="mt-3.5 flex flex-wrap gap-3.5 font-display text-ui tracking-[0.08em]"
             aria-label="Core stack"
           >
             {PROFILE.coreStack
@@ -135,7 +135,7 @@ const HomeScreen = ({ postCount }: HomeScreenProps) => {
         {stats.map((stat) => (
           <div key={stat.label} className="flex flex-col">
             <span className="text-xs tracking-[0.1em] text-phos-dim uppercase">{stat.label}</span>
-            <span className="font-display text-[34px] leading-none tabular-nums">{stat.value}</span>
+            <span className="font-display text-stat leading-none tabular-nums">{stat.value}</span>
           </div>
         ))}
       </div>

@@ -21,7 +21,7 @@ const BlogsPage = () => {
       </PageHead>
 
       <div className="text-sm">
-        <p className="mb-3.5 font-display text-[26px]">C:\BSKASAN\BLOG&gt; DIR</p>
+        <p className="mb-3.5 font-display text-sub">C:\BSKASAN\BLOG&gt; DIR</p>
         <div className="dir-cols" aria-hidden="true">
           <span>DATE</span>
           <span>SIZE</span>
@@ -47,7 +47,7 @@ const BlogsPage = () => {
                   </span>
                   <span className="dir-title">{post.title}</span>
                   <span className="max-w-[70ch] text-phos-dim">{post.excerpt}</span>
-                  <span className="text-[13px] text-phos-dim">
+                  <span className="text-meta text-phos-dim">
                     {post.author.name} · {post.readTime}
                   </span>
                 </span>

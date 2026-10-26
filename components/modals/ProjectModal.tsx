@@ -75,13 +75,13 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
     >
       {/* Inner panel owns ALL padding so the dialog edge === backdrop. */}
       <div className="flex flex-col">
-        <div className="hbar sticky top-0 z-10 flex items-center justify-between gap-2.5 py-0.5 pr-1 pl-3 font-display text-[21px] tracking-[0.06em]">
+        <div className="hbar sticky top-0 z-10 flex items-center justify-between gap-2.5 py-0.5 pr-1 pl-3 font-display text-bar tracking-[0.06em]">
           <span className="truncate">LOAD://{project.id}.cart</span>
           <button
             type="button"
             onClick={() => dialogRef.current?.close()}
             aria-label="Close dialog"
-            className="bg-glass px-2.5 font-display text-[21px] text-phos hover:bg-phos-faint"
+            className="bg-glass px-2.5 font-display text-bar text-phos hover:bg-phos-faint"
           >
             [ X ]
           </button>
@@ -100,11 +100,11 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
         )}
 
         <div className="flex flex-col gap-3.5 px-5 pt-[18px] pb-[22px]">
-          <h2 id={titleId} className="text-[40px] uppercase">
+          <h2 id={titleId} className="text-heading uppercase">
             {project.name}
           </h2>
 
-          <dl className="grid grid-cols-[90px_minmax(0,1fr)] gap-x-3 gap-y-1.5 text-[13px] frame:grid-cols-[110px_minmax(0,1fr)]">
+          <dl className="grid grid-cols-[90px_minmax(0,1fr)] gap-x-3 gap-y-1.5 text-meta frame:grid-cols-[110px_minmax(0,1fr)]">
             <dt className="kv-label">STATUS</dt>
             <dd>
               <span className={statusClass}>{project.status.value}</span>

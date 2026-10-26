@@ -66,7 +66,7 @@ const ExperienceRegister = ({ entries }: ExperienceRegisterProps) => {
                   </span>
                 </button>
                 <div id={detailId} className="reg-detail" hidden={!isOpen}>
-                  <p className="text-[13px] text-phos-dim">
+                  <p className="text-meta text-phos-dim">
                     ORG:{" "}
                     {entry.organizations.map((org, orgIndex) => (
                       <Fragment key={org.name}>

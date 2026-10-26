@@ -13,7 +13,7 @@ const CVHeader = ({ header }: CVHeaderProps) => {
       <h1 id="cv-name" className="text-[clamp(48px,7vw,72px)] uppercase">
         {header.name}
       </h1>
-      <p className="font-display text-[26px] leading-[1.1]">
+      <p className="font-display text-sub leading-[1.1]">
         {header.title}{" "}
         <span className="text-phos-dim">
           {header.stack.map((item) => (
@@ -21,7 +21,7 @@ const CVHeader = ({ header }: CVHeaderProps) => {
           ))}
         </span>
       </p>
-      <ul className="flex flex-wrap gap-x-[18px] gap-y-1 text-[13px] text-phos-dim">
+      <ul className="flex flex-wrap gap-x-[18px] gap-y-1 text-meta text-phos-dim">
         {header.contacts.map((contact) => (
           <li key={contact.name}>
             <CVLinkText link={contact} />

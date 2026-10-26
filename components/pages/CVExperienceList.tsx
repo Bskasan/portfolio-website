@@ -37,10 +37,10 @@ const CVExperienceList = ({ jobs }: CVExperienceListProps) => {
                     setOpen((prev) => prev.map((value, i) => (i === index ? !value : value)))
                   }
                 >
-                  <span className="font-display text-[28px] leading-none uppercase">
+                  <span className="font-display text-name leading-none uppercase">
                     {job.company.name}
                   </span>
-                  <span className="text-right text-[13px] text-phos-dim tabular-nums max-frame:text-left">
+                  <span className="text-right text-meta text-phos-dim tabular-nums max-frame:text-left">
                     {job.period}
                   </span>
                   <span className="text-sm text-phos-dim">

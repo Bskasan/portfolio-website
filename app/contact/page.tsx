@@ -17,11 +17,11 @@ const ContactPage = () => {
       <div className="grid grid-cols-1 gap-[22px] frame:grid-cols-2">
         {/* Hire me */}
         <section aria-labelledby="hire" className="shell-panel">
-          <h2 id="hire" className="text-[28px] leading-[1.1]">
+          <h2 id="hire" className="text-name leading-[1.1]">
             <span className="mr-2 text-phos-dim">$</span>hire --email
           </h2>
           <p className="text-phos-dim">Open to freelance and full-time opportunities.</p>
-          <p id="contact-email" className="text-[17px] font-semibold [overflow-wrap:anywhere]">
+          <p id="contact-email" className="text-lead font-semibold [overflow-wrap:anywhere]">
             {EMAIL}
           </p>
           <div className="mt-auto flex flex-wrap gap-2.5">
@@ -35,11 +35,11 @@ const ContactPage = () => {
 
         {/* Sponsor me */}
         <section aria-labelledby="sponsor" className="shell-panel">
-          <h2 id="sponsor" className="text-[28px] leading-[1.1]">
+          <h2 id="sponsor" className="text-name leading-[1.1]">
             <span className="mr-2 text-phos-dim">$</span>sponsor --github
           </h2>
           <p className="text-phos-dim">Support my open-source work on GitHub.</p>
-          <p className="text-[17px] font-semibold [overflow-wrap:anywhere]">
+          <p className="text-lead font-semibold [overflow-wrap:anywhere]">
             github.com/sponsors/Bskasan
           </p>
           <div className="mt-auto flex flex-wrap gap-2.5">

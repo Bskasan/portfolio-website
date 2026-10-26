@@ -14,7 +14,7 @@ const PageHead = ({ eyebrow, title, readout, children }: PageHeadProps) => {
       <p className="eyebrow">{eyebrow}</p>
       <div className="flex flex-wrap items-end justify-between gap-4">
         <h1 className="h-page">{title}</h1>
-        {readout && <span className="font-display text-[22px] text-phos-dim">{readout}</span>}
+        {readout && <span className="font-display text-ui text-phos-dim">{readout}</span>}
       </div>
       {children && <p className="mt-2.5 max-w-[62ch] text-phos-dim">{children}</p>}
     </div>

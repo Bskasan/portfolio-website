@@ -50,7 +50,7 @@ const CopyButton = ({ value, label, fallbackTargetId, children }: CopyButtonProp
         [ {label} ]
       </button>
       {children}
-      <p role="status" className="min-h-[1.6em] w-full text-[13px] text-phos-dim">
+      <p role="status" className="min-h-[1.6em] w-full text-meta text-phos-dim">
         {message}
       </p>
     </>

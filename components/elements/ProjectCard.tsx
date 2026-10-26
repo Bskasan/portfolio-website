@@ -55,7 +55,7 @@ const ProjectCard = ({ project, slot, onOpen }: ProjectCardProps) => {
       </span>
 
       <span className="flex flex-1 flex-col gap-2 border-t border-phos-faint px-3 pt-3 pb-3.5">
-        <span className="font-display text-[30px] leading-none uppercase">{project.name}</span>
+        <span className="font-display text-card leading-none uppercase">{project.name}</span>
         <span className="flex flex-wrap items-center gap-2.5 text-xs text-phos-dim">
           <span className={statusClass}>{project.status.value}</span>
           <span>
@@ -63,7 +63,7 @@ const ProjectCard = ({ project, slot, onOpen }: ProjectCardProps) => {
             {moreTech > 0 && ` +${moreTech}`}
           </span>
         </span>
-        <span className="mt-auto font-display text-[19px] tracking-[0.08em] text-phos-dim group-hover:text-phos">
+        <span className="mt-auto font-display text-label tracking-[0.08em] text-phos-dim group-hover:text-phos">
           &gt; LOAD CARTRIDGE
         </span>
       </span>

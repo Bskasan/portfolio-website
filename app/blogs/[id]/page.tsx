@@ -41,7 +41,7 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
 
         {/* Post Header */}
         <header>
-          <div className="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 text-[13px] text-phos-dim">
+          <div className="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 text-meta text-phos-dim">
             <span>{post.date}</span>
             <span aria-hidden="true">·</span>
             <span>{post.readTime}</span>
@@ -62,7 +62,7 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
           </div>
 
           {/* Intro (from frontmatter, keeps its distinct lead styling) */}
-          <p className="mt-[18px] border-l-2 border-phos-faint pl-4 text-[17px]">{post.intro}</p>
+          <p className="mt-[18px] border-l-2 border-phos-faint pl-4 text-lead">{post.intro}</p>
         </header>
 
         <div className="article mt-[30px]">

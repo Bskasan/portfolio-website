@@ -49,7 +49,7 @@ const ProfileCard = ({ isSticky }: ProfileCardProps) => {
           </button>
         </div>
       </div>
-      <h1 id="id-name" className="text-[32px] uppercase xs:text-[40px]">
+      <h1 id="id-name" className="text-title uppercase xs:text-heading">
         {PROFILE.fullName}
       </h1>
       <p className="eyebrow !text-phos">{PROFILE.role}</p>

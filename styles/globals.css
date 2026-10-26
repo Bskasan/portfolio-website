@@ -98,6 +98,30 @@
   --breakpoint-host: 62.5rem;
   --breakpoint-split: 67.5rem;
 
+  /*
+    Type scale: every font size the site uses, by role (values are the designed
+    pixel sizes). Use text-<name> in markup and var(--text-<name>) in CSS.
+  */
+  --text-tiny: 12px; /* tags, stat labels */
+  --text-meta: 13px; /* dates, captions, small print */
+  --text-console: 13.5px; /* session log */
+  --text-small: 14px; /* dense body text (register rows, CV bullets) */
+  --text-body: 15px; /* body text */
+  --text-article: 16.5px; /* blog article text */
+  --text-lead: 17px; /* lead paragraphs, addresses */
+  --text-hint: 18px; /* small pixel-font labels */
+  --text-label: 19px; /* pixel-font labels and column headers */
+  --text-key: 20px; /* eyebrows, settings, system line */
+  --text-bar: 21px; /* window title bars */
+  --text-ui: 22px; /* pixel-font UI text, command line */
+  --text-menu: 24px; /* menu links, command buttons */
+  --text-sub: 26px; /* sub-headings */
+  --text-name: 28px; /* organisation names, prompts */
+  --text-card: 30px; /* card and section titles */
+  --text-title: 32px; /* article headings, small page titles */
+  --text-stat: 34px; /* stat values */
+  --text-heading: 40px; /* window headings, ID card name */
+
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
   --font-display: var(--font-vt323), "Courier New", monospace;
 
@@ -126,7 +150,7 @@
 
   body {
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: var(--text-body);
     line-height: 1.65;
     color: var(--phos);
     background: var(--room);

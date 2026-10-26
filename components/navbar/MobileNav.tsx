@@ -108,7 +108,7 @@ const MobileNav = ({ links }: MobileNavProps) => {
                       href={link.href}
                       shortcut={index + 1}
                       onNavigate={close}
-                      classNameAttr="flex w-full px-2 py-1 !text-[28px]"
+                      classNameAttr="flex w-full px-2 py-1 !text-name"
                     >
                       {link.label}
                     </AnimatedNavLink>
