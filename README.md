@@ -1,6 +1,6 @@
 # Bekir Kasan — Portfolio & Personal Blog
 
-The frontend for my personal portfolio and blog. A minimal, fast, statically-rendered site that showcases my work, experience, and writing — built with clean typography and zero clutter.
+The frontend for my personal portfolio and blog. A fast, statically-rendered site that showcases my work, experience, and writing, presented as **Phosphor OS**: a retro CRT terminal with scanlines, a phosphor glow and a working command line.
 
 🌐 **Live:** [www.bskasan.dev](https://www.bskasan.dev)
 
@@ -19,20 +19,19 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 
 ## Tech Stack
 
-| Area      | Tools                                                                                                                       |
-| --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Framework | [Next.js 16](https://nextjs.org) (App Router)                                                                               |
-| Language  | [TypeScript](https://www.typescriptlang.org/)                                                                               |
-| UI        | [React 19](https://react.dev/)                                                                                              |
-| Styling   | [Tailwind CSS v4](https://tailwindcss.com/) + `@tailwindcss/typography`                                                     |
-| Theming   | Class-based light/dark mode via a custom `useTheme` hook (`useSyncExternalStore`) — no extra dependencies                   |
-| Animation | [Framer Motion](https://www.framer.com/motion/) + [next-view-transitions](https://github.com/shuding/next-view-transitions) |
-| Content   | [MDX](https://mdxjs.com/) (`@next/mdx`, `gray-matter`, `remark-frontmatter`)                                                |
-| Icons     | [react-icons](https://react-icons.github.io/react-icons/)                                                                   |
-| Analytics | Google Analytics / Tag Manager via `@next/third-parties`                                                                    |
-| Fonts     | VT323 + IBM Plex Mono, self-hosted (`next/font/local`)                                                                      |
-| Quality   | ESLint, Prettier, Husky + lint-staged (pre-commit hooks)                                                                    |
-| Hosting   | Vercel                                                                                                                      |
+| Area      | Tools                                                                                                                           |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Framework | [Next.js 16](https://nextjs.org) (App Router)                                                                                   |
+| Language  | [TypeScript](https://www.typescriptlang.org/)                                                                                   |
+| UI        | [React 19](https://react.dev/)                                                                                                  |
+| Styling   | [Tailwind CSS v4](https://tailwindcss.com/) + CRT component styles in `styles/crt.css`                                          |
+| Theming   | Phosphor colour + screen-effect settings via a custom `useScreenSettings` hook (`useSyncExternalStore`) — no extra dependencies |
+| Animation | [Framer Motion](https://www.framer.com/motion/) + [next-view-transitions](https://github.com/shuding/next-view-transitions)     |
+| Content   | [MDX](https://mdxjs.com/) (`@next/mdx`, `gray-matter`, `remark-frontmatter`)                                                    |
+| Analytics | Google Analytics / Tag Manager via `@next/third-parties`                                                                        |
+| Fonts     | VT323 + IBM Plex Mono, self-hosted (`next/font/local`)                                                                          |
+| Quality   | ESLint, Prettier, Husky + lint-staged (pre-commit hooks)                                                                        |
+| Hosting   | Vercel                                                                                                                          |
 
 ## Key Features
 
@@ -40,8 +39,10 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 - **MDX-powered blog** — posts are plain `.mdx` files in `content/`. Frontmatter (title, date, tags, author, read time, excerpt) is parsed with `gray-matter`, and each post is pre-rendered as static HTML at build time via `generateStaticParams`.
 - **Project gallery** — a responsive grid of project thumbnails that open detail modals with description, tech stack, status, and live/GitHub links.
 - **Smooth navigation** — page transitions and scroll-reveal animations powered by Framer Motion and the View Transitions API.
-- **Light & dark mode** — an accessible theme toggle in the navbar (moon/sun icons) with no-flash initialization, `localStorage` persistence, and the OS preference as the default — built with a small custom hook, no extra dependencies.
-- **Responsive by design** — laid out to look clean and professional across mobile, iPad, and desktop, with a dedicated mobile navbar that collapses the links into a hamburger dropdown (the theme toggle stays in the bar).
+- **Screen settings** — a PHOSPHOR (green / amber / white) and FX (off / subtle / full) control in the top-right of the screen (inside the menu on phones), with no-flash initialization, `localStorage` persistence and cross-tab sync — built with a small custom hook, no extra dependencies.
+- **Command line** — type `help` at the bottom of the screen: open pages, `open <project>`, `theme amber`, `fx off`, `read`… Keys `1`–`6` switch pages and `/` focuses the command line.
+- **Responsive by design** — on desktop and tablet the site sits inside a CRT monitor; on phones the bezel drops away and the screen runs edge to edge, with a MENU dropdown that holds the links and the screen settings.
+- **Accessible effects** — effects can be turned off, `prefers-reduced-motion` disables flicker and animations, and long blog posts switch to a calmer reading mode.
 - **Strict quality gates** — linting and format checks run automatically before `dev`, `build`, and on every commit.
 
 ## Project Structure
@@ -123,14 +124,19 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 Add an entry to `PROJECTS` in [`constants/projects.ts`](constants/projects.ts) with a name, description, thumbnail, tech stack, status, and optional live/GitHub URLs. An optional `logo` replaces the thumbnail on the Projects page card only; the project modal keeps showing the thumbnail.
 
-## Theming (light & dark)
+## Theming (Phosphor OS)
 
-The site ships both a light and a dark theme:
+The screen has two visitor settings, stored as data attributes on `<html>`:
 
-- The active theme is a `.dark` class on `<html>`, flipped by the navbar toggle. Tailwind's `dark:` variant is wired to that class (`@custom-variant dark` in [`styles/globals.css`](styles/globals.css)) rather than the OS media query.
-- A tiny inline script in the root layout applies the saved (or OS-preferred) theme **before first paint**, so there's no flash of the wrong theme.
-- [`hooks/useTheme.ts`](hooks/useTheme.ts) reads and toggles the theme via `useSyncExternalStore` and persists the choice to `localStorage` (with cross-tab sync).
-- Colors come from semantic tokens in `globals.css` — `--background` / `--foreground` plus `--surface` / `--surface-2` / `--line` for elevated cards, chips, and borders (all overridden under `.dark`, where the dark palette is an indigo family derived from `#090040`). Components use Tailwind `dark:` utilities (`dark:bg-surface`, `dark:border-line`, …); to theme new markup, add `dark:` classes alongside the light ones.
+| Attribute   | Values                              | What it changes                                      |
+| ----------- | ----------------------------------- | ---------------------------------------------------- |
+| `data-phos` | `green` (default), `amber`, `white` | The phosphor colour the whole screen glows in        |
+| `data-fx`   | `off`, `subtle` (default), `full`   | Scanline strength, glow, flicker and the rolling bar |
+
+- A tiny inline script in the root layout applies the saved settings **before first paint**, so there's no flash of the default screen. Visitors who had chosen the old light theme start on the white phosphor.
+- [`hooks/useScreenSettings.ts`](hooks/useScreenSettings.ts) reads the settings via `useSyncExternalStore`, persists changes to `localStorage` and syncs them across tabs. The shared constants and setters live in [`lib/screenSettings.ts`](lib/screenSettings.ts) so the server layout and the command line can use them too.
+- Colours come from tokens in [`styles/globals.css`](styles/globals.css) — `--phos`, `--phos-dim`, `--phos-faint`, `--glass`, `--glass-2` plus the warm accent `--warm-1..3` (used only for the logo stripes and "in progress" status). They are exposed to Tailwind, so markup uses `text-phos`, `border-phos-faint`, `bg-glass`… and never needs to know which phosphor is active.
+- The CRT frame (glass, scanlines, vignette, bezel) is fixed on top of a normally scrolling page; its geometry and the shared visual pieces (`.cmdlink`, `.hbar`, `.tint`, `.chip`…) are in [`styles/crt.css`](styles/crt.css).
 
 ## Connect
 
