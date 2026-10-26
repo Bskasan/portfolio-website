@@ -3,14 +3,15 @@ import PageHead from "@/components/pages/PageHead";
 import SocialLinks from "@/components/elements/SocialLinks";
 import CopyButton from "@/components/elements/CopyButton";
 
+import { PROFILE } from "@/constants/profile";
+
 const EMAIL = "b.kasan@hotmail.com";
 
 const ContactPage = () => {
   return (
     <PageWrapper>
       <PageHead eyebrow="Open channel" title="Contact">
-        Building reliable full-stack applications with performance, accessibility, and scalability
-        in mind. Pick a command below.
+        {PROFILE.tagline} Pick a command below.
       </PageHead>
 
       <div className="grid grid-cols-1 gap-[22px] frame:grid-cols-2">

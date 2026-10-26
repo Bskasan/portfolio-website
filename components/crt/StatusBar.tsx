@@ -19,6 +19,7 @@ import { OPEN_ITEM_EVENT } from "@/lib/commandEvents";
 import { NAV_LINKS } from "@/constants/navbar";
 import { PROJECTS } from "@/constants/projects";
 import { COURSE_GAMES, MY_GAMES } from "@/constants/games";
+import { COPYRIGHT_YEARS, LOCATION_CODE, PROFILE } from "@/constants/profile";
 
 interface StatusBarPost {
   slug: string;
@@ -66,12 +67,12 @@ const HELP = [
 ];
 
 const BOOT_LINES = [
-  "RONIN BIOS v2.6  (C) 2022-2026 BSKASAN.DEV",
-  "CPU: HUMAN/1 @ ESPOO-FI ........ OK",
+  `RONIN BIOS v2.6  (C) ${COPYRIGHT_YEARS.replace("–", "-")} ${PROFILE.site.toUpperCase()}`,
+  `CPU: HUMAN/1 @ ${LOCATION_CODE.replace("/", "-")} ........ OK`,
   "MEMORY TEST: 640K ............. OK",
   `MOUNTING /PROJECTS ............ ${PROJECTS.length} CARTRIDGES`,
   `MOUNTING /GAMES ............... ${MY_GAMES.length + COURSE_GAMES.length} CARTRIDGES`,
-  "LOADING PROFILE: BEKIR KASAN .. OK",
+  `LOADING PROFILE: ${PROFILE.name.toUpperCase()} .. OK`,
   "STARTING RONIN/OS ...",
 ];
 
@@ -253,8 +254,8 @@ const StatusBar = ({ posts }: StatusBarProps) => {
     }
     if (command === "whoami") {
       return out(
-        "guest@bskasan.dev",
-        "You are visiting Bekir Kasan, full-stack and indie game developer in Espoo, Finland.",
+        `guest@${PROFILE.site}`,
+        `You are visiting ${PROFILE.name}, full-stack and indie game developer in ${PROFILE.city}, Finland.`,
       );
     }
     if (command === "date" || command === "time") {
@@ -263,7 +264,7 @@ const StatusBar = ({ posts }: StatusBarProps) => {
           timeZone: "Europe/Helsinki",
           dateStyle: "full",
           timeStyle: "short",
-        })} (Espoo)`,
+        })} (${PROFILE.city})`,
       );
     }
     if (command === "boot" || command === "reboot") {
@@ -369,9 +370,11 @@ const StatusBar = ({ posts }: StatusBarProps) => {
             onKeyDown={onInputKeyDown}
           />
           <span className="flex gap-[18px] whitespace-nowrap tabular-nums text-phos-dim max-xs:hidden">
-            <span className="max-frame:hidden">EXP 3+ YRS</span>
-            <span className="max-frame:hidden">OPEN TO WORK</span>
-            <span>{clock} ESPOO</span>
+            <span className="max-frame:hidden">EXP {PROFILE.experience}</span>
+            {PROFILE.openToWork && <span className="max-frame:hidden">OPEN TO WORK</span>}
+            <span>
+              {clock} {PROFILE.city.toUpperCase()}
+            </span>
           </span>
         </form>
       </footer>

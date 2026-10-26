@@ -4,6 +4,7 @@ import TypedText from "../elements/TypedText";
 
 import { PROJECTS } from "@/constants/projects";
 import { COURSE_GAMES, MY_GAMES } from "@/constants/games";
+import { COPYRIGHT_YEARS, LOCATION_CODE, PROFILE } from "@/constants/profile";
 
 interface HomeAboutMeProps {
   postCount: number;
@@ -13,12 +14,12 @@ const pad2 = (value: number) => String(value).padStart(2, "0");
 
 const HomeAboutMe = ({ postCount }: HomeAboutMeProps) => {
   const stats = [
-    { label: "Experience", value: "3+ YRS" },
+    { label: "Experience", value: PROFILE.experience },
     { label: "Projects", value: pad2(PROJECTS.length) },
     { label: "Games", value: pad2(MY_GAMES.length + COURSE_GAMES.length) },
     { label: "Posts", value: pad2(postCount) },
-    { label: "Location", value: "ESPOO/FI" },
-    { label: "Status", value: "OPEN" },
+    { label: "Location", value: LOCATION_CODE },
+    { label: "Status", value: PROFILE.openToWork ? "OPEN" : "BUSY" },
   ];
 
   return (
@@ -27,8 +28,10 @@ const HomeAboutMe = ({ postCount }: HomeAboutMeProps) => {
         className="flex flex-col font-display text-[clamp(18px,2.4vw,23px)] leading-[1.25] tracking-[0.06em]"
         aria-label="System header"
       >
-        <span>BSKASAN.DEV PERSONAL TERMINAL</span>
-        <span className="text-phos-dim">© 2022–2026 BEKIR KASAN · ALL SYSTEMS NOMINAL</span>
+        <span>{PROFILE.site.toUpperCase()} PERSONAL TERMINAL</span>
+        <span className="text-phos-dim">
+          © {COPYRIGHT_YEARS} {PROFILE.name.toUpperCase()} · ALL SYSTEMS NOMINAL
+        </span>
         <span className="text-phos-dim">-SESSION 01 · GUEST ACCESS-</span>
       </div>
 
@@ -46,19 +49,21 @@ const HomeAboutMe = ({ postCount }: HomeAboutMeProps) => {
             Kasan
           </h1>
           <p className="mt-4 font-display text-[clamp(24px,3vw,34px)] leading-[1.1]">
-            &gt; <TypedText text="SOFTWARE DEVELOPER" />
+            &gt; <TypedText text={PROFILE.role.toUpperCase()} />
           </p>
           <p className="mt-1.5 text-phos-dim">Full-stack developer &amp; indie game developer</p>
           <div
             className="mt-3.5 flex flex-wrap gap-3.5 font-display text-[22px] tracking-[0.08em]"
             aria-label="Core stack"
           >
-            {["TYPESCRIPT", "NEXT.JS", "AZURE"].map((skill) => (
-              <span key={skill}>
-                <span className="text-phos-dim">* </span>
-                {skill}
-              </span>
-            ))}
+            {PROFILE.coreStack
+              .map((skill) => skill.toUpperCase())
+              .map((skill) => (
+                <span key={skill}>
+                  <span className="text-phos-dim">* </span>
+                  {skill}
+                </span>
+              ))}
           </div>
         </div>
       </section>

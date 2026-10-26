@@ -4,6 +4,7 @@ import Image from "next/image";
 import SocialLinks from "@/components/elements/SocialLinks";
 
 import { useState } from "react";
+import { PROFILE } from "@/constants/profile";
 
 interface PersonalMetaDataProps {
   isSticky?: boolean;
@@ -49,13 +50,10 @@ const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
         </div>
       </div>
       <h1 id="id-name" className="text-[32px] uppercase xs:text-[40px]">
-        Bekir Sadik Kasan
+        {PROFILE.fullName}
       </h1>
-      <p className="eyebrow !text-phos">Software Developer</p>
-      <p className="text-sm text-phos-dim">
-        Building reliable full-stack applications with performance, accessibility, and scalability
-        in mind.
-      </p>
+      <p className="eyebrow !text-phos">{PROFILE.role}</p>
+      <p className="text-sm text-phos-dim">{PROFILE.tagline}</p>
       <SocialLinks className="col-span-2 xs:col-span-1 xs:col-start-2 cols:col-auto" />
     </section>
   );
