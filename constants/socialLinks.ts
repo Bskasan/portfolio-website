@@ -1,34 +1,34 @@
 import { SocialLink } from "@/lib/types/socials";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaSquareXTwitter, FaTwitch } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
 
 export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
     url: "https://github.com/Bskasan",
-    icon: FaGithub,
+    code: "GH",
+    handle: "github.com/Bskasan",
   },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/bekirskasan/",
-    icon: FaLinkedin,
+    code: "IN",
+    handle: "in/bekirskasan",
   },
   {
     name: "X",
     url: "https://x.com/BekirKasan1",
-    icon: FaSquareXTwitter,
+    code: "X",
+    handle: "@BekirKasan1",
   },
   {
     name: "Email",
     url: "b.kasan@hotmail.com",
-    icon: MdEmail,
+    code: "@",
+    handle: "b.kasan@hotmail.com",
   },
   {
     name: "Twitch",
     url: "https://www.twitch.tv/ronindevvv",
-    icon: FaTwitch,
+    code: "TW",
+    handle: "ronindevvv",
   },
 ];
-
-export const lastValueOfLinks: SocialLink = Object.values(socialLinks).at(-1) as SocialLink;
