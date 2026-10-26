@@ -5,21 +5,6 @@ export type Author = {
   role: string;
 };
 
-export type BlogPostSection = {
-  heading: string;
-  body: string;
-};
-
-export type BlogPostContent = {
-  title: string;
-  date: string;
-  readTime: string;
-  author: Author;
-  tags: string[];
-  intro: string;
-  sections: BlogPostSection[];
-};
-
 export interface BlogPostMetaData {
   slug: string;
   title: string;

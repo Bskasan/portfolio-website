@@ -19,7 +19,7 @@ import { NAV_LINKS } from "@/constants/navbar";
 import { PROJECTS } from "@/constants/projects";
 import { COURSE_GAMES, MY_GAMES } from "@/constants/games";
 
-export interface StatusBarPost {
+interface StatusBarPost {
   slug: string;
   title: string;
 }

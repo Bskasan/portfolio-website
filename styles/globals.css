@@ -89,10 +89,6 @@
   --color-phos-faint: var(--phos-faint);
   --color-glass: var(--glass);
   --color-glass-2: var(--glass-2);
-  --color-warm-1: var(--warm-1);
-  --color-warm-2: var(--warm-2);
-  --color-warm-3: var(--warm-3);
-  --color-warm-ink: var(--warm-ink);
 }
 
 @layer base {
