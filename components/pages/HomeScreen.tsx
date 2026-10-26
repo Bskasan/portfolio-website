@@ -6,13 +6,13 @@ import { PROJECTS } from "@/constants/projects";
 import { COURSE_GAMES, MY_GAMES } from "@/constants/games";
 import { COPYRIGHT_YEARS, LOCATION_CODE, PROFILE } from "@/constants/profile";
 
-interface HomeAboutMeProps {
+interface HomeScreenProps {
   postCount: number;
 }
 
 const pad2 = (value: number) => String(value).padStart(2, "0");
 
-const HomeAboutMe = ({ postCount }: HomeAboutMeProps) => {
+const HomeScreen = ({ postCount }: HomeScreenProps) => {
   const stats = [
     { label: "Experience", value: PROFILE.experience },
     { label: "Projects", value: pad2(PROJECTS.length) },
@@ -143,4 +143,4 @@ const HomeAboutMe = ({ postCount }: HomeAboutMeProps) => {
   );
 };
 
-export default HomeAboutMe;
+export default HomeScreen;

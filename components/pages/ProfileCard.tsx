@@ -6,7 +6,7 @@ import SocialLinks from "@/components/elements/SocialLinks";
 import { useState } from "react";
 import { PROFILE } from "@/constants/profile";
 
-interface PersonalMetaDataProps {
+interface ProfileCardProps {
   isSticky?: boolean;
 }
 
@@ -14,7 +14,7 @@ interface PersonalMetaDataProps {
   The About page's ID card: phosphor-tinted portrait (DECODE shows the original
   colours), name, role, tagline and social links.
 */
-const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
+const ProfileCard = ({ isSticky }: ProfileCardProps) => {
   const [decoded, setDecoded] = useState(false);
 
   return (
@@ -59,4 +59,4 @@ const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
   );
 };
 
-export default PersonalMetaData;
+export default ProfileCard;

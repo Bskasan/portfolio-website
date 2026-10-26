@@ -1,12 +1,12 @@
 import PageWrapper from "@/components/animated/PageWrapper";
-import HomeAboutMe from "@/components/pages/HomeAboutMe";
+import HomeScreen from "@/components/pages/HomeScreen";
 
 import { getAllPosts } from "@/lib/blogs";
 
 const HomePage = () => {
   return (
     <PageWrapper>
-      <HomeAboutMe postCount={getAllPosts().length} />
+      <HomeScreen postCount={getAllPosts().length} />
     </PageWrapper>
   );
 };
