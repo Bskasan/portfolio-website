@@ -30,7 +30,7 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 | Content   | [MDX](https://mdxjs.com/) (`@next/mdx`, `gray-matter`, `remark-frontmatter`)                                                |
 | Icons     | [react-icons](https://react-icons.github.io/react-icons/)                                                                   |
 | Analytics | Google Analytics / Tag Manager via `@next/third-parties`                                                                    |
-| Font      | Roboto Mono (`next/font`)                                                                                                   |
+| Fonts     | VT323 + IBM Plex Mono, self-hosted (`next/font/local`)                                                                      |
 | Quality   | ESLint, Prettier, Husky + lint-staged (pre-commit hooks)                                                                    |
 | Hosting   | Vercel                                                                                                                      |
 

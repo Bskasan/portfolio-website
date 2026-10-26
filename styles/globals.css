@@ -36,7 +36,8 @@
   `--font-mono` is still emitted for `body { font-family: var(--font-mono) }`.
 */
 @theme {
-  --font-mono: var(--font-roboto-mono), monospace;
+  --font-mono: var(--font-plex-mono), monospace;
+  --font-display: var(--font-vt323), "Courier New", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);

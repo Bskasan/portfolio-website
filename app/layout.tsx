@@ -2,15 +2,9 @@ import "../styles/globals.css";
 import NavBar from "@/components/navbar/NavBar";
 
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
+import { plexMono, vt323 } from "./fonts";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  variable: "--font-roboto-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Bekir Kasan - Portfolio & Personal Blog",
@@ -42,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" className={`${robotoMono.variable}`} suppressHydrationWarning>
+      <html lang="en" className={`${plexMono.variable} ${vt323.variable}`} suppressHydrationWarning>
         <body className="min-h-full flex flex-col font-mono">
           <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
           <NavBar />
