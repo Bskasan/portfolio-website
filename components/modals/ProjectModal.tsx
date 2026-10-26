@@ -99,7 +99,7 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
             {project.name}
           </h2>
 
-          <dl className="grid grid-cols-[90px_minmax(0,1fr)] gap-x-3 gap-y-1.5 text-[13px] min-[760px]:grid-cols-[110px_minmax(0,1fr)]">
+          <dl className="grid grid-cols-[90px_minmax(0,1fr)] gap-x-3 gap-y-1.5 text-[13px] frame:grid-cols-[110px_minmax(0,1fr)]">
             <dt className="font-display text-[19px] leading-[1.2] tracking-[0.08em] text-phos-dim">
               STATUS
             </dt>

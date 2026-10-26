@@ -29,7 +29,7 @@
     --gutter: 34px;
   }
 
-  @media (max-width: 759.98px) {
+  @media (width < 47.5rem) {
     :root {
       --room-x: 0px;
       --room-top: 0px;
@@ -232,7 +232,7 @@
       0 0 2px var(--phos);
   }
 
-  @media (max-width: 759.98px) {
+  @media (width < 47.5rem) {
     .crt-bezel,
     .crt-shell,
     .crt-chin {
@@ -321,7 +321,7 @@
     margin-inline: var(--gutter);
   }
 
-  @media (max-width: 759.98px) {
+  @media (width < 47.5rem) {
     .crt-rule {
       margin-inline: 0;
     }
@@ -787,7 +787,7 @@
     padding: 14px 10px 20px 66px;
   }
 
-  @media (max-width: 899.98px) {
+  @media (width < 56.25rem) {
     .reg-cols {
       display: none;
     }
@@ -863,7 +863,7 @@
     text-shadow: none;
   }
 
-  @media (max-width: 759.98px) {
+  @media (width < 47.5rem) {
     .dir-cols {
       display: none;
     }
@@ -906,7 +906,7 @@
     content: " ▾";
   }
 
-  @media (max-width: 759.98px) {
+  @media (width < 47.5rem) {
     .job-btn {
       grid-template-columns: minmax(0, 1fr);
     }

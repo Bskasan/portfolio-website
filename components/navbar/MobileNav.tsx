@@ -51,7 +51,7 @@ const MobileNav = ({ links }: MobileNavProps) => {
   }, [open]);
 
   useEffect(() => {
-    const desktop = window.matchMedia("(min-width: 760px)");
+    const desktop = window.matchMedia("(width >= 47.5rem)");
     const handleChange = () => {
       if (desktop.matches) setOpen(false);
     };
@@ -61,7 +61,7 @@ const MobileNav = ({ links }: MobileNavProps) => {
   }, []);
 
   return (
-    <div className="min-[760px]:hidden">
+    <div className="frame:hidden">
       <button
         ref={buttonRef}
         type="button"

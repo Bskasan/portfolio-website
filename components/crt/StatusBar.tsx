@@ -339,7 +339,7 @@ const StatusBar = ({ posts }: StatusBarProps) => {
 
         <form className="crt-cmd pad" onSubmit={onSubmit} autoComplete="off">
           <label htmlFor="crt-command" className="whitespace-nowrap">
-            C:\<span className="max-[480px]:hidden">BSKASAN</span>&gt;
+            C:\<span className="max-xs:hidden">BSKASAN</span>&gt;
           </label>
           <input
             ref={inputRef}
@@ -352,9 +352,9 @@ const StatusBar = ({ posts }: StatusBarProps) => {
             aria-label="Command line. Type help for a list of commands."
             onKeyDown={onInputKeyDown}
           />
-          <span className="flex gap-[18px] whitespace-nowrap tabular-nums text-phos-dim max-[480px]:hidden">
-            <span className="max-[759px]:hidden">EXP 3+ YRS</span>
-            <span className="max-[759px]:hidden">OPEN TO WORK</span>
+          <span className="flex gap-[18px] whitespace-nowrap tabular-nums text-phos-dim max-xs:hidden">
+            <span className="max-frame:hidden">EXP 3+ YRS</span>
+            <span className="max-frame:hidden">OPEN TO WORK</span>
             <span>{clock} ESPOO</span>
           </span>
         </form>

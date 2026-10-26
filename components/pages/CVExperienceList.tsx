@@ -40,13 +40,13 @@ const CVExperienceList = ({ jobs }: CVExperienceListProps) => {
                   <span className="font-display text-[28px] leading-none uppercase">
                     {job.company.name}
                   </span>
-                  <span className="text-right text-[13px] text-phos-dim tabular-nums max-[759px]:text-left">
+                  <span className="text-right text-[13px] text-phos-dim tabular-nums max-frame:text-left">
                     {job.period}
                   </span>
                   <span className="text-sm text-phos-dim">
                     {job.role} · {job.location}
                   </span>
-                  <span className="job-count text-right font-display text-lg text-phos-dim max-[759px]:text-left">
+                  <span className="job-count text-right font-display text-lg text-phos-dim max-frame:text-left">
                     {job.highlights.length} ITEMS
                   </span>
                 </button>

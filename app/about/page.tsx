@@ -8,7 +8,7 @@ import { EXPERIENCE } from "@/constants/experience";
 const AboutMePage = () => {
   return (
     <PageWrapper>
-      <div className="grid grid-cols-1 items-start gap-[clamp(28px,4vw,64px)] min-[900px]:grid-cols-[300px_minmax(0,1fr)]">
+      <div className="grid grid-cols-1 items-start gap-[clamp(28px,4vw,64px)] cols:grid-cols-[300px_minmax(0,1fr)]">
         <PersonalMetaData isSticky={true} />
         <section className="min-w-0" aria-labelledby="about-title">
           <div className="mb-[18px] flex flex-col gap-1.5">

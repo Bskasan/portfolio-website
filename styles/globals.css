@@ -81,6 +81,23 @@
   Kept non-inline so `--font-mono` / `--font-display` are emitted for the base styles.
 */
 @theme {
+  /*
+    Breakpoints — the only ones the site uses. Tailwind's defaults are removed so
+    `frame:` / `max-frame:` etc. always meet at exactly the same width (no gap or
+    overlap). styles/crt.css and MobileNav use the same values; keep them in sync.
+      xs     480px   compact ID card / command line below this
+      frame  760px   monitor frame + desktop menu from here (phone layout below)
+      cols   900px   two-column layouts (About, Home hero)
+      host  1000px   full host name in the system line
+      split 1080px   Home README panel beside the quick actions
+  */
+  --breakpoint-*: initial;
+  --breakpoint-xs: 30rem;
+  --breakpoint-frame: 47.5rem;
+  --breakpoint-cols: 56.25rem;
+  --breakpoint-host: 62.5rem;
+  --breakpoint-split: 67.5rem;
+
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
   --font-display: var(--font-vt323), "Courier New", monospace;
 

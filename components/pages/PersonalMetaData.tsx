@@ -19,8 +19,8 @@ const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
   return (
     <section
       aria-labelledby="id-name"
-      className={`grid grid-cols-[120px_minmax(0,1fr)] items-start gap-[18px] min-[481px]:grid-cols-[180px_minmax(0,1fr)] min-[900px]:flex min-[900px]:flex-col min-[900px]:gap-3.5 ${
-        isSticky ? "min-[900px]:sticky min-[900px]:top-[calc(var(--screen-top)+110px)]" : ""
+      className={`grid grid-cols-[120px_minmax(0,1fr)] items-start gap-[18px] xs:grid-cols-[180px_minmax(0,1fr)] cols:flex cols:flex-col cols:gap-3.5 ${
+        isSticky ? "cols:sticky cols:top-[calc(var(--screen-top)+110px)]" : ""
       } self-start`}
     >
       <div className="row-span-4 flex flex-col gap-1.5">
@@ -48,7 +48,7 @@ const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
           </button>
         </div>
       </div>
-      <h1 id="id-name" className="text-[32px] uppercase min-[481px]:text-[40px]">
+      <h1 id="id-name" className="text-[32px] uppercase xs:text-[40px]">
         Bekir Sadik Kasan
       </h1>
       <p className="eyebrow !text-phos">Software Developer</p>
@@ -56,7 +56,7 @@ const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
         Building reliable full-stack applications with performance, accessibility, and scalability
         in mind.
       </p>
-      <SocialLinks className="col-span-2 min-[481px]:col-span-1 min-[481px]:col-start-2 min-[900px]:col-auto" />
+      <SocialLinks className="col-span-2 xs:col-span-1 xs:col-start-2 cols:col-auto" />
     </section>
   );
 };

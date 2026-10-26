@@ -13,7 +13,7 @@ const ContactPage = () => {
         in mind. Pick a command below.
       </PageHead>
 
-      <div className="grid grid-cols-1 gap-[22px] min-[760px]:grid-cols-2">
+      <div className="grid grid-cols-1 gap-[22px] frame:grid-cols-2">
         {/* Hire me */}
         <section
           aria-labelledby="hire"

@@ -34,9 +34,9 @@ const HomeAboutMe = ({ postCount }: HomeAboutMeProps) => {
 
       <section
         aria-labelledby="hero-name"
-        className="my-[30px] mb-[34px] grid grid-cols-1 items-center gap-[clamp(24px,4vw,64px)] min-[900px]:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]"
+        className="my-[30px] mb-[34px] grid grid-cols-1 items-center gap-[clamp(24px,4vw,64px)] cols:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]"
       >
-        <div className="logo-wrap max-[899px]:max-w-[460px]">
+        <div className="logo-wrap max-cols:max-w-[460px]">
           <div className="stripe-logo" role="img" aria-label="ronindev vVv logo" />
         </div>
         <div>
@@ -63,7 +63,7 @@ const HomeAboutMe = ({ postCount }: HomeAboutMeProps) => {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 items-start gap-[clamp(24px,4vw,64px)] min-[1080px]:grid-cols-[minmax(0,68ch)_minmax(0,1fr)]">
+      <div className="grid grid-cols-1 items-start gap-[clamp(24px,4vw,64px)] split:grid-cols-[minmax(0,68ch)_minmax(0,1fr)]">
         <section className="panel" aria-labelledby="readme">
           <h2
             id="readme"
@@ -101,7 +101,7 @@ const HomeAboutMe = ({ postCount }: HomeAboutMeProps) => {
         <aside className="flex flex-col gap-[26px]" aria-label="Quick actions">
           <div className="flex flex-col gap-2.5">
             <p className="eyebrow">Select program</p>
-            <div className="flex flex-wrap items-start gap-2 min-[1080px]:flex-col">
+            <div className="flex flex-wrap items-start gap-2 split:flex-col">
               <TransitionLink href="/projects" className="cmdlink">
                 &gt; VIEW PROJECTS
               </TransitionLink>

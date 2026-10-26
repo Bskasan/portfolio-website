@@ -65,7 +65,7 @@ const CVPage = () => {
                   {CV_SKILL_GROUPS.map((group) => (
                     <div
                       key={group.label}
-                      className="grid grid-cols-1 gap-x-4 gap-y-2 min-[760px]:grid-cols-[170px_minmax(0,1fr)]"
+                      className="grid grid-cols-1 gap-x-4 gap-y-2 frame:grid-cols-[170px_minmax(0,1fr)]"
                     >
                       <dt className="font-display text-[22px] leading-[1.1] tracking-[0.06em]">
                         {group.label}
@@ -110,7 +110,7 @@ const CVPage = () => {
                   {CV_OTHER.map((item) => (
                     <div
                       key={item.label}
-                      className="grid grid-cols-1 gap-x-4 gap-y-1 min-[760px]:grid-cols-[170px_minmax(0,1fr)]"
+                      className="grid grid-cols-1 gap-x-4 gap-y-1 frame:grid-cols-[170px_minmax(0,1fr)]"
                     >
                       <dt className="font-display text-[22px] leading-[1.1] tracking-[0.06em]">
                         {item.label}
