@@ -10,26 +10,21 @@ interface CVEntryProps {
   bullets: string[];
 }
 
+/* A non-expandable CV entry (used for education). */
 const CVEntry = ({ organization, subtitle, location, period, bullets }: CVEntryProps) => {
   return (
-    <div>
-      {/* "Organization – Role – Location" on one wrapping line, like the printed CV */}
-      <h3 className="text-sm font-bold leading-snug text-gray-900 sm:text-base dark:text-gray-100">
-        <CVLinkText link={organization} className="text-gray-700 dark:text-gray-300" />
-        <span aria-hidden="true">{" – "}</span>
-        {subtitle}
-        <span aria-hidden="true">{" – "}</span>
-        <span className="font-normal text-gray-700 dark:text-gray-300">{location}</span>
+    <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-0.5">
+      <h3 className="text-[26px] leading-[1.05] uppercase">
+        <CVLinkText link={organization} />
       </h3>
-      {period && (
-        <p className="mt-0.5 text-xs text-gray-500 sm:text-sm dark:text-gray-400">{period}</p>
-      )}
-      {/* list-disc is explicit because Tailwind's preflight strips list styles */}
-      <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-        {bullets.map((bullet) => (
-          <li key={bullet}>{bullet}</li>
-        ))}
-      </ul>
+      <span className="text-[13px] text-phos-dim">{location}</span>
+      <p className="col-span-2">{subtitle}</p>
+      {period && <p className="col-span-2 text-[13px] text-phos-dim">{period}</p>}
+      {bullets.map((bullet) => (
+        <p key={bullet} className="col-span-2 text-sm text-phos-dim">
+          {bullet}
+        </p>
+      ))}
     </div>
   );
 };

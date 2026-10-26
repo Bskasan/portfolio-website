@@ -1,93 +1,71 @@
-import DivisionLine from "@/components/elements/DivisionLine";
-import AnimatedNavLink from "@/components/navbar/NavLink";
 import PageWrapper from "@/components/animated/PageWrapper";
-import SocialLinks from "@/components/elements/SocialLinks";
+import PageHead from "@/components/pages/PageHead";
+import TransitionLink from "@/components/elements/TransitionLink";
 import TagElement from "@/components/elements/Tag";
 
 import { getAllPosts } from "@/lib/blogs";
 import { BlogPostMetaData } from "@/lib/types/posts";
 
+const formatNumber = (value: number) => value.toLocaleString("en-US");
+
 const BlogsPage = () => {
   const posts = getAllPosts();
+  const totalWords = posts.reduce((sum, post) => sum + post.wordCount, 0);
 
   return (
     <PageWrapper>
-      <div className="flex flex-col flex-1 items-center justify-center">
-        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-4 sm:px-8">
-          {/* Page Header */}
-          <div className="flex flex-col items-center mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight dark:text-gray-100">
-              Blog
-            </h1>
-            <p className="mt-3 text-base text-gray-500 max-w-lg text-center dark:text-gray-400">
-              Thoughts on full-stack engineering, indie game development, and the solutions found
-              along the way.
-            </p>
+      <PageHead eyebrow="Transmissions" title="Blog">
+        Thoughts on full-stack engineering, indie game development, and the solutions found along
+        the way.
+      </PageHead>
+
+      <div className="text-sm">
+        <p className="mb-3.5 font-display text-[26px]">C:\BSKASAN\BLOG&gt; DIR</p>
+        <div className="dir-cols" aria-hidden="true">
+          <span>DATE</span>
+          <span>SIZE</span>
+          <span>NAME</span>
+        </div>
+
+        {/* Post List */}
+        <ul>
+          {posts.map((post: BlogPostMetaData) => (
+            <li key={post.slug} className="dir-row">
+              <TransitionLink href={`/blogs/${post.slug}`}>
+                <span className="text-phos-dim tabular-nums">{post.isoDate}</span>
+                <span className="dir-size text-phos-dim tabular-nums">
+                  {formatNumber(post.wordCount)} W
+                  <br />
+                  {post.readTime.toUpperCase()}
+                </span>
+                <span className="flex flex-col gap-2">
+                  <span className="flex flex-wrap gap-1.5">
+                    {post.tagNames.map((tagName: string) => (
+                      <TagElement key={tagName} name={tagName} />
+                    ))}
+                  </span>
+                  <span className="dir-title">{post.title}</span>
+                  <span className="max-w-[70ch] text-phos-dim">{post.excerpt}</span>
+                  <span className="text-[13px] text-phos-dim">
+                    {post.author.name} · {post.readTime}
+                  </span>
+                </span>
+              </TransitionLink>
+            </li>
+          ))}
+        </ul>
+
+        <p className="p-2.5 font-display text-xl tracking-[0.06em] text-phos-dim">
+          {posts.length} FILE(S) · {formatNumber(totalWords)} WORDS
+        </p>
+
+        {/* Empty State — shown when no posts exist */}
+        {posts.length === 0 && (
+          <div className="flex flex-col items-center justify-center gap-2 py-20 text-phos-dim">
+            <p className="font-display text-2xl">NO POSTS YET.</p>
+            <p>Check back soon.</p>
           </div>
-
-          <SocialLinks />
-
-          <div className="w-full mt-8 mb-2">
-            <DivisionLine />
-          </div>
-
-          {/* Post List */}
-          <ul className="w-full flex flex-col">
-            {posts?.map((post: BlogPostMetaData) => (
-              <li key={post.slug}>
-                <AnimatedNavLink
-                  href={`/blogs/${post.slug}`}
-                  classNameAttr="group flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-10 py-8 w-full transition-colors"
-                >
-                  {/* Date Column */}
-                  <div className="shrink-0 w-32 text-sm text-gray-400 pt-1 dark:text-gray-500">
-                    {post.date}
-                  </div>
-
-                  {/* Content Column */}
-                  <div className="flex flex-col flex-1 gap-2">
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {post.tagNames.map((tagName: string) => (
-                        <TagElement key={tagName} name={tagName} />
-                      ))}
-                    </div>
-
-                    {/* Title */}
-                    <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 group-hover:text-gray-600 transition-colors leading-snug dark:text-gray-100 dark:group-hover:text-gray-300">
-                      {post.title}
-                    </h2>
-
-                    {/* Excerpt */}
-                    <p className="text-sm sm:text-base text-gray-500 leading-relaxed line-clamp-2 dark:text-gray-400">
-                      {post.excerpt}
-                    </p>
-
-                    {/* Footer Meta */}
-                    <div className="flex items-center gap-3 mt-1 text-sm text-gray-400 dark:text-gray-500">
-                      <span>{post.author.name}</span>
-                      <span>·</span>
-                      <span>{post.readTime}</span>
-                      <span className="ml-auto text-gray-900 font-medium group-hover:underline underline-offset-4 text-sm hidden sm:block dark:text-gray-100">
-                        Read →
-                      </span>
-                    </div>
-                  </div>
-                </AnimatedNavLink>
-              </li>
-            ))}
-          </ul>
-
-          <DivisionLine />
-
-          {/* Empty State — shown when no posts exist */}
-          {posts.length === 0 && (
-            <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2 dark:text-gray-500">
-              <p className="text-lg font-medium">No posts yet.</p>
-              <p className="text-sm">Check back soon.</p>
-            </div>
-          )}
-        </main>
+        )}
       </div>
     </PageWrapper>
   );

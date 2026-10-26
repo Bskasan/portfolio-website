@@ -1,6 +1,6 @@
-import DivisionLine from "@/components/elements/DivisionLine";
 import PageWrapper from "@/components/animated/PageWrapper";
 import TagElement from "@/components/elements/Tag";
+import TransitionLink from "@/components/elements/TransitionLink";
 
 import { getPostFrontmatter } from "@/lib/blogs";
 import { Tag } from "@/lib/types/blogMeta";
@@ -17,62 +17,66 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
 
   return (
     <PageWrapper>
-      <div className="flex flex-col flex-1 items-center justify-center">
-        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-20 px-4 sm:px-6 lg:py-32">
-          {/* Post Header */}
-          <header className="w-full mb-8">
-            <div className="flex flex-wrap gap-2 mb-4">
-              {post.tags.map((tag: Tag) => (
-                <TagElement key={tag.key} name={tag.name} />
-              ))}
-            </div>
+      {/* reading-mode calms the screen effects for long-form text (styles/globals.css) */}
+      <article className="reading-mode mx-auto max-w-[70ch]" aria-labelledby="post-title">
+        <TransitionLink href="/blogs" className="cmdlink">
+          &lt; C:\BLOG
+        </TransitionLink>
 
-            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 leading-tight mb-6 dark:text-gray-100">
-              {post.title}
-            </h1>
-
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-medium text-gray-700 dark:text-gray-300">
-                {post.author.name}
-              </span>
-              <span>·</span>
-              <span>{post.author.role}</span>
-              <span>·</span>
-              <span>{post.date}</span>
-              <span>·</span>
-              <span>{post.readTime}</span>
-            </div>
-          </header>
-
-          <DivisionLine />
-
-          {/* Intro (from frontmatter, keeps your distinct lead styling) */}
-          <p className="flex flex-col mx-auto w-full mt-10 mb-10 text-sm sm:text-base italic text-gray-600 leading-relaxed  max-w-4xl dark:text-gray-400">
-            &quot;{post.intro}&quot;
-          </p>
-
-          <DivisionLine />
-
-          <article className="prose prose-lg text-base prose-gray w-full mt-10 max-w-4xl flex flex-col mx-auto leading leading-relaxed dark:prose-invert">
-            <Content />
-          </article>
-
-          <div className="w-full max-w-4xl mt-16 mx-auto">
-            <DivisionLine />
+        {/* Post Header */}
+        <header>
+          <div className="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 text-[13px] text-phos-dim">
+            <span>{post.date}</span>
+            <span aria-hidden="true">·</span>
+            <span>{post.readTime}</span>
+            <span aria-hidden="true">·</span>
+            <span>
+              {post.author.name}, {post.author.role}
+            </span>
           </div>
 
-          {/* Author Footer */}
-          <footer className="w-full mx-auto max-w-4xl mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-900 text-white font-bold text-lg shrink-0 dark:bg-gray-100 dark:text-gray-900">
+          <h1 id="post-title" className="mt-[18px] text-[clamp(40px,6vw,64px)] uppercase">
+            {post.title}
+          </h1>
+
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {post.tags.map((tag: Tag) => (
+              <TagElement key={tag.key} name={tag.name} />
+            ))}
+          </div>
+
+          {/* Intro (from frontmatter, keeps its distinct lead styling) */}
+          <p className="mt-[18px] border-l-2 border-phos-faint pl-4 text-[17px]">{post.intro}</p>
+        </header>
+
+        <div className="article mt-[30px]">
+          <Content />
+        </div>
+
+        {/* Author footer */}
+        <footer className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-phos-faint pt-3.5">
+          <div className="flex items-center gap-3">
+            <span
+              className="flex h-12 w-12 shrink-0 items-center justify-center bg-phos font-display text-3xl text-glass [text-shadow:none]"
+              aria-hidden="true"
+            >
               {post.author.name.charAt(0)}
-            </div>
-            <div>
-              <p className="font-semibold text-gray-900 dark:text-gray-100">{post.author.name}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">{post.author.role}</p>
-            </div>
-          </footer>
-        </main>
-      </div>
+            </span>
+            <span className="flex flex-col">
+              <span className="font-semibold">{post.author.name}</span>
+              <span className="text-sm text-phos-dim">{post.author.role}</span>
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2.5">
+            <TransitionLink href="/blogs" className="cmdlink">
+              &lt; BACK TO BLOG
+            </TransitionLink>
+            <TransitionLink href="/about" className="cmdlink">
+              ABOUT THE AUTHOR &gt;
+            </TransitionLink>
+          </div>
+        </footer>
+      </article>
     </PageWrapper>
   );
 };

@@ -2,16 +2,19 @@
 
 import { HTMLMotionProps, motion } from "framer-motion";
 
-const PageWrapper = (props: HTMLMotionProps<"div">) => {
+/*
+  Every page's content area: the screen's side gutter and vertical rhythm, with
+  the existing fade-in kept (shortened so it reads as the tube warming up).
+*/
+const PageWrapper = ({ className, ...props }: HTMLMotionProps<"div">) => {
   return (
-    <div className="bg-white dark:bg-background">
-      <motion.div
-        {...props}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      />
-    </div>
+    <motion.div
+      {...props}
+      className={`pad pt-[34px] pb-14 max-[759px]:pt-6 max-[759px]:pb-10 ${className ?? ""}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.15 }}
+    />
   );
 };
 

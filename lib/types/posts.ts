@@ -24,6 +24,9 @@ export interface BlogPostMetaData {
   slug: string;
   title: string;
   date: string;
+  /** date as YYYY-MM-DD */
+  isoDate: string;
+  wordCount: number;
   readTime: string;
   excerpt: string;
   tagNames: string[];
