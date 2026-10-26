@@ -42,7 +42,10 @@ const ProjectCard = ({ project, slot, onOpen }: ProjectCardProps) => {
             width={480}
             height={360}
             loading="eager"
-            className="h-full w-full object-cover object-top"
+            // Centre-anchored cover: the card images are square logos in a 4:3 box, so
+            // cover has to crop; centring splits that crop evenly top and bottom
+            // instead of cutting it all from the bottom (which pushed logos low).
+            className="h-full w-full object-cover object-center"
           />
         ) : (
           <ThumbnailPlaceholder name={project.name} />
