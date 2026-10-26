@@ -42,6 +42,8 @@ const ProjectCard = ({ project, slot, onOpen }: ProjectCardProps) => {
             width={480}
             height={360}
             loading="eager"
+            // Cards fill the column (minus the 16px gutters) on phones, ~250-320px in the grid.
+            sizes="(max-width: 759px) calc(100vw - 32px), 320px"
             // Centre-anchored cover: the card images are square logos in a 4:3 box, so
             // cover has to crop; centring splits that crop evenly top and bottom
             // instead of cutting it all from the bottom (which pushed logos low).

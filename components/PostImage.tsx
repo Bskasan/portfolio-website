@@ -17,7 +17,15 @@ async function PostImage({
   return (
     <figure className="my-2">
       <div className="tint decode aspect-video max-w-full border border-phos-faint" tabIndex={0}>
-        <Image src={image} alt={alt} loading="eager" placeholder="blur" />
+        <Image
+          src={image}
+          alt={alt}
+          loading="eager"
+          placeholder="blur"
+          // The article column is at most ~700px wide; without this the browser
+          // downloads the 3840px variant on every device.
+          sizes="(max-width: 759px) calc(100vw - 32px), 700px"
+        />
       </div>
       <figcaption className="mt-1.5 font-display text-lg tracking-[0.08em] text-phos-dim">
         FIG. {imageFilename.replace(/\.[a-z]+$/i, "").toUpperCase()}

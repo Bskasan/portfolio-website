@@ -89,6 +89,7 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
               alt={`Screenshot of ${project.name}`}
               width={640}
               height={360}
+              sizes="(max-width: 700px) 92vw, 640px"
             />
           </div>
         )}

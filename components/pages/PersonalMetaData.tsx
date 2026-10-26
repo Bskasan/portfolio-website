@@ -33,6 +33,7 @@ const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
             width={600}
             height={800}
             priority
+            sizes="(max-width: 480px) 120px, (max-width: 899px) 180px, 300px"
           />
         </div>
         <div className="flex justify-between font-display text-lg tracking-[0.08em] text-phos-dim">
