@@ -18,9 +18,9 @@ export const vt323 = localFont({
 // Readable terminal face for running text (the blog post is ~3,400 words).
 export const plexMono = localFont({
   src: [
+    // Only the weights the site uses: 400 for text, 600 for <strong> and emphasis.
+    // (No italic or 500: every one of these files is preloaded on every page.)
     { path: "./fonts/ibm-plex-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/ibm-plex-mono-latin-400-italic.woff2", weight: "400", style: "italic" },
-    { path: "./fonts/ibm-plex-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
     { path: "./fonts/ibm-plex-mono-latin-600-normal.woff2", weight: "600", style: "normal" },
   ],
   variable: "--font-plex-mono",

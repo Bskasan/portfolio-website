@@ -23,7 +23,7 @@ const ContactPage = () => {
             <span className="mr-2 text-phos-dim">$</span>hire --email
           </h2>
           <p className="text-phos-dim">Open to freelance and full-time opportunities.</p>
-          <p id="contact-email" className="text-[17px] font-medium [overflow-wrap:anywhere]">
+          <p id="contact-email" className="text-[17px] font-semibold [overflow-wrap:anywhere]">
             {EMAIL}
           </p>
           <div className="mt-auto flex flex-wrap gap-2.5">
@@ -44,7 +44,7 @@ const ContactPage = () => {
             <span className="mr-2 text-phos-dim">$</span>sponsor --github
           </h2>
           <p className="text-phos-dim">Support my open-source work on GitHub.</p>
-          <p className="text-[17px] font-medium [overflow-wrap:anywhere]">
+          <p className="text-[17px] font-semibold [overflow-wrap:anywhere]">
             github.com/sponsors/Bskasan
           </p>
           <div className="mt-auto flex flex-wrap gap-2.5">
