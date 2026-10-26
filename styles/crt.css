@@ -144,6 +144,12 @@
     display: none;
   }
 
+  /* Full mode animates the overlay: keep its repaints on its own layer, away from the page. */
+  :root[data-fx="full"] .crt-screen-fx {
+    contain: strict;
+    will-change: transform;
+  }
+
   :root[data-fx="full"] .crt-roll {
     display: block;
     inset: auto 0;
@@ -155,11 +161,14 @@
       color-mix(in srgb, var(--phos) 6%, transparent),
       transparent
     );
+    /* transform, not top: animating top forced a layout on every frame */
     animation: crt-roll 7s linear infinite;
+    will-change: transform;
   }
 
   :root[data-fx="full"] .crt-scan {
     animation: crt-flicker 3.2s steps(1) infinite;
+    will-change: opacity;
   }
 
   :root:has(.reading-mode) .crt-roll {
@@ -243,9 +252,13 @@
     }
   }
 
+  /* From top: -20% to just below the screen: 130% of the screen = 7.22 bar heights. */
   @keyframes crt-roll {
+    from {
+      transform: translateY(0);
+    }
     to {
-      top: 110%;
+      transform: translateY(722%);
     }
   }
 
