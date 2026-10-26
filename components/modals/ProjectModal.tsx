@@ -100,21 +100,15 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
           </h2>
 
           <dl className="grid grid-cols-[90px_minmax(0,1fr)] gap-x-3 gap-y-1.5 text-[13px] frame:grid-cols-[110px_minmax(0,1fr)]">
-            <dt className="font-display text-[19px] leading-[1.2] tracking-[0.08em] text-phos-dim">
-              STATUS
-            </dt>
+            <dt className="kv-label">STATUS</dt>
             <dd>
               <span className={statusClass}>{project.status.value}</span>
             </dd>
-            <dt className="font-display text-[19px] leading-[1.2] tracking-[0.08em] text-phos-dim">
-              YEAR
-            </dt>
+            <dt className="kv-label">YEAR</dt>
             <dd>{project.year ?? "—"}</dd>
             {project.techStack.length > 0 && (
               <>
-                <dt className="font-display text-[19px] leading-[1.2] tracking-[0.08em] text-phos-dim">
-                  STACK
-                </dt>
+                <dt className="kv-label">STACK</dt>
                 <dd>
                   <ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
                     {project.techStack.map((t) => (

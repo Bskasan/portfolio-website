@@ -526,6 +526,32 @@
   }
 
   /* ---------- shared bits ---------- */
+  /* label column of a definition list (project window: STATUS / YEAR / STACK) */
+  .kv-label {
+    font-family: var(--font-display);
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    color: var(--phos-dim);
+  }
+
+  /* label column of the CV's skills / other lists */
+  .dl-label {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+  }
+
+  /* bordered command block (Contact: $ hire --email, $ sponsor --github) */
+  .shell-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 18px 20px;
+    border: 1px solid var(--phos-faint);
+  }
+
   .eyebrow {
     font-family: var(--font-display);
     font-size: 20px;

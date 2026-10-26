@@ -67,9 +67,7 @@ const CVPage = () => {
                       key={group.label}
                       className="grid grid-cols-1 gap-x-4 gap-y-2 frame:grid-cols-[170px_minmax(0,1fr)]"
                     >
-                      <dt className="font-display text-[22px] leading-[1.1] tracking-[0.06em]">
-                        {group.label}
-                      </dt>
+                      <dt className="dl-label">{group.label}</dt>
                       <dd>
                         <ul className="flex flex-wrap gap-1.5" aria-label={`${group.label} skills`}>
                           {group.skills.map((skill) => (
@@ -112,9 +110,7 @@ const CVPage = () => {
                       key={item.label}
                       className="grid grid-cols-1 gap-x-4 gap-y-1 frame:grid-cols-[170px_minmax(0,1fr)]"
                     >
-                      <dt className="font-display text-[22px] leading-[1.1] tracking-[0.06em]">
-                        {item.label}
-                      </dt>
+                      <dt className="dl-label">{item.label}</dt>
                       <dd className="text-sm">{item.value}</dd>
                     </div>
                   ))}
