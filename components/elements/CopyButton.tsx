@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface CopyButtonProps {
   value: string;
@@ -14,6 +14,9 @@ interface CopyButtonProps {
 const CopyButton = ({ value, label, fallbackTargetId, children }: CopyButtonProps) => {
   const [message, setMessage] = useState("");
   const timer = useRef<number | undefined>(undefined);
+
+  // Don't leave the "Copied…" timer running after the page changes.
+  useEffect(() => () => window.clearTimeout(timer.current), []);
 
   const flash = (text: string) => {
     setMessage(text);
