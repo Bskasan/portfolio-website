@@ -513,6 +513,18 @@
     }
   }
 
+  /* Scroll reveal (hooks/useScrollReveal): only below-the-fold items are ever hidden. */
+  .reveal-pending {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  .reveal-in {
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+  }
+
   /* ---------- shared bits ---------- */
   .eyebrow {
     font-family: var(--font-display);
