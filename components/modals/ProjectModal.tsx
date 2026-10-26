@@ -29,18 +29,22 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
     }
   }, [open]);
 
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
+  // Never leave the page scroll-locked if this unmounts while the window is open.
+  useEffect(
+    () => () => {
+      document.body.style.overflow = "";
+    },
+    [],
+  );
 
-    const handleClose = () => {
-      document.body.style.overflow = ""; // restore scroll
-      onClose();
-    };
-
-    dialog.addEventListener("close", handleClose);
-    return () => dialog.removeEventListener("close", handleClose);
-  }, [onClose]);
+  // Fires for every way the dialog closes: Escape, the [ X ] button, a backdrop
+  // click. Handled through React's onClose rather than a listener attached in an
+  // effect: the dialog only exists while a project is selected, so an effect
+  // keyed on onClose could run before it was there and never attach.
+  const handleClose = () => {
+    document.body.style.overflow = ""; // restore scroll
+    onClose();
+  };
 
   /*
     Backdrop click → close. The ::backdrop is part of the <dialog>, so clicking
@@ -64,6 +68,7 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
     <dialog
       ref={dialogRef}
       onClick={handleBackdropClick}
+      onClose={handleClose}
       aria-labelledby={titleId}
       aria-describedby={descId}
       className="project-modal m-auto max-h-[88vh] w-[min(92vw,40rem)] p-0"

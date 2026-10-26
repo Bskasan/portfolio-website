@@ -7,20 +7,13 @@ import PageHead from "@/components/pages/PageHead";
 import CartridgeBay from "@/components/pages/CartridgeBay";
 
 import { ProjectMetaData } from "@/lib/types/project";
-import { useCallback, useState } from "react";
 import { PROJECTS } from "@/constants/projects";
-import { useOpenItem } from "@/hooks/useOpenItem";
+import { useCartridgeSelection } from "@/hooks/useCartridgeSelection";
 
 const projects: ProjectMetaData[] = PROJECTS;
 
 const ProjectsPage = () => {
-  const [selected, setSelected] = useState<ProjectMetaData | null>(null);
-
-  useOpenItem(
-    useCallback((id: string) => {
-      setSelected(projects.find((project) => String(project.id) === id) ?? null);
-    }, []),
-  );
+  const { selected, open, close } = useCartridgeSelection(projects);
 
   return (
     <PageWrapper>
@@ -34,12 +27,12 @@ const ProjectsPage = () => {
       </PageHead>
 
       {projects.length > 0 ? (
-        <CartridgeBay items={projects} slotPrefix="P" onOpen={setSelected} />
+        <CartridgeBay items={projects} slotPrefix="P" onOpen={open} />
       ) : (
         <EmptyState title="NO CARTRIDGES FOUND." />
       )}
 
-      <ProjectModal project={selected} open={selected !== null} onClose={() => setSelected(null)} />
+      <ProjectModal project={selected} open={selected !== null} onClose={close} />
     </PageWrapper>
   );
 };

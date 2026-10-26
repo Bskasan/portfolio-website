@@ -7,22 +7,15 @@ import PageHead from "@/components/pages/PageHead";
 import CartridgeBay from "@/components/pages/CartridgeBay";
 
 import { ProjectMetaData } from "@/lib/types/project";
-import { useCallback, useState } from "react";
 import { COURSE_GAMES, MY_GAMES } from "@/constants/games";
-import { useOpenItem } from "@/hooks/useOpenItem";
+import { useCartridgeSelection } from "@/hooks/useCartridgeSelection";
 
 const courseGames: ProjectMetaData[] = COURSE_GAMES;
 const myGames: ProjectMetaData[] = MY_GAMES;
 const allGames = [...myGames, ...courseGames];
 
 const GamesPage = () => {
-  const [selected, setSelected] = useState<ProjectMetaData | null>(null);
-
-  useOpenItem(
-    useCallback((id: string) => {
-      setSelected(allGames.find((game) => String(game.id) === id) ?? null);
-    }, []),
-  );
+  const { selected, open, close } = useCartridgeSelection(allGames);
 
   return (
     <PageWrapper>
@@ -40,7 +33,7 @@ const GamesPage = () => {
           <h2 id="my-games" className="h-sec group-title mt-2.5 mb-[18px]">
             My game projects
           </h2>
-          <CartridgeBay items={myGames} slotPrefix="G" onOpen={setSelected} />
+          <CartridgeBay items={myGames} slotPrefix="G" onOpen={open} />
         </section>
       )}
 
@@ -49,14 +42,14 @@ const GamesPage = () => {
           <h2 id="course-games" className="h-sec group-title mt-[46px] mb-[18px]">
             Course games
           </h2>
-          <CartridgeBay items={courseGames} slotPrefix="C" onOpen={setSelected} />
+          <CartridgeBay items={courseGames} slotPrefix="C" onOpen={open} />
         </section>
       )}
 
       {/* Empty state: only when there are no games at all. */}
       {allGames.length === 0 && <EmptyState title="NO CARTRIDGES FOUND." />}
 
-      <ProjectModal project={selected} open={selected !== null} onClose={() => setSelected(null)} />
+      <ProjectModal project={selected} open={selected !== null} onClose={close} />
     </PageWrapper>
   );
 };
