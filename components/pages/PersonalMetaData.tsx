@@ -20,7 +20,7 @@ const PersonalMetaData = ({ isSticky }: PersonalMetaDataProps) => {
     <section
       aria-labelledby="id-name"
       className={`grid grid-cols-[120px_minmax(0,1fr)] items-start gap-[18px] xs:grid-cols-[180px_minmax(0,1fr)] cols:flex cols:flex-col cols:gap-3.5 ${
-        isSticky ? "cols:sticky cols:top-[calc(var(--screen-top)+110px)]" : ""
+        isSticky ? "cols:sticky cols:top-[calc(var(--screen-top)+var(--topbar-h)+16px)]" : ""
       } self-start`}
     >
       <div className="row-span-4 flex flex-col gap-1.5">

@@ -27,6 +27,8 @@
     --screen-x: calc(var(--bezel-x) + var(--bezel-w));
     --screen-radius: 26px / 30px;
     --gutter: 34px;
+    /* Real value is measured at runtime by components/crt/TopbarHeight.tsx. */
+    --topbar-h: 96px;
   }
 
   @media (width < 47.5rem) {
@@ -39,6 +41,7 @@
       --screen-top: 0px;
       --screen-radius: 0px;
       --gutter: max(16px, env(safe-area-inset-left, 0px));
+      --topbar-h: 55px;
     }
   }
 

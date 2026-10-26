@@ -1,6 +1,7 @@
 import AnimatedNavLink from "./NavLink";
 import MobileNav from "./MobileNav";
 import ScreenSettings from "./ScreenSettings";
+import TopbarHeight from "@/components/crt/TopbarHeight";
 import { NAV_LINKS } from "@/constants/navbar";
 
 /*
@@ -35,6 +36,7 @@ const NavBar = () => {
       </nav>
 
       <div className="crt-rule" />
+      <TopbarHeight />
     </header>
   );
 };
