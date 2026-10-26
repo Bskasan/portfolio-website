@@ -8,6 +8,7 @@ import { ViewTransitions } from "next-view-transitions";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { plexMono, vt323 } from "./fonts";
 import { getAllPosts } from "@/lib/blogs";
+import { getCartridges } from "@/lib/cartridges";
 import { DEFAULT_FX, DEFAULT_PHOSPHOR, screenSettingsInitScript } from "@/lib/screenSettings";
 
 export const metadata: Metadata = {
@@ -50,7 +51,7 @@ export default function RootLayout({
               </main>
             </div>
           </div>
-          <StatusBar posts={posts} />
+          <StatusBar posts={posts} cartridges={getCartridges()} />
           <GoogleAnalytics gaId="G-VP78F2NX1H" />
           <GoogleTagManager gtmId="G-VP78F2NX1H" />
         </body>

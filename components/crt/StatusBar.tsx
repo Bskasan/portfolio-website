@@ -17,8 +17,7 @@ import { isFxLevel, isPhosphor, setFxLevel, setPhosphor } from "@/lib/screenSett
 import { setShortcutsEnabled, shortcutsEnabled } from "@/lib/keyboardShortcuts";
 import { OPEN_ITEM_EVENT } from "@/lib/commandEvents";
 import { NAV_LINKS } from "@/constants/navbar";
-import { PROJECTS } from "@/constants/projects";
-import { COURSE_GAMES, MY_GAMES } from "@/constants/games";
+import type { Cartridge } from "@/lib/cartridges";
 import { COPYRIGHT_YEARS, LOCATION_CODE, PROFILE } from "@/constants/profile";
 
 interface StatusBarPost {
@@ -28,18 +27,11 @@ interface StatusBarPost {
 
 interface StatusBarProps {
   posts: StatusBarPost[];
+  /** Projects and games the `open` / `ls` commands know about (built on the server). */
+  cartridges: Cartridge[];
 }
 
 type LogLine = { text: string; echo?: boolean };
-
-const CARTRIDGES = [
-  ...PROJECTS.map((item) => ({ id: String(item.id), name: item.name, page: "/projects" })),
-  ...[...MY_GAMES, ...COURSE_GAMES].map((item) => ({
-    id: String(item.id),
-    name: item.name,
-    page: "/games",
-  })),
-];
 
 const PAGES: Record<string, string> = {
   home: "/",
@@ -66,12 +58,12 @@ const HELP = [
   "SHORTCUTS: 1-6 switch pages · / focuses this line · ESC closes windows (KEYS OFF disables 1-6 and /)",
 ];
 
-const BOOT_LINES = [
+const bootScript = (cartridges: Cartridge[]) => [
   `RONIN BIOS v2.6  (C) ${COPYRIGHT_YEARS.replace("–", "-")} ${PROFILE.site.toUpperCase()}`,
   `CPU: HUMAN/1 @ ${LOCATION_CODE.replace("/", "-")} ........ OK`,
   "MEMORY TEST: 640K ............. OK",
-  `MOUNTING /PROJECTS ............ ${PROJECTS.length} CARTRIDGES`,
-  `MOUNTING /GAMES ............... ${MY_GAMES.length + COURSE_GAMES.length} CARTRIDGES`,
+  `MOUNTING /PROJECTS ............ ${cartridges.filter((c) => c.page === "/projects").length} CARTRIDGES`,
+  `MOUNTING /GAMES ............... ${cartridges.filter((c) => c.page === "/games").length} CARTRIDGES`,
   `LOADING PROFILE: ${PROFILE.name.toUpperCase()} .. OK`,
   "STARTING RONIN/OS ...",
 ];
@@ -95,7 +87,7 @@ const isTyping = (target: EventTarget | null) =>
   The command line at the bottom of the screen, plus the global keyboard
   shortcuts (1–6 switch pages, "/" focuses the command line) and the clock.
 */
-const StatusBar = ({ posts }: StatusBarProps) => {
+const StatusBar = ({ posts, cartridges }: StatusBarProps) => {
   const router = useTransitionRouter();
   const pathname = usePathname();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -166,16 +158,14 @@ const StatusBar = ({ posts }: StatusBarProps) => {
   /* boot sequence (only via the `boot` command) */
   useEffect(() => {
     if (!bootLines) return;
-    if (bootLines.length < BOOT_LINES.length) {
-      const id = window.setTimeout(
-        () => setBootLines(BOOT_LINES.slice(0, bootLines.length + 1)),
-        190,
-      );
+    const script = bootScript(cartridges);
+    if (bootLines.length < script.length) {
+      const id = window.setTimeout(() => setBootLines(script.slice(0, bootLines.length + 1)), 190);
       return () => window.clearTimeout(id);
     }
     const id = window.setTimeout(() => setBootEnding(true), 400);
     return () => window.clearTimeout(id);
-  }, [bootLines]);
+  }, [bootLines, cartridges]);
 
   useEffect(() => {
     if (!bootEnding) return;
@@ -218,14 +208,14 @@ const StatusBar = ({ posts }: StatusBarProps) => {
     }
     if (command === "ls" || command === "dir") {
       return out(
-        ...CARTRIDGES.map((item) => `  ${item.id.padEnd(20)} ${item.name}`),
-        `${CARTRIDGES.length} cartridges. Type: open <name>`,
+        ...cartridges.map((item) => `  ${item.id.padEnd(20)} ${item.name}`),
+        `${cartridges.length} cartridges. Type: open <name>`,
       );
     }
     if (command === "open" || command === "load" || command === "run") {
       const hit =
-        CARTRIDGES.find((item) => item.id === arg) ??
-        CARTRIDGES.find((item) => item.id.startsWith(arg) || item.name.toLowerCase().includes(arg));
+        cartridges.find((item) => item.id === arg) ??
+        cartridges.find((item) => item.id.startsWith(arg) || item.name.toLowerCase().includes(arg));
       if (!arg || !hit) return out(`No cartridge named "${arg}". Type LS to see them all.`);
       if (pathname === hit.page) {
         window.dispatchEvent(new CustomEvent(OPEN_ITEM_EVENT, { detail: hit.id }));
