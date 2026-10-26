@@ -69,9 +69,12 @@ const MobileNav = ({ links }: MobileNavProps) => {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        className="crt-navlink border border-phos-faint"
+        className="group crt-navlink border border-phos-faint"
       >
-        MENU <span className="text-phos-dim">/ {currentLabel(pathname, links)}</span>
+        MENU{" "}
+        <span className="text-phos-dim group-hover:text-glass">
+          / {currentLabel(pathname, links)}
+        </span>
       </button>
 
       <AnimatePresence>
