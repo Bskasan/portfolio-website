@@ -502,6 +502,17 @@
     top: calc(var(--screen-top) + 12px);
   }
 
+  /* Page fade-in: CSS only, so it never waits for JavaScript (see PageWrapper). */
+  .page-in {
+    animation: page-in 0.3s ease-out 0.15s both;
+  }
+
+  @keyframes page-in {
+    from {
+      opacity: 0;
+    }
+  }
+
   /* ---------- shared bits ---------- */
   .eyebrow {
     font-family: var(--font-display);

@@ -1,19 +1,16 @@
-"use client";
-
-import { HTMLMotionProps, motion } from "framer-motion";
+import { ComponentProps } from "react";
 
 /*
-  Every page's content area: the screen's side gutter and vertical rhythm, with
-  the existing fade-in kept (shortened so it reads as the tube warming up).
+  Every page's content area: the screen's side gutter and vertical rhythm, plus a
+  short fade-in as the "tube warms up". The fade is plain CSS (.page-in in
+  styles/crt.css) so it starts on first paint — the previous Framer Motion
+  version kept server-rendered pages invisible until JavaScript had loaded.
 */
-const PageWrapper = ({ className, ...props }: HTMLMotionProps<"div">) => {
+const PageWrapper = ({ className, ...props }: ComponentProps<"div">) => {
   return (
-    <motion.div
+    <div
       {...props}
-      className={`pad pt-[34px] pb-14 max-frame:pt-6 max-frame:pb-10 ${className ?? ""}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.15 }}
+      className={`page-in pad pt-[34px] pb-14 max-frame:pt-6 max-frame:pb-10 ${className ?? ""}`}
     />
   );
 };
