@@ -1,12 +1,5 @@
 import { ExperienceEntry } from "@/lib/types/experience";
-import {
-  CLARUSWAY_LINK,
-  ESPOO_GAME_LAB_LINK,
-  ETUFILLARI_LINK,
-  INTEGRIFY_LINK,
-  NORTHFINA_LINK,
-  RAIS_GAMES_LINK,
-} from "@/constants/links";
+import { EMPLOYERS, companyLink } from "@/constants/employers";
 import {
   CLARUSWAY,
   ESPOO_GAME_LAB,
@@ -15,16 +8,14 @@ import {
   RAIS_GAMES,
 } from "@/constants/skills";
 
-// The About page's experience register (previously hand-written in app/about/page.tsx).
+// The About page's experience register. Employer names, links and periods come from
+// constants/employers.ts (shared with the CV); the summaries here are About-only.
 export const EXPERIENCE: ExperienceEntry[] = [
   {
     id: "A",
-    period: "Sep 2024 – Feb 2026",
+    period: EMPLOYERS.northfina.period,
     role: "Full-Stack Developer",
-    organizations: [
-      { name: "NorthFina Oy", url: NORTHFINA_LINK.source },
-      { name: "Etufillari Oy", url: ETUFILLARI_LINK.source },
-    ],
+    organizations: [companyLink(EMPLOYERS.northfina), companyLink(EMPLOYERS.etufillari)],
     where: "Espoo",
     description:
       "Designed and developed full-stack applications using Next.js and TypeScript, with serverless backends powered by Azure Functions. Built scalable internal tools and platforms for internal users to improve their efficiency across teams. Worked closely with cross-functional teams, including developers, designers, and product managers, to implement features with best practises.",
@@ -32,9 +23,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     id: "B",
-    period: "Mar 2024 – Sep 2024",
+    period: EMPLOYERS.espooGameLab.period,
     role: "Software Developer (Game programming)",
-    organizations: [{ name: "Espoo Game LAB", url: ESPOO_GAME_LAB_LINK.source }],
+    organizations: [companyLink(EMPLOYERS.espooGameLab)],
     where: "Espoo",
     description:
       "As an Espoo Game LAB program participant, my primary responsibility is game programming. I used Unity and C# to bring our projects to life.",
@@ -42,9 +33,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     id: "C",
-    period: "Jan 2024 – Jun 2024",
+    period: EMPLOYERS.integrify.period,
     role: "Full-stack Developer Trainee",
-    organizations: [{ name: "Integrify Oy", url: INTEGRIFY_LINK.source }],
+    organizations: [companyLink(EMPLOYERS.integrify)],
     where: "Remote",
     description:
       "Joined and was accepted into Integrify Oy's comprehensive full stack training program, where I'll be honing my skills in frontend, backend, DevOps, and Cloud technologies.",
@@ -52,9 +43,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     id: "D",
-    period: "Nov 2022 – Jul 2023",
+    period: EMPLOYERS.clarusway.period,
     role: "Full-stack Developer Trainee",
-    organizations: [{ name: "Clarusway", url: CLARUSWAY_LINK.source }],
+    organizations: [companyLink(EMPLOYERS.clarusway)],
     where: "Remote",
     description:
       "Collaborated within a team to successfully design and develop 15+ web projects, ranging from small-scale applications to complex systems. Notably, contributed to two significant projects: Stock app and Fireblog app.",
@@ -62,9 +53,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     id: "E",
-    period: "Mar 2021 – Feb 2022",
+    period: EMPLOYERS.raisGames.period,
     role: "Junior Game Developer",
-    organizations: [{ name: "Rais Games Ltd.", url: RAIS_GAMES_LINK.source }],
+    organizations: [companyLink(EMPLOYERS.raisGames)],
     where: "Remote",
     description:
       "Designed and developed 10+ games with many prototypes for IOS and Android platforms. Collaborated with game designers and artists.",

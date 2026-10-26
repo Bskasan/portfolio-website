@@ -1,10 +1,5 @@
 import { CVEducation, CVExperience, CVHeader, CVOtherItem, CVSkillGroup } from "@/lib/types/cv";
-import {
-  CLARUSWAY_LINK,
-  ESPOO_GAME_LAB_LINK,
-  INTEGRIFY_LINK,
-  NORTHFINA_LINK,
-} from "@/constants/links";
+import { EMPLOYERS, companyLink } from "@/constants/employers";
 
 export const CV_HEADER: CVHeader = {
   name: "Bekir Kasan",
@@ -24,10 +19,10 @@ export const CV_SUMMARY: string[] = [
 
 export const CV_EXPERIENCE: CVExperience[] = [
   {
-    company: { name: "Northfina Oy", url: NORTHFINA_LINK.source },
+    company: companyLink(EMPLOYERS.northfina),
     role: "Full-stack Web Developer",
-    location: "Espoo, Finland",
-    period: "Sep 2024 – Feb 2026",
+    location: EMPLOYERS.northfina.location,
+    period: EMPLOYERS.northfina.period,
     highlights: [
       "Built and shipped full-stack features using Next.js, TypeScript, and Azure Functions—from responsive UI components to serverless backend logic—supporting Northfina's B2B application and Etufillari Oy bike benefit platform.",
       "Implemented Finnish strong electronic authentication (Telia Tunnistus) by integrating the Telia ID Broker with the application, enabling secure user authentication using Finnish bank credentials and Mobile ID while ensuring compliance with national authentication standards.",
@@ -44,41 +39,40 @@ export const CV_EXPERIENCE: CVExperience[] = [
     ],
   },
   {
-    company: { name: "Espoo Game LAB", url: ESPOO_GAME_LAB_LINK.source },
+    company: companyLink(EMPLOYERS.espooGameLab),
     role: "Game Developer & Programmer",
-    location: "Espoo, Finland",
-    period: "Mar 2024 – Sep 2024",
+    location: EMPLOYERS.espooGameLab.location,
+    period: EMPLOYERS.espooGameLab.period,
     highlights: [
       "Built gameplay systems in Unity (C#), emphasizing deterministic behavior and regression-safe refactors through component isolation and repeatable test scenes.",
       "Collaborated with designers and producers to ship features for Twilight Ferry and Finnish Cottage #8, creating technical documentation and task breakdowns to support team delivery.",
     ],
   },
   {
-    company: { name: "Integrify Oy", url: INTEGRIFY_LINK.source },
+    company: companyLink(EMPLOYERS.integrify),
     role: "Software Developer (Full-stack) Intern",
-    location: "Helsinki, Finland",
-    period: "Jan 2024 – Jun 2024",
+    location: EMPLOYERS.integrify.location,
+    period: EMPLOYERS.integrify.period,
     highlights: [
       "Completed intensive full-stack curriculum covering React, TypeScript, Redux, C#/.NET, database design, and cloud deployment (AWS, Azure)—building hands-on projects across frontend, backend, and CI/CD workflows.",
       "Implemented features and unit/integration tests in learning projects; practised API test design and debugging with Postman.",
     ],
   },
   {
-    company: { name: "Clarusway", url: CLARUSWAY_LINK.source },
+    company: companyLink(EMPLOYERS.clarusway),
     role: "Full-stack Developer Trainee & Bootcamp Student",
-    location: "Virginia, USA",
-    period: "Nov 2022 – Jul 2023",
+    location: EMPLOYERS.clarusway.location,
+    period: EMPLOYERS.clarusway.period,
     highlights: [
       "Built 15+ full-stack projects using React/JavaScript frontends and Python/Django backends, including e-commerce sites and API-driven dashboards.",
       "Worked with PostgreSQL and MongoDB; conducted API testing with Postman; adhered to accessibility and responsive design best practices.",
     ],
   },
   {
-    // No public link for this employer, so the name renders as plain text.
-    company: { name: "Star Dunnage Oy" },
+    company: companyLink(EMPLOYERS.starDunnage),
     role: "WordPress Web Developer",
-    location: "Vantaa, Finland",
-    period: "Aug 2022 – Jan 2023",
+    location: EMPLOYERS.starDunnage.location,
+    period: EMPLOYERS.starDunnage.period,
     highlights: [
       "Maintained and updated company websites (starsofa.fi, stardunnage.fi).",
       "Implemented content updates with attention to performance and SEO basics.",
