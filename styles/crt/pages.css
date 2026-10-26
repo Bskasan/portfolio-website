@@ -1,0 +1,266 @@
+/*
+  Phosphor OS — page-specific styles: About's experience register, the blog
+  directory listing, the CV's expandable jobs and the blog article (MDX).
+*/
+
+@layer components {
+  /* ---------- About: experience register ---------- */
+  .reg-cols,
+  .reg-btn {
+    display: grid;
+    grid-template-columns: 44px 190px minmax(0, 1fr) minmax(0, 0.9fr) 26px;
+    gap: 12px;
+    align-items: baseline;
+  }
+
+  .reg-cols {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--phos-faint);
+    font-family: var(--font-display);
+    font-size: var(--text-label);
+    letter-spacing: 0.08em;
+    color: var(--phos-dim);
+  }
+
+  .reg-row {
+    border-bottom: 1px solid var(--phos-faint);
+  }
+
+  .reg-btn {
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    background: none;
+    text-align: left;
+    font-size: var(--text-small);
+  }
+
+  .reg-btn:hover {
+    background: color-mix(in srgb, var(--phos) 9%, transparent);
+  }
+
+  .reg-id {
+    font-family: var(--font-display);
+    font-size: var(--text-menu);
+    line-height: 1;
+  }
+
+  .reg-period,
+  .reg-org {
+    color: var(--phos-dim);
+  }
+
+  .reg-period {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .reg-role {
+    font-weight: 600;
+  }
+
+  .reg-chev {
+    font-family: var(--font-display);
+    font-size: var(--text-ui);
+    text-align: right;
+    transition: transform 0.2s;
+  }
+
+  .reg-btn[aria-expanded="true"] {
+    background: var(--phos);
+    color: var(--glass);
+    text-shadow: none;
+  }
+
+  .reg-btn[aria-expanded="true"] .reg-period,
+  .reg-btn[aria-expanded="true"] .reg-org {
+    color: var(--glass);
+  }
+
+  .reg-btn[aria-expanded="true"] .reg-chev {
+    transform: rotate(90deg);
+  }
+
+  .reg-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 10px 20px 66px;
+  }
+
+  @media (width < 56.25rem) {
+    .reg-cols {
+      display: none;
+    }
+
+    .reg-btn {
+      grid-template-columns: 34px minmax(0, 1fr) 22px;
+      grid-template-areas: "id role chev" "id org chev" "id period chev";
+      gap: 2px 12px;
+    }
+
+    .reg-id {
+      grid-area: id;
+    }
+    .reg-role {
+      grid-area: role;
+    }
+    .reg-org {
+      grid-area: org;
+    }
+    .reg-period {
+      grid-area: period;
+      font-size: var(--text-meta);
+    }
+    .reg-chev {
+      grid-area: chev;
+      align-self: center;
+    }
+
+    .reg-detail {
+      padding-left: 56px;
+    }
+  }
+
+  /* ---------- Blog: directory listing ---------- */
+  .dir-cols,
+  .dir-row > a {
+    display: grid;
+    grid-template-columns: 130px 110px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .dir-cols {
+    padding: 4px 10px;
+    border-bottom: 1px solid var(--phos-faint);
+    font-family: var(--font-display);
+    font-size: var(--text-label);
+    letter-spacing: 0.08em;
+    color: var(--phos-dim);
+  }
+
+  .dir-row {
+    border-bottom: 1px solid var(--phos-faint);
+  }
+
+  .dir-row > a {
+    padding: 16px 10px;
+    text-decoration: none;
+  }
+
+  .dir-title {
+    justify-self: start;
+    margin-left: -4px;
+    padding: 0 4px;
+    font-family: var(--font-display);
+    font-size: var(--text-card);
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  .dir-row > a:hover .dir-title {
+    background: var(--phos);
+    color: var(--glass);
+    text-shadow: none;
+  }
+
+  @media (width < 47.5rem) {
+    .dir-cols {
+      display: none;
+    }
+
+    .dir-row > a {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 6px;
+    }
+
+    .dir-size {
+      display: none;
+    }
+  }
+
+  /* ---------- CV: expandable jobs ---------- */
+  .job {
+    border-bottom: 1px solid var(--phos-faint);
+  }
+
+  .job-btn {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 16px;
+    width: 100%;
+    padding: 12px 8px;
+    border: 0;
+    background: none;
+    text-align: left;
+  }
+
+  .job-btn:hover {
+    background: color-mix(in srgb, var(--phos) 9%, transparent);
+  }
+
+  .job-count::after {
+    content: " ▸";
+  }
+
+  .job-btn[aria-expanded="true"] .job-count::after {
+    content: " ▾";
+  }
+
+  @media (width < 47.5rem) {
+    .job-btn {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* ---------- blog article (MDX) ---------- */
+  .article {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: var(--text-article);
+    line-height: 1.78;
+    color: color-mix(in srgb, var(--phos) 88%, var(--glass));
+  }
+
+  .article h2 {
+    margin-top: 22px;
+    font-size: var(--text-title);
+    text-transform: uppercase;
+    color: var(--phos);
+  }
+
+  .article h2::before {
+    content: "## ";
+    color: var(--phos-dim);
+  }
+
+  .article ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article li {
+    position: relative;
+    padding-left: 22px;
+  }
+
+  .article li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--phos-dim);
+  }
+
+  .article strong {
+    font-weight: 600;
+    color: var(--phos);
+  }
+
+  .article a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}

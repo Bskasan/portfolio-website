@@ -1,0 +1,487 @@
+/*
+  Phosphor OS — the monitor: frame geometry, glass, overlays, bezel, top bar,
+  menu, screen-settings control, command line and boot screen.
+
+  Layout model: the page scrolls normally (window scroll). A fixed CRT frame —
+  bezel, glass and scanline overlays — sits on top, and content scrolls "under
+  the glass". On phones (< 760px) the bezel disappears and the glass fills the
+  screen. Geometry lives in the variables on :root so the frame, the sticky
+  menu, the fixed command line and the content column always line up.
+
+  All three crt/*.css files are in the `components` layer so Tailwind
+  utilities can still override them from markup.
+*/
+
+@layer components {
+  :root {
+    --frame-max: 1320px;
+    --room-x: 24px; /* gap between window edge and bezel */
+    --room-top: 18px;
+    --room-bottom: 10px;
+    --bezel-w: 22px; /* bezel thickness on top / sides */
+    --chin-h: 46px; /* bezel below the screen */
+    --status-h: 50px; /* command line height */
+    --screen-top: calc(var(--room-top) + var(--bezel-w));
+    --screen-bottom: calc(var(--room-bottom) + var(--chin-h));
+    /* fixed elements: 100% is the viewport width without the scrollbar */
+    --bezel-x: calc(max(0px, (100% - var(--frame-max)) / 2) + var(--room-x));
+    --screen-x: calc(var(--bezel-x) + var(--bezel-w));
+    --screen-radius: 26px / 30px;
+    --gutter: 34px;
+    /* Real value is measured at runtime by components/crt/TopbarHeight.tsx. */
+    --topbar-h: 96px;
+  }
+
+  @media (width < 47.5rem) {
+    :root {
+      --room-x: 0px;
+      --room-top: 0px;
+      --room-bottom: 0px;
+      --bezel-w: 0px;
+      --chin-h: 0px;
+      --screen-top: 0px;
+      --screen-radius: 0px;
+      --gutter: max(16px, env(safe-area-inset-left, 0px));
+      --topbar-h: 55px;
+    }
+  }
+
+  /* ---------- page column ---------- */
+  .crt-page {
+    min-height: 100vh;
+    padding-top: var(--screen-top);
+    padding-bottom: calc(var(--screen-bottom) + var(--status-h) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .crt-column {
+    max-width: var(--frame-max);
+    margin-inline: auto;
+    padding-inline: calc(var(--room-x) + var(--bezel-w));
+  }
+
+  .pad {
+    padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+  }
+
+  /* ---------- the frame (fixed layers) ---------- */
+  .crt-glass,
+  .crt-frame {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .crt-glass {
+    z-index: -1;
+    view-transition-name: crt-glass;
+  }
+
+  .crt-glass::before {
+    content: "";
+    position: absolute;
+    top: var(--screen-top);
+    bottom: var(--screen-bottom);
+    left: var(--screen-x);
+    right: var(--screen-x);
+    border-radius: var(--screen-radius);
+    background: radial-gradient(ellipse 85% 75% at 50% 45%, var(--glass-2), var(--glass) 75%);
+    transition: background 0.3s ease;
+  }
+
+  .crt-frame {
+    z-index: 40;
+    view-transition-name: crt-frame;
+  }
+
+  .crt-screen-fx,
+  .crt-bezel,
+  .crt-shell {
+    position: absolute;
+  }
+
+  /* scanlines + vignette + rolling bar, clipped to the screen */
+  .crt-screen-fx {
+    top: var(--screen-top);
+    bottom: var(--screen-bottom);
+    left: var(--screen-x);
+    right: var(--screen-x);
+    border-radius: var(--screen-radius);
+    overflow: hidden;
+  }
+
+  .crt-scan,
+  .crt-vignette,
+  .crt-roll {
+    position: absolute;
+    inset: 0;
+  }
+
+  .crt-scan {
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0 2px,
+      rgba(0, 0, 0, var(--scan)) 2px 3px
+    );
+  }
+
+  .crt-vignette {
+    background: radial-gradient(
+      ellipse 90% 85% at 50% 50%,
+      transparent 60%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  }
+
+  :root[data-fx="off"] .crt-vignette {
+    background: radial-gradient(
+      ellipse 95% 90% at 50% 50%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+  }
+
+  .crt-roll {
+    display: none;
+  }
+
+  /* Full mode animates the overlay: keep its repaints on its own layer, away from the page. */
+  :root[data-fx="full"] .crt-screen-fx {
+    contain: strict;
+    will-change: transform;
+  }
+
+  :root[data-fx="full"] .crt-roll {
+    display: block;
+    inset: auto 0;
+    top: -20%;
+    height: 18%;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      color-mix(in srgb, var(--phos) 6%, transparent),
+      transparent
+    );
+    /* transform, not top: animating top forced a layout on every frame */
+    animation: crt-roll 7s linear infinite;
+    will-change: transform;
+  }
+
+  :root[data-fx="full"] .crt-scan {
+    animation: crt-flicker 3.2s steps(1) infinite;
+    will-change: opacity;
+  }
+
+  :root:has(.reading-mode) .crt-roll {
+    display: none;
+  }
+
+  :root:has(.reading-mode) .crt-scan {
+    animation: none;
+  }
+
+  /* bezel: a rounded window punched into a solid frame */
+  .crt-bezel {
+    top: var(--screen-top);
+    bottom: var(--screen-bottom);
+    left: var(--screen-x);
+    right: var(--screen-x);
+    border-radius: var(--screen-radius);
+    box-shadow:
+      0 0 0 200vmax var(--bezel),
+      inset 0 0 0 2px #000,
+      inset 0 0 50px rgba(0, 0, 0, 0.85);
+  }
+
+  /* outer edge of the monitor, with the room around it */
+  .crt-shell {
+    top: var(--room-top);
+    bottom: var(--room-bottom);
+    left: var(--bezel-x);
+    right: var(--bezel-x);
+    border-radius: 34px;
+    box-shadow:
+      0 0 0 200vmax var(--room),
+      inset 0 2px 0 rgba(255, 255, 255, 0.07),
+      inset 0 22px 22px -18px rgba(255, 255, 255, 0.05),
+      inset 0 -4px 10px rgba(0, 0, 0, 0.55);
+  }
+
+  .crt-chin {
+    position: absolute;
+    left: var(--bezel-x);
+    right: var(--bezel-x);
+    bottom: var(--room-bottom);
+    height: var(--chin-h);
+    padding: 0 calc(var(--bezel-w) + 14px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--font-display);
+    font-size: var(--text-hint);
+    letter-spacing: 0.18em;
+    color: var(--bezel-ink);
+    text-shadow: none;
+  }
+
+  .crt-grille {
+    flex: 1;
+    max-width: 220px;
+    height: 14px;
+    border-radius: 4px;
+    background: repeating-linear-gradient(90deg, #15160f 0 4px, transparent 4px 9px);
+  }
+
+  .crt-led {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background: var(--phos);
+    box-shadow:
+      0 0 8px var(--phos),
+      0 0 2px var(--phos);
+  }
+
+  @media (width < 47.5rem) {
+    .crt-bezel,
+    .crt-shell,
+    .crt-chin {
+      display: none;
+    }
+  }
+
+  /* From top: -20% to just below the screen: 130% of the screen = 7.22 bar heights. */
+  @keyframes crt-roll {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(722%);
+    }
+  }
+
+  @keyframes crt-flicker {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    47% {
+      opacity: 0.82;
+    }
+    48% {
+      opacity: 1;
+    }
+    73% {
+      opacity: 0.9;
+    }
+    74% {
+      opacity: 1;
+    }
+  }
+
+  /* ---------- top bar ---------- */
+  .crt-topbar {
+    position: sticky;
+    top: max(var(--screen-top), env(safe-area-inset-top, 0px));
+    z-index: 30;
+    background: var(--glass);
+    view-transition-name: navbar;
+  }
+
+  .crt-sysline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 14px 6px;
+    font-family: var(--font-display);
+    font-size: var(--text-key);
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+  }
+
+  .crt-navline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    padding-block: 6px 10px;
+  }
+
+  .crt-navlink {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 1px 10px 1px 6px;
+    font-family: var(--font-display);
+    font-size: var(--text-menu);
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .crt-navlink .crt-key {
+    color: var(--phos-dim);
+    font-size: var(--text-hint);
+  }
+
+  .crt-navlink:hover .crt-key,
+  .crt-navlink[aria-current="page"] .crt-key {
+    color: var(--glass);
+  }
+
+  .crt-rule {
+    border-top: 1px solid var(--phos-faint);
+    margin-inline: var(--gutter);
+  }
+
+  @media (width < 47.5rem) {
+    .crt-rule {
+      margin-inline: 0;
+    }
+
+    .crt-sysline {
+      padding-block: 10px;
+    }
+  }
+
+  /* inverse-video highlight bar (the selected menu item) */
+  .hbar,
+  .crt-navlink:hover,
+  .crt-navlink[aria-current="page"] {
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--phos) 0 2px,
+      color-mix(in srgb, var(--phos) 82%, var(--glass)) 2px 3px
+    );
+    color: var(--glass);
+    text-shadow: none;
+  }
+
+  /* segmented control (screen settings) */
+  .seg {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-family: var(--font-display);
+    font-size: var(--text-key);
+  }
+
+  .seg-label {
+    color: var(--phos-dim);
+    margin-right: 6px;
+    letter-spacing: 0.06em;
+  }
+
+  .seg button {
+    padding: 0 6px;
+    border: 1px solid transparent;
+    background: none;
+    font-family: var(--font-display);
+    font-size: var(--text-key);
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    color: var(--phos-dim);
+  }
+
+  .seg button:hover {
+    color: var(--phos);
+    border-color: var(--phos-faint);
+  }
+
+  .seg button[aria-pressed="true"] {
+    background: var(--phos);
+    color: var(--glass);
+    text-shadow: none;
+  }
+
+  /* ---------- command line ---------- */
+  .crt-status {
+    position: fixed;
+    z-index: 30;
+    left: var(--screen-x);
+    right: var(--screen-x);
+    bottom: var(--screen-bottom);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    border-top: 1px solid var(--phos-faint);
+    background: var(--glass);
+    view-transition-name: statusbar;
+  }
+
+  .crt-cmd {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: var(--status-h);
+    font-family: var(--font-display);
+    font-size: var(--text-ui);
+  }
+
+  .crt-cmd:focus-within {
+    background: color-mix(in srgb, var(--phos) 5%, transparent);
+  }
+
+  .crt-cmd input {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--phos);
+    font-family: var(--font-display);
+    font-size: var(--text-ui);
+    letter-spacing: 0.05em;
+    text-shadow: var(--glow);
+    caret-color: var(--phos);
+    caret-shape: block;
+  }
+
+  .crt-cmd input::placeholder {
+    color: var(--phos-dim);
+    opacity: 0.75;
+  }
+
+  .crt-console {
+    max-height: 38vh;
+    overflow-y: auto;
+    padding-block: 10px;
+    border-bottom: 1px solid var(--phos-faint);
+    font-size: var(--text-console);
+    white-space: pre-wrap;
+  }
+
+  /* ---------- boot sequence (via the `boot` command) ---------- */
+  .crt-boot {
+    position: fixed;
+    z-index: 35;
+    top: var(--screen-top);
+    bottom: var(--screen-bottom);
+    left: var(--screen-x);
+    right: var(--screen-x);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 34px;
+    border-radius: var(--screen-radius);
+    background: var(--glass);
+    font-family: var(--font-display);
+    font-size: var(--text-ui);
+    line-height: 1.3;
+    cursor: pointer;
+  }
+
+  .crt-boot.is-out {
+    animation: crt-boot-out 0.35s steps(4) forwards;
+  }
+
+  @keyframes crt-boot-out {
+    to {
+      opacity: 0;
+      transform: scaleY(0.02);
+    }
+  }
+}

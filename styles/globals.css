@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@import "./crt.css";
+@import "./crt/frame.css";
+@import "./crt/components.css";
+@import "./crt/pages.css";
 
 /*
   Phosphor OS theme.
@@ -84,7 +86,7 @@
   /*
     Breakpoints — the only ones the site uses. Tailwind's defaults are removed so
     `frame:` / `max-frame:` etc. always meet at exactly the same width (no gap or
-    overlap). styles/crt.css and MobileNav use the same values; keep them in sync.
+    overlap). styles/crt/*.css and MobileNav use the same values; keep them in sync.
       xs     480px   compact ID card / command line below this
       frame  760px   monitor frame + desktop menu from here (phone layout below)
       cols   900px   two-column layouts (About, Home hero)

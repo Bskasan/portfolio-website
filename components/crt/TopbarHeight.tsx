@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
   that must clear the bar (the About ID card's sticky offset, the scroll padding
   that keeps keyboard focus visible) never relies on a hard-coded number. The bar
   can change height when fonts load or the menu wraps; ResizeObserver tracks it.
-  styles/crt.css holds the pre-hydration fallback values.
+  styles/crt/frame.css holds the pre-hydration fallback values.
 */
 const TopbarHeight = () => {
   const ref = useRef<HTMLSpanElement>(null);

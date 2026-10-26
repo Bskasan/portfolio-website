@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
   mount, only an element that starts *below* the screen is put in the
   `reveal-pending` state and revealed when it scrolls into view; anything already
   on screen stays put. Classes are toggled directly, so revealing causes no
-  React re-render. Styles: .reveal-pending / .reveal-in in styles/crt.css.
+  React re-render. Styles: .reveal-pending / .reveal-in in styles/crt/components.css.
 */
 export function useScrollReveal<T extends HTMLElement = HTMLDivElement>() {
   const ref = useRef<T>(null);

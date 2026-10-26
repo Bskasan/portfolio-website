@@ -24,7 +24,7 @@ It's designed to load fast, look clean on mobile, tablet, and desktop, and stay 
 | Framework | [Next.js 16](https://nextjs.org) (App Router)                                                                                   |
 | Language  | [TypeScript](https://www.typescriptlang.org/)                                                                                   |
 | UI        | [React 19](https://react.dev/)                                                                                                  |
-| Styling   | [Tailwind CSS v4](https://tailwindcss.com/) + CRT component styles in `styles/crt.css`                                          |
+| Styling   | [Tailwind CSS v4](https://tailwindcss.com/) + CRT styles in `styles/crt/` (frame, components, pages)                            |
 | Theming   | Phosphor colour + screen-effect settings via a custom `useScreenSettings` hook (`useSyncExternalStore`) — no extra dependencies |
 | Animation | [Framer Motion](https://www.framer.com/motion/) + [next-view-transitions](https://github.com/shuding/next-view-transitions)     |
 | Content   | [MDX](https://mdxjs.com/) (`@next/mdx`, `gray-matter`, `remark-frontmatter`)                                                    |
@@ -136,7 +136,7 @@ The screen has two visitor settings, stored as data attributes on `<html>`:
 - A tiny inline script in the root layout applies the saved settings **before first paint**, so there's no flash of the default screen. Visitors who had chosen the old light theme start on the white phosphor.
 - [`hooks/useScreenSettings.ts`](hooks/useScreenSettings.ts) reads the settings via `useSyncExternalStore`, persists changes to `localStorage` and syncs them across tabs. The shared constants and setters live in [`lib/screenSettings.ts`](lib/screenSettings.ts) so the server layout and the command line can use them too.
 - Colours come from tokens in [`styles/globals.css`](styles/globals.css) — `--phos`, `--phos-dim`, `--phos-faint`, `--glass`, `--glass-2` plus the warm accent `--warm-1..3` (used only for the logo stripes and "in progress" status). They are exposed to Tailwind, so markup uses `text-phos`, `border-phos-faint`, `bg-glass`… and never needs to know which phosphor is active.
-- The CRT frame (glass, scanlines, vignette, bezel) is fixed on top of a normally scrolling page; its geometry and the shared visual pieces (`.cmdlink`, `.hbar`, `.tint`, `.chip`…) are in [`styles/crt.css`](styles/crt.css).
+- The CRT frame (glass, scanlines, vignette, bezel) is fixed on top of a normally scrolling page; its geometry is in [`styles/crt/frame.css`](styles/crt/frame.css), the shared visual pieces (`.cmdlink`, `.hbar`, `.tint`, `.chip`…) in [`styles/crt/components.css`](styles/crt/components.css) and page-specific styles in [`styles/crt/pages.css`](styles/crt/pages.css). Font sizes come from the type scale and breakpoints from the named breakpoints in `styles/globals.css`.
 
 ## Connect
 

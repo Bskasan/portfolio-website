@@ -2,7 +2,7 @@
   The CRT monitor drawn around the page: the glass behind the content, then the
   scanline / vignette overlays, the bezel and the monitor chin on top. All layers
   are fixed and ignore the pointer, so the page underneath scrolls and clicks
-  normally. Each layer has a view-transition name (see styles/crt.css) so the
+  normally. Each layer has a view-transition name (see styles/crt/frame.css) so the
   monitor stays still while the page content changes.
 */
 const CrtFrame = () => {
