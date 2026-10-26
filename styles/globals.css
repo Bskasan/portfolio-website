@@ -1,60 +1,145 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
+@import "./crt.css";
 
 /*
-  Enable class-based dark mode. By default Tailwind v4's `dark:` variant follows
-  the OS `prefers-color-scheme`; this override makes it respond to a `.dark`
-  class on <html> instead, which the theme toggle sets (see hooks/useTheme.ts).
+  Phosphor OS theme.
+
+  The screen has two visitor settings, both stored as data attributes on <html>
+  (set before first paint by the inline script in app/layout.tsx and changed at
+  runtime through hooks/useScreenSettings.ts):
+
+    data-phos = green | amber | white   → which phosphor colour the "tube" glows in
+    data-fx   = off | subtle | full     → how strong the scanline / glow / flicker effects are
+
+  Every colour in the UI comes from the tokens below, so a setting change only
+  swaps variables — no component needs to know which phosphor is active.
 */
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  /* Elevated surfaces + borders. Light values mirror the existing
-     white / zinc-50 / zinc-200 look; only ever consumed via `dark:` utilities. */
-  --surface: #ffffff;
-  --surface-2: #f4f4f5;
-  --line: #e4e4e7;
-  color-scheme: light;
-}
+  /* phosphor (default: green) */
+  --phos: #7cffa0; /* primary text + marks */
+  --phos-dim: #4fb872; /* secondary text */
+  --phos-faint: #1d4a2a; /* rules, borders */
+  --glass: #040a06; /* screen background */
+  --glass-2: #0a170e; /* raised panels, centre of the tube */
 
-.dark {
-  --background: #090040; /* deep indigo — the dark-theme page background */
-  --foreground: #ededed;
-  /* Indigo family derived from the background, lightened for elevation. */
-  --surface: #16104f; /* cards, modal panel */
-  --surface-2: #241a6b; /* chips, hover fills (one step higher) */
-  --line: #2f2678; /* borders / dividers */
+  /* warm accent — only for the logo stripes and "in progress" status */
+  --warm-1: #ffc94d;
+  --warm-2: #ff7a45;
+  --warm-3: #e9469a;
+  --warm-ink: #160a02;
+
+  /* hardware */
+  --room: #0d0e0c;
+  --bezel: #2b2c26;
+  --bezel-ink: #8d907f;
+
+  /* effects (default: subtle) */
+  --glow: 0 0 5px color-mix(in srgb, var(--phos) 45%, transparent);
+  --scan: 0.22;
+
   color-scheme: dark;
 }
 
+:root[data-phos="amber"] {
+  --phos: #ffb84a;
+  --phos-dim: #c98a34;
+  --phos-faint: #4a3311;
+  --glass: #0a0602;
+  --glass-2: #170f05;
+}
+
+:root[data-phos="white"] {
+  --phos: #e4efe9;
+  --phos-dim: #9eaca5;
+  --phos-faint: #313a36;
+  --glass: #07090a;
+  --glass-2: #121618;
+}
+
+:root[data-fx="off"] {
+  --glow: none;
+  --scan: 0;
+}
+
+:root[data-fx="full"] {
+  --glow:
+    0 0 4px color-mix(in srgb, var(--phos) 70%, transparent),
+    0 0 14px color-mix(in srgb, var(--phos) 35%, transparent), -0.6px 0 rgba(255, 60, 90, 0.35),
+    0.6px 0 rgba(60, 140, 255, 0.35);
+  --scan: 0.34;
+}
+
+/* Long-form reading (blog posts): a calmer screen. */
+:root:has(.reading-mode) {
+  --scan: 0.1;
+  --glow: none;
+}
+
 /*
-  Colors point at the `--background` / `--foreground` variables above (which
-  `.dark` overrides) so the `bg-background` / `text-foreground` utilities follow
-  the active theme instead of baking in the light values. Kept non-inline so
-  `--font-mono` is still emitted for `body { font-family: var(--font-mono) }`.
+  Tailwind tokens point at the variables above, so utilities such as
+  `text-phos`, `border-phos-faint` or `bg-glass` follow the active phosphor.
+  Kept non-inline so `--font-mono` / `--font-display` are emitted for the base styles.
 */
 @theme {
-  --font-mono: var(--font-plex-mono), monospace;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
   --font-display: var(--font-vt323), "Courier New", monospace;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-line: var(--line);
+
+  --color-phos: var(--phos);
+  --color-phos-dim: var(--phos-dim);
+  --color-phos-faint: var(--phos-faint);
+  --color-glass: var(--glass);
+  --color-glass-2: var(--glass-2);
+  --color-warm-1: var(--warm-1);
+  --color-warm-2: var(--warm-2);
+  --color-warm-3: var(--warm-3);
+  --color-warm-ink: var(--warm-ink);
 }
 
-body {
-  font-family: var(--font-mono);
-  background: var(--background);
-  color: var(--foreground);
-  /* Only perceptible while toggling themes; static rendering is unaffected. */
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+@layer base {
+  html {
+    background: var(--room);
+    scrollbar-width: thin;
+    scrollbar-color: var(--phos-faint) var(--room);
+  }
+
+  body {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--phos);
+    background: var(--room);
+    text-shadow: var(--glow);
+    -webkit-font-smoothing: antialiased;
+    transition: color 0.2s ease;
+  }
+
+  ::selection {
+    background: var(--phos);
+    color: var(--glass);
+    text-shadow: none;
+  }
+
+  :focus-visible {
+    outline: 2px dashed var(--phos);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  button {
+    cursor: pointer;
+  }
 }
 
+/* ---------- page transitions (next-view-transitions) ---------- */
 ::view-transition-group(root) {
   z-index: auto !important;
 }
@@ -68,4 +153,12 @@ body {
 ::view-transition-old(root) {
   z-index: 1;
   animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }

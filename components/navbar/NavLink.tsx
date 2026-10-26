@@ -10,20 +10,30 @@ import { ReactNode } from "react";
 interface NavLinkProps {
   href: string;
   children: ReactNode;
+  /** Keyboard shortcut shown before the label (1–6). */
+  shortcut?: number;
   classNameAttr?: string;
   onNavigate?: () => void;
 }
 
-const AnimatedNavLink = ({ href, children, classNameAttr, onNavigate }: NavLinkProps) => {
+const AnimatedNavLink = ({ href, children, shortcut, classNameAttr, onNavigate }: NavLinkProps) => {
   const pathName = usePathname();
   const router = useTransitionRouter();
 
-  const isActive = href === "/" ? pathName === "/" : pathName.startsWith(href);
+  // The CV is reached from About, so About stays highlighted there.
+  const isActive =
+    href === "/"
+      ? pathName === "/"
+      : pathName.startsWith(href) || (href === "/about" && pathName.startsWith("/cv"));
 
   return (
     <Link
       href={href}
+      aria-current={isActive ? "page" : undefined}
       onClick={(event) => {
+        // Modified clicks (new tab / window) keep the browser's native behaviour.
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
         event.preventDefault();
         onNavigate?.();
 
@@ -31,12 +41,13 @@ const AnimatedNavLink = ({ href, children, classNameAttr, onNavigate }: NavLinkP
           onTransitionReady: pageAnimation,
         });
       }}
-      className={`
-        px-2 py-1.5 rounded-md text-sm transition-colors sm:px-3 sm:text-base
-        ${classNameAttr}
-        ${isActive ? "font-bold" : "text-zinc-700 hover:bg-zinc-200 dark:text-zinc-300 dark:hover:bg-surface-2"}
-      `}
+      className={`crt-navlink ${classNameAttr ?? ""}`}
     >
+      {shortcut !== undefined && (
+        <span className="crt-key" aria-hidden="true">
+          {shortcut}
+        </span>
+      )}
       {children}
     </Link>
   );
