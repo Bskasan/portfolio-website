@@ -1,7 +1,7 @@
 "use client";
 
 import ScrollReveal from "@/components/elements/ScrollReveal";
-import SkillTag from "@/components/elements/SkillTag";
+import Tag from "@/components/elements/Tag";
 import CVLinkText from "@/components/pages/CVLinkText";
 
 import { Fragment, useState } from "react";
@@ -81,7 +81,7 @@ const ExperienceRegister = ({ entries }: ExperienceRegisterProps) => {
                   <ul className="flex flex-wrap gap-1.5" aria-label="Skills">
                     {entry.skills.map((skill) => (
                       <li key={skill.name}>
-                        <SkillTag name={skill.name} />
+                        <Tag name={skill.name} />
                       </li>
                     ))}
                   </ul>

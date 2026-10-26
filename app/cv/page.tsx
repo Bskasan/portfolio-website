@@ -1,6 +1,6 @@
 import BackLink from "@/components/elements/BackLink";
 import ScrollReveal from "@/components/elements/ScrollReveal";
-import SkillTag from "@/components/elements/SkillTag";
+import Tag from "@/components/elements/Tag";
 import CVEntry from "@/components/pages/CVEntry";
 import CVHeader from "@/components/pages/CVHeader";
 import CVSection from "@/components/pages/CVSection";
@@ -74,7 +74,7 @@ const CVPage = () => {
                         <ul className="flex flex-wrap gap-1.5" aria-label={`${group.label} skills`}>
                           {group.skills.map((skill) => (
                             <li key={skill}>
-                              <SkillTag name={skill} />
+                              <Tag name={skill} />
                             </li>
                           ))}
                         </ul>

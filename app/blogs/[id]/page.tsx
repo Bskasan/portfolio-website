@@ -1,10 +1,10 @@
 import PageWrapper from "@/components/animated/PageWrapper";
-import TagElement from "@/components/elements/Tag";
+import Tag from "@/components/elements/Tag";
 import TransitionLink from "@/components/elements/TransitionLink";
 
 import type { Metadata } from "next";
 import { getAllSlugs, getPostFrontmatter } from "@/lib/blogs";
-import { Tag } from "@/lib/types/blogMeta";
+import type { Tag as PostTag } from "@/lib/types/blogMeta";
 
 // Pre-render every post at build time as static HTML
 export function generateStaticParams() {
@@ -56,8 +56,8 @@ const BlogContentPage = async ({ params }: { params: Promise<{ id: string }> }) 
           </h1>
 
           <div className="mt-4 flex flex-wrap gap-1.5">
-            {post.tags.map((tag: Tag) => (
-              <TagElement key={tag.key} name={tag.name} />
+            {post.tags.map((tag: PostTag) => (
+              <Tag key={tag.key} name={tag.name} />
             ))}
           </div>
 

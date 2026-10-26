@@ -1,7 +1,7 @@
 import PageWrapper from "@/components/animated/PageWrapper";
 import PageHead from "@/components/pages/PageHead";
 import TransitionLink from "@/components/elements/TransitionLink";
-import TagElement from "@/components/elements/Tag";
+import Tag from "@/components/elements/Tag";
 
 import { getAllPosts } from "@/lib/blogs";
 import { BlogPostMetaData } from "@/lib/types/posts";
@@ -41,7 +41,7 @@ const BlogsPage = () => {
                 <span className="flex flex-col gap-2">
                   <span className="flex flex-wrap gap-1.5">
                     {post.tagNames.map((tagName: string) => (
-                      <TagElement key={tagName} name={tagName} />
+                      <Tag key={tagName} name={tagName} />
                     ))}
                   </span>
                   <span className="dir-title">{post.title}</span>
