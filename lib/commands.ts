@@ -34,17 +34,19 @@ interface CommandResult {
 
 export const PROMPT = "C:\\BSKASAN>";
 
-const PAGES: Record<string, string> = {
-  home: "/",
-  about: "/about",
-  projects: "/projects",
-  games: "/games",
-  blog: "/blogs",
-  blogs: "/blogs",
-  contact: "/contact",
-  cv: "/cv",
-  resume: "/cv",
-};
+// A Map, not an object literal: lookups must not match inherited keys such as
+// "constructor" or "__proto__", which would hand the router a function or object.
+const PAGES = new Map<string, string>([
+  ["home", "/"],
+  ["about", "/about"],
+  ["projects", "/projects"],
+  ["games", "/games"],
+  ["blog", "/blogs"],
+  ["blogs", "/blogs"],
+  ["contact", "/contact"],
+  ["cv", "/cv"],
+  ["resume", "/cv"],
+]);
 
 const HELP = [
   "AVAILABLE COMMANDS",
@@ -82,9 +84,10 @@ export function runCommand(raw: string, ctx: CommandContext): CommandResult {
 
   if (command === "help" || command === "?") return say(...HELP);
 
-  if (command === "cd" && PAGES[arg])
-    return navigate(PAGES[arg], `OK. Opened ${arg.toUpperCase()}.`);
-  if (PAGES[command]) return navigate(PAGES[command], `OK. Opened ${command.toUpperCase()}.`);
+  const cdTarget = command === "cd" ? PAGES.get(arg) : undefined;
+  if (cdTarget) return navigate(cdTarget, `OK. Opened ${arg.toUpperCase()}.`);
+  const pageTarget = PAGES.get(command);
+  if (pageTarget) return navigate(pageTarget, `OK. Opened ${command.toUpperCase()}.`);
 
   if (command === "ls" || command === "dir") {
     return say(
