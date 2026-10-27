@@ -1,71 +1,66 @@
-import PersonalMetaData from "@/components/pages/PersonalMetaData";
-import DivisionLine from "@/components/elements/DivisionLine";
 import PageWrapper from "@/components/animated/PageWrapper";
+import PageHead from "@/components/pages/PageHead";
+import SocialLinks from "@/components/elements/SocialLinks";
+import CopyButton from "@/components/elements/CopyButton";
 
-import { FiMail, FiHeart } from "react-icons/fi";
+import { PROFILE } from "@/constants/profile";
+
+const EMAIL = "b.kasan@hotmail.com";
 
 const ContactPage = () => {
   return (
     <PageWrapper>
-      <div className="flex flex-col flex-1 items-center justify-center">
-        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-4 sm:px-8">
-          <div className="flex mx-auto">
-            <PersonalMetaData />
+      <PageHead eyebrow="Open channel" title="Contact">
+        {PROFILE.tagline} Pick a command below.
+      </PageHead>
+
+      <div className="grid grid-cols-1 gap-[22px] frame:grid-cols-2">
+        {/* Hire me */}
+        <section aria-labelledby="hire" className="shell-panel">
+          <h2 id="hire" className="text-name leading-[1.1]">
+            <span className="mr-2 text-phos-dim">$</span>hire --email
+          </h2>
+          <p className="text-phos-dim">Open to freelance and full-time opportunities.</p>
+          <p id="contact-email" className="text-lead font-semibold [overflow-wrap:anywhere]">
+            {EMAIL}
+          </p>
+          <div className="mt-auto flex flex-wrap gap-2.5">
+            <CopyButton value={EMAIL} label="COPY ADDRESS" fallbackTargetId="contact-email">
+              <a href={`mailto:${EMAIL}`} className="cmdlink">
+                [ OPEN MAIL APP ]
+              </a>
+            </CopyButton>
           </div>
+        </section>
 
-          <div className="w-full mt-8 mb-2">
-            <DivisionLine />
-          </div>
-
-          <section className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
-            {/* Hire me */}
-            <a
-              href="mailto:b.kasan@hotmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 hover:bg-white hover:border-zinc-400 hover:shadow-sm transition-all duration-200 dark:border-line dark:bg-surface dark:hover:bg-surface-2 dark:hover:border-indigo-500"
-            >
-              <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-zinc-200 group-hover:border-zinc-300 transition-colors dark:bg-surface-2 dark:border-line dark:group-hover:border-indigo-500">
-                <FiMail className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-              </span>
-              <div className="flex flex-col gap-1">
-                <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  Hire me
-                </span>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  Open to freelance and full-time opportunities.
-                </span>
-              </div>
-              <span className="text-sm font-medium text-gray-400 group-hover:text-gray-900 transition-colors mt-auto dark:text-gray-500 dark:group-hover:text-gray-100">
-                b.kasan@hotmail.com →
-              </span>
-            </a>
-
-            {/* Sponsor me */}
+        {/* Sponsor me */}
+        <section aria-labelledby="sponsor" className="shell-panel">
+          <h2 id="sponsor" className="text-name leading-[1.1]">
+            <span className="mr-2 text-phos-dim">$</span>sponsor --github
+          </h2>
+          <p className="text-phos-dim">Support my open-source work on GitHub.</p>
+          <p className="text-lead font-semibold [overflow-wrap:anywhere]">
+            github.com/sponsors/Bskasan
+          </p>
+          <div className="mt-auto flex flex-wrap gap-2.5">
             <a
               href="https://github.com/sponsors/Bskasan"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 hover:bg-white hover:border-zinc-400 hover:shadow-sm transition-all duration-200 dark:border-line dark:bg-surface dark:hover:bg-surface-2 dark:hover:border-indigo-500"
+              className="cmdlink is-solid"
             >
-              <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-zinc-200 group-hover:border-zinc-300 transition-colors dark:bg-surface-2 dark:border-line dark:group-hover:border-indigo-500">
-                <FiHeart className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-              </span>
-              <div className="flex flex-col gap-1">
-                <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  Sponsor me
-                </span>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  Support my open-source work on GitHub.
-                </span>
-              </div>
-              <span className="text-sm font-medium text-gray-400 group-hover:text-gray-900 transition-colors mt-auto dark:text-gray-500 dark:group-hover:text-gray-100">
-                github.com/sponsors/Bskasan →
-              </span>
+              [ OPEN SPONSORS ↗ ]
             </a>
-          </section>
-        </main>
+          </div>
+        </section>
       </div>
+
+      <section aria-labelledby="channels" className="mt-10">
+        <h2 id="channels" className="h-sec group-title mb-[18px]">
+          Channels
+        </h2>
+        <SocialLinks />
+      </section>
     </PageWrapper>
   );
 };

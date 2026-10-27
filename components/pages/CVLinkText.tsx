@@ -15,7 +15,7 @@ const CVLinkText = ({ link, className }: CVLinkTextProps) => {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100 ${className ?? ""}`}
+      className={`hover:underline hover:underline-offset-4 ${className ?? ""}`}
     >
       {link.name}
     </a>
