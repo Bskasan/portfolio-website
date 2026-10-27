@@ -1,16 +1,30 @@
 "use client";
 
-import ThemeToggle from "./ThemeToggle";
 import AnimatedNavLink from "./NavLink";
+import ScreenSettings from "./ScreenSettings";
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { LuMenu, LuX } from "react-icons/lu";
-import { NAV_LINKS } from "@/constants/navbar";
+import { usePathname } from "next/navigation";
+import { NavLink } from "@/lib/types/link";
 
-const MobileNav = () => {
+interface MobileNavProps {
+  links: NavLink[];
+}
+
+// Name of the current screen shown on the MENU button ("MENU / PROJECTS").
+function currentLabel(pathname: string, links: NavLink[]) {
+  if (pathname.startsWith("/cv")) return "ABOUT / CV";
+  const match = links.find((link) =>
+    link.href === "/" ? pathname === "/" : pathname.startsWith(link.href),
+  );
+  return (match?.label ?? "HOME").toUpperCase();
+}
+
+const MobileNav = ({ links }: MobileNavProps) => {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
   const close = () => setOpen(false);
 
   useEffect(() => {
@@ -37,7 +51,7 @@ const MobileNav = () => {
   }, [open]);
 
   useEffect(() => {
-    const desktop = window.matchMedia("(min-width: 640px)");
+    const desktop = window.matchMedia("(width >= 47.5rem)");
     const handleChange = () => {
       if (desktop.matches) setOpen(false);
     };
@@ -47,7 +61,7 @@ const MobileNav = () => {
   }, []);
 
   return (
-    <div className="flex w-full items-center justify-between sm:hidden">
+    <div className="frame:hidden">
       <button
         ref={buttonRef}
         type="button"
@@ -55,22 +69,19 @@ const MobileNav = () => {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        className="inline-flex cursor-pointer items-center justify-center rounded-md p-2 text-zinc-700 transition-colors hover:bg-zinc-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:text-zinc-300 dark:hover:bg-surface-2 dark:focus-visible:outline-zinc-100"
+        className="group crt-navlink border border-phos-faint"
       >
-        {open ? (
-          <LuX className="h-6 w-6" aria-hidden="true" />
-        ) : (
-          <LuMenu className="h-6 w-6" aria-hidden="true" />
-        )}
+        MENU{" "}
+        <span className="text-phos-dim group-hover:text-glass">
+          / {currentLabel(pathname, links)}
+        </span>
       </button>
-
-      <ThemeToggle />
 
       <AnimatePresence>
         {open && (
           <motion.div
             key="backdrop"
-            className="absolute inset-x-0 top-full z-40 h-screen bg-black/40"
+            className="fixed inset-x-0 bottom-0 top-0 -z-10 bg-black/50"
             aria-hidden="true"
             onClick={close}
             initial={{ opacity: 0 }}
@@ -80,23 +91,35 @@ const MobileNav = () => {
           />
         )}
         {open && (
-          <motion.ul
+          <motion.div
             key="panel"
             id="mobile-menu"
-            className="absolute inset-x-0 top-full z-50 flex flex-col gap-1 border-b border-zinc-200 bg-white px-4 py-3 shadow-lg dark:border-line dark:bg-background"
+            className="pad absolute inset-x-0 top-full z-50 flex flex-col gap-0.5 border-b border-phos bg-glass pt-2 pb-4 shadow-[0_20px_30px_rgba(0,0,0,0.6)]"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
           >
-            {NAV_LINKS.filter((link) => link.isVisible).map((link) => (
-              <li key={link.href}>
-                <AnimatedNavLink href={link.href} onNavigate={close} classNameAttr="block w-full">
-                  {link.label}
-                </AnimatedNavLink>
-              </li>
-            ))}
-          </motion.ul>
+            <nav aria-label="Main navigation">
+              <ul className="flex flex-col gap-0.5">
+                {links.map((link, index) => (
+                  <li key={link.href}>
+                    <AnimatedNavLink
+                      href={link.href}
+                      shortcut={index + 1}
+                      onNavigate={close}
+                      classNameAttr="flex w-full px-2 py-1 !text-name"
+                    >
+                      {link.label}
+                    </AnimatedNavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="mt-3 border-t border-phos-faint px-2 pt-3">
+              <ScreenSettings variant="menu" />
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

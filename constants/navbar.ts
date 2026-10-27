@@ -5,6 +5,6 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/about", label: "About", isVisible: true },
   { href: "/projects", label: "Projects", isVisible: true },
   { href: "/games", label: "Games", isVisible: true },
-  { href: "/blogs", label: "Blogs", isVisible: true },
+  { href: "/blogs", label: "Blog", isVisible: true },
   { href: "/contact", label: "Contact", isVisible: true },
 ];

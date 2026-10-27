@@ -1,89 +1,38 @@
 "use client";
 
-import DivisionLine from "@/components/elements/DivisionLine";
-import Image from "next/image";
-import SocialLinks from "@/components/elements/SocialLinks";
 import PageWrapper from "@/components/animated/PageWrapper";
+import EmptyState from "@/components/elements/EmptyState";
 import ProjectModal from "@/components/modals/ProjectModal";
+import PageHead from "@/components/pages/PageHead";
+import CartridgeBay from "@/components/pages/CartridgeBay";
 
 import { ProjectMetaData } from "@/lib/types/project";
-import { useState } from "react";
-import { ThumbnailPlaceholder } from "@/components/elements/ThumbnailPlaceholder";
 import { PROJECTS } from "@/constants/projects";
+import { useCartridgeSelection } from "@/hooks/useCartridgeSelection";
 
 const projects: ProjectMetaData[] = PROJECTS;
 
 const ProjectsPage = () => {
-  const [selected, setSelected] = useState<ProjectMetaData | null>(null);
+  const { selected, open, close } = useCartridgeSelection(projects);
 
   return (
     <PageWrapper>
-      <div className="flex flex-col flex-1 items-center justify-center">
-        <main className="flex flex-1 w-full max-w-6xl flex-col items-start py-12 px-4 sm:px-8">
-          {/* Page Header */}
-          <div className="flex flex-col items-center mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight dark:text-gray-100">
-              Projects
-            </h1>
-            <p className="mt-3 text-base text-gray-500 max-w-lg text-center dark:text-gray-400">
-              Things I&apos;ve built — side projects, tools, and experiments. You can check my
-              github page to see more about my projects.
-            </p>
-          </div>
+      <PageHead
+        eyebrow="Cartridge bay"
+        title="Projects"
+        readout={`${projects.length} CARTRIDGES LOADED`}
+      >
+        Things I&apos;ve built — side projects, tools, and experiments. You can check my GitHub page
+        to see more about my projects.
+      </PageHead>
 
-          <SocialLinks />
+      {projects.length > 0 ? (
+        <CartridgeBay items={projects} slotPrefix="P" onOpen={open} />
+      ) : (
+        <EmptyState title="NO CARTRIDGES FOUND." />
+      )}
 
-          <div className="w-full mt-8 mb-2">
-            <DivisionLine />
-          </div>
-
-          {/* Project List */}
-          <ul className="w-full flex flex-wrap justify-center gap-6 sm:gap-8 mt-2">
-            {projects.map((project) => {
-              // The card shows the project's logo when it has one; the modal keeps the thumbnail.
-              const cardImage = project.logo ?? project.thumbnail;
-
-              return (
-                <li key={project.id} className="w-full sm:w-80">
-                  <button
-                    type="button"
-                    onClick={() => setSelected(project)}
-                    className="w-full aspect-square rounded-xl overflow-hidden block group relative cursor-pointer"
-                  >
-                    {cardImage ? (
-                      <Image
-                        src={cardImage}
-                        alt={`${project.name} thumbnail`}
-                        width={320}
-                        loading="eager"
-                        height={320}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <ThumbnailPlaceholder name={project.name} />
-                    )}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl" />
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* Content */}
-          <ProjectModal
-            project={selected}
-            open={selected !== null}
-            onClose={() => setSelected(null)}
-          />
-
-          {projects.length === 0 && (
-            <div className="w-full py-20 flex flex-col items-center justify-center text-gray-400 gap-2 dark:text-gray-500">
-              <p className="text-lg font-medium">No projects yet.</p>
-              <p className="text-sm">Check back soon.</p>
-            </div>
-          )}
-        </main>
-      </div>
+      <ProjectModal project={selected} open={selected !== null} onClose={close} />
     </PageWrapper>
   );
 };

@@ -1,6 +1,13 @@
 .project-modal {
   opacity: 1;
-  transform: scale(1);
+  transform: scaleY(1);
+  background: var(--glass);
+  color: var(--phos);
+  border: 1px solid var(--phos);
+  text-shadow: var(--glow);
+  box-shadow:
+    0 0 0 4px var(--glass),
+    0 0 40px color-mix(in srgb, var(--phos) 25%, transparent);
 
   /*
     `allow-discrete` lets the discrete `display` and `overlay` properties take
@@ -8,10 +15,10 @@
     and you'd never see the exit animation.
   */
   transition:
-    opacity 200ms ease,
-    transform 200ms ease,
-    overlay 200ms ease allow-discrete,
-    display 200ms ease allow-discrete;
+    opacity 220ms steps(3),
+    transform 220ms steps(3),
+    overlay 220ms ease allow-discrete,
+    display 220ms ease allow-discrete;
 }
 
 /*
@@ -21,20 +28,19 @@
 @starting-style {
   .project-modal[open] {
     opacity: 0;
-    transform: scale(0.96);
+    transform: scaleY(0.04);
   }
 }
 
 /* The closed state is also the target the exit animation moves toward. */
 .project-modal:not([open]) {
   opacity: 0;
-  transform: scale(0.96);
+  transform: scaleY(0.04);
 }
 
 /* The dimmed/blurred layer behind the modal. */
 .project-modal::backdrop {
-  background: rgba(2, 6, 23, 0.6);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.72);
   opacity: 1;
   transition:
     opacity 200ms ease,

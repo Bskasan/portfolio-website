@@ -1,32 +1,33 @@
-import { lastValueOfLinks, socialLinks } from "@/constants/socialLinks";
+import { socialLinks } from "@/constants/socialLinks";
 import { SocialLink } from "@/lib/types/socials";
 
-const SocialLinks = () => {
+interface SocialLinksProps {
+  className?: string;
+}
+
+const isExternal = (url: string) => url.startsWith("http");
+
+const SocialLinks = ({ className }: SocialLinksProps) => {
   return (
-    <div className="flex items-center mx-auto justify-center max-w-3xl mt-8 sm:mt-16 w-full px-4">
-      <section className="w-full">
-        <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
-          {socialLinks.map((link: SocialLink) => {
-            const Icon = link.icon;
-            return (
-              <li key={link.name}>
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.name}
-                  className="flex items-center gap-2 text-sm sm:text-base font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200 dark:text-gray-300 dark:hover:text-gray-100"
-                >
-                  {link.name}
-                  <Icon size={24} />
-                  {link.name !== lastValueOfLinks.name && <span>-</span>}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-    </div>
+    <ul className={`flex flex-wrap gap-x-[18px] gap-y-1 ${className ?? ""}`}>
+      {socialLinks.map((link: SocialLink) => (
+        <li key={link.name}>
+          <a
+            href={link.url}
+            {...(isExternal(link.url) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            aria-label={`${link.name}: ${link.handle}`}
+            className="group inline-flex items-baseline gap-2 py-0.5 no-underline"
+          >
+            <span className="social-code" aria-hidden="true">
+              {link.code}
+            </span>
+            <span className="group-hover:underline group-hover:underline-offset-4">
+              {link.handle}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 };
 

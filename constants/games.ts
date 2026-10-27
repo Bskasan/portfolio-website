@@ -21,7 +21,7 @@ export const COURSE_GAMES: ProjectMetaData[] = [
     name: "Clicky Mouse",
     description:
       "A simple clicker game where you click objects to earn points while avoiding bombs, which make you lose your points. This project was created while I was learning the Unity Game Engine and the C# programming language.",
-    thumbnail: "/images/games/click-game.png",
+    thumbnail: "/images/games/click-game.jpg",
     liveUrl: null,
     githubUrl: "https://github.com/Bskasan/EscapeSpaceGame/tree/main",
     techStack: ["Unity", "C#", "GitHub"],

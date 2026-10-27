@@ -5,9 +5,8 @@ import Image from "next/image";
 
 import { useEffect, useRef } from "react";
 import { ProjectMetaData } from "@/lib/types/project";
-import { CloseIcon } from "../icons/CloseIcon";
 import { ExternalLinkIcon } from "../icons/ExternalLinkIcon";
-import { STATUS_STYLES } from "@/constants/styles";
+import { DEFAULT_STATUS_STYLE, STATUS_STYLES } from "@/constants/styles";
 
 interface ProjectModalProps {
   project: ProjectMetaData | null;
@@ -30,18 +29,22 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
     }
   }, [open]);
 
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
+  // Never leave the page scroll-locked if this unmounts while the window is open.
+  useEffect(
+    () => () => {
+      document.body.style.overflow = "";
+    },
+    [],
+  );
 
-    const handleClose = () => {
-      document.body.style.overflow = ""; // restore scroll
-      onClose();
-    };
-
-    dialog.addEventListener("close", handleClose);
-    return () => dialog.removeEventListener("close", handleClose);
-  }, [onClose]);
+  // Fires for every way the dialog closes: Escape, the [ X ] button, a backdrop
+  // click. Handled through React's onClose rather than a listener attached in an
+  // effect: the dialog only exists while a project is selected, so an effect
+  // keyed on onClose could run before it was there and never attach.
+  const handleClose = () => {
+    document.body.style.overflow = ""; // restore scroll
+    onClose();
+  };
 
   /*
     Backdrop click → close. The ::backdrop is part of the <dialog>, so clicking
@@ -59,85 +62,84 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
 
   const titleId = `project-modal-title-${project.id}`;
   const descId = `project-modal-desc-${project.id}`;
-  const statusClass =
-    STATUS_STYLES[project.status.key.toLowerCase()] ??
-    "bg-slate-100 text-slate-600 dark:bg-surface-2 dark:text-slate-300";
+  const statusClass = STATUS_STYLES[project.status.key.toLowerCase()] ?? DEFAULT_STATUS_STYLE;
 
   return (
     <dialog
       ref={dialogRef}
       onClick={handleBackdropClick}
+      onClose={handleClose}
       aria-labelledby={titleId}
       aria-describedby={descId}
-      className="project-modal m-auto w-[min(90vw,32rem)] rounded-2xl border border-slate-200 bg-white p-0 text-slate-900 shadow-2xl dark:border-line dark:bg-surface dark:text-slate-100"
+      className="project-modal m-auto max-h-[88vh] w-[min(92vw,40rem)] p-0"
     >
       {/* Inner panel owns ALL padding so the dialog edge === backdrop. */}
       <div className="flex flex-col">
+        <div className="hbar sticky top-0 z-10 flex items-center justify-between gap-2.5 py-0.5 pr-1 pl-3 font-display text-bar tracking-[0.06em]">
+          <span className="truncate">LOAD://{project.id}.cart</span>
+          <button
+            type="button"
+            onClick={() => dialogRef.current?.close()}
+            aria-label="Close dialog"
+            className="bg-glass px-2.5 font-display text-bar text-phos hover:bg-phos-faint"
+          >
+            [ X ]
+          </button>
+        </div>
+
         {project.thumbnail && (
-          <Image
-            src={project.thumbnail}
-            alt={`Screenshot of ${project.name}`}
-            width={640}
-            height={288}
-            className="h-72 w-full rounded-t-2xl object-cover"
-          />
+          <div className="tint is-decoded aspect-video max-w-full border-b border-phos-faint">
+            <Image
+              src={project.thumbnail}
+              alt={`Screenshot of ${project.name}`}
+              width={640}
+              height={360}
+              sizes="(max-width: 700px) 92vw, 640px"
+            />
+          </div>
         )}
 
-        <div className="flex flex-col gap-4 p-6">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex flex-col gap-1.5">
-              <h2 id={titleId} className="text-xl font-semibold tracking-tight">
-                {project.name}
-              </h2>
+        <div className="flex flex-col gap-3.5 px-5 pt-[18px] pb-[22px]">
+          <h2 id={titleId} className="text-heading uppercase">
+            {project.name}
+          </h2>
 
-              {/* Meta row: status badge + year */}
-              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                <span className={`rounded-full px-2 py-0.5 font-medium ${statusClass}`}>
-                  {project.status.value}
-                </span>
-                <span aria-hidden="true">&bull;</span>
-                <span>{project.year}</span>
-              </div>
-            </div>
+          <dl className="grid grid-cols-[90px_minmax(0,1fr)] gap-x-3 gap-y-1.5 text-meta frame:grid-cols-[110px_minmax(0,1fr)]">
+            <dt className="kv-label">STATUS</dt>
+            <dd>
+              <span className={statusClass}>{project.status.value}</span>
+            </dd>
+            <dt className="kv-label">YEAR</dt>
+            <dd>{project.year ?? "—"}</dd>
+            {project.techStack.length > 0 && (
+              <>
+                <dt className="kv-label">STACK</dt>
+                <dd>
+                  <ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
+                    {project.techStack.map((t) => (
+                      <li key={t} className="tag">
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </>
+            )}
+          </dl>
 
-            <button
-              type="button"
-              onClick={() => dialogRef.current?.close()}
-              aria-label="Close dialog"
-              className="-mr-1 -mt-1 rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 cursor-pointer dark:text-slate-500 dark:hover:bg-surface-2 dark:hover:text-slate-200 dark:focus-visible:outline-slate-100"
-            >
-              <CloseIcon />
-            </button>
-          </div>
-
-          <p id={descId} className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <p id={descId} className="text-sm">
             {project.description}
           </p>
 
-          {project.techStack.length > 0 && (
-            <ul className="flex flex-wrap gap-2" aria-label="Tech stack">
-              {project.techStack.map((t) => (
-                <li
-                  key={t}
-                  className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-surface-2 dark:text-slate-200"
-                >
-                  {t}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <div className="mt-2 flex flex-wrap gap-3">
-            {/* liveUrl is a required string, so this always renders. */}
+          <div className="mt-1 flex flex-wrap gap-2.5">
             {project.liveUrl && (
               <a
-                href={project.liveUrl ? project.liveUrl : "#"}
+                href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer" // prevents reverse tabnabbing
-                className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-300 dark:focus-visible:outline-slate-100"
+                className="cmdlink is-solid"
               >
-                Visit project
-                <ExternalLinkIcon />
+                [ VISIT PROJECT <ExternalLinkIcon /> ]
               </a>
             )}
 
@@ -146,9 +148,9 @@ const ProjectModal = ({ project, open, onClose }: ProjectModalProps) => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-line dark:text-slate-200 dark:hover:bg-surface-2 dark:focus-visible:outline-slate-100"
+                className="cmdlink"
               >
-                View code
+                [ VIEW CODE <ExternalLinkIcon /> ]
               </a>
             )}
           </div>
