@@ -14,8 +14,8 @@ export type FxLevel = (typeof FX_LEVELS)[number];
 export const DEFAULT_PHOSPHOR: Phosphor = "green";
 export const DEFAULT_FX: FxLevel = "subtle";
 
-export const PHOS_KEY = "phos";
-export const FX_KEY = "fx";
+const PHOS_KEY = "phos";
+const FX_KEY = "fx";
 
 export const isPhosphor = (value: unknown): value is Phosphor =>
   PHOSPHORS.includes(value as Phosphor);

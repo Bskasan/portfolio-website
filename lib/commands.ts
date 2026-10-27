@@ -8,7 +8,7 @@ import type { Cartridge } from "@/lib/cartridges";
 import { FxLevel, Phosphor, isFxLevel, isPhosphor } from "@/lib/screenSettings";
 import { COPYRIGHT_YEARS, LOCATION_CODE, PROFILE } from "@/constants/profile";
 
-export interface CommandContext {
+interface CommandContext {
   pathname: string;
   /** Newest first. */
   posts: { slug: string; title: string }[];
@@ -27,7 +27,7 @@ export type CommandEffect =
   | { type: "boot" }
   | { type: "clear" };
 
-export interface CommandResult {
+interface CommandResult {
   output: string[];
   effects: CommandEffect[];
 }
@@ -46,7 +46,7 @@ const PAGES: Record<string, string> = {
   resume: "/cv",
 };
 
-export const HELP = [
+const HELP = [
   "AVAILABLE COMMANDS",
   "  home | about | projects | games | blog | contact | cv   open a page",
   "  open <name>        load a project or game (try: open ronin)",

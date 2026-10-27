@@ -14,7 +14,7 @@ import {
   (constants/experience.ts) both read from here, so dates and names can't drift
   apart again. How each page *describes* the role stays in those files.
 */
-export type Employer = CVLink & {
+type Employer = CVLink & {
   /** e.g. "Sep 2024 – Feb 2026" */
   period?: string;
   /** e.g. "Espoo, Finland" */
