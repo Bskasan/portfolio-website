@@ -420,8 +420,15 @@
     font-size: var(--text-ui);
   }
 
+  /*
+    The input itself has no outline (it would cut through the bar), so the focus
+    indicator is drawn on the whole command line: the site's dashed focus
+    outline, inset so it stays inside the bar, plus a stronger tint.
+  */
   .crt-cmd:focus-within {
-    background: color-mix(in srgb, var(--phos) 5%, transparent);
+    background: color-mix(in srgb, var(--phos) 8%, transparent);
+    outline: 2px dashed var(--phos);
+    outline-offset: -4px;
   }
 
   .crt-cmd input {

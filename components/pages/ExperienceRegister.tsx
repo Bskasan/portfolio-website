@@ -72,7 +72,7 @@ const ExperienceRegister = ({ entries }: ExperienceRegisterProps) => {
                       <Fragment key={org.name}>
                         {orgIndex === 1 && " ("}
                         {orgIndex > 1 && ", "}
-                        <CVLinkText link={org} className="underline underline-offset-[3px]" />
+                        <CVLinkText link={org} />
                         {orgIndex === entry.organizations.length - 1 && orgIndex > 0 && ")"}
                       </Fragment>
                     ))}

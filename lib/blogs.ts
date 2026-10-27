@@ -7,9 +7,18 @@ import { Tag } from "./types/blogMeta";
 
 const contentDir = path.join(process.cwd(), "content");
 
-// "June 23, 2026" → "2026-06-23" for the blog's directory listing.
-function toIsoDate(date?: string): string {
+// Frontmatter date → "YYYY-MM-DD" for the blog's directory listing.
+//   "June 23, 2026" parses as local midnight, so the local getters give the same day.
+//   "2026-06-23" already is the format and is returned as written: parsing it would
+//   give UTC midnight, which the local getters turn into the 22nd west of UTC.
+//   An unquoted YAML date (date: 2026-06-23) arrives as a Date at UTC midnight, so
+//   it is read in UTC for the same reason.
+function toIsoDate(date?: string | Date): string {
   if (!date) return "";
+  if (date instanceof Date) {
+    return Number.isNaN(date.getTime()) ? "" : date.toISOString().slice(0, 10);
+  }
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return date;
   const parsed = new Date(date);
   if (Number.isNaN(parsed.getTime())) return date;
   const month = String(parsed.getMonth() + 1).padStart(2, "0");
