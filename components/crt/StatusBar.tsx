@@ -58,6 +58,9 @@ const StatusBar = ({ posts, cartridges }: StatusBarProps) => {
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(0);
   const [bootRun, setBootRun] = useState<number | null>(null);
+  // What screen readers hear after each command (see the live region below).
+  const [announcement, setAnnouncement] = useState("");
+  const announceTimer = useRef<number | undefined>(undefined);
   const isTouch = useSyncExternalStore(
     coarsePointer.subscribe,
     coarsePointer.get,
@@ -78,6 +81,20 @@ const StatusBar = ({ posts, cartridges }: StatusBarProps) => {
   }, [log]);
 
   const endBoot = useCallback(() => setBootRun(null), []);
+
+  /*
+    Announce command output through a live region that is always mounted (the
+    visible session log comes and goes with Escape / CLOSE / clear, and a region
+    inserted together with its content is often not read). Empty it first and
+    fill it on the next tick, so the same output twice is announced twice.
+  */
+  const announce = (text: string) => {
+    window.clearTimeout(announceTimer.current);
+    setAnnouncement("");
+    if (text) announceTimer.current = window.setTimeout(() => setAnnouncement(text), 50);
+  };
+
+  useEffect(() => () => window.clearTimeout(announceTimer.current), []);
 
   const apply = (effect: CommandEffect) => {
     switch (effect.type) {
@@ -103,6 +120,7 @@ const StatusBar = ({ posts, cartridges }: StatusBarProps) => {
       case "clear":
         setLog([]);
         setConsoleOpen(false);
+        announce("");
         return;
     }
   };
@@ -125,6 +143,7 @@ const StatusBar = ({ posts, cartridges }: StatusBarProps) => {
         ...result.output.map((text) => ({ text })),
       ]);
       setConsoleOpen(true);
+      announce(result.output.join("\n"));
     }
     result.effects.forEach(apply);
   };
@@ -160,6 +179,9 @@ const StatusBar = ({ posts, cartridges }: StatusBarProps) => {
 
   return (
     <>
+      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {announcement}
+      </div>
       <footer className="crt-status">
         {consoleOpen && (
           <div ref={consoleRef} className="crt-console pad">
@@ -176,7 +198,7 @@ const StatusBar = ({ posts, cartridges }: StatusBarProps) => {
                 [ CLOSE ]
               </button>
             </div>
-            <div className="flex flex-col gap-0.5" aria-live="polite">
+            <div className="flex flex-col gap-0.5">
               {log.map((line, index) => (
                 <div key={index} className={line.echo ? "text-phos-dim" : undefined}>
                   {line.text}
