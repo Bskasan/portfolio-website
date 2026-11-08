@@ -57,7 +57,7 @@ const CVExperienceList = ({ jobs }: CVExperienceListProps) => {
                 >
                   {job.company.url && (
                     <li className="text-phos-dim">
-                      <CVLinkText link={job.company} className="underline" /> ↗
+                      <CVLinkText link={job.company} /> ↗
                     </li>
                   )}
                   {job.highlights.map((highlight) => (

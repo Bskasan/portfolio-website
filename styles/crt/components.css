@@ -236,8 +236,15 @@
     );
   }
 
+  /*
+    Show the original colours: on hover / keyboard focus of a .decode element,
+    whether the .tint is inside it (project cards) or is the element itself (blog
+    figures), and permanently with .is-decoded.
+  */
   .decode:hover .tint img,
   .decode:focus-visible .tint img,
+  .tint.decode:hover img,
+  .tint.decode:focus-visible img,
   .tint.is-decoded img {
     filter: none;
     mix-blend-mode: normal;

@@ -43,9 +43,11 @@ const ProfileCard = ({ isSticky }: ProfileCardProps) => {
             type="button"
             aria-pressed={decoded}
             onClick={() => setDecoded((value) => !value)}
-            className="font-display text-lg tracking-[0.08em] text-phos underline underline-offset-[3px]"
+            // Fixed label: aria-pressed carries the state (a changing label would be
+            // announced as "ENCODE, pressed"). Pressed shows as inverse video.
+            className="-mr-1 px-1 font-display text-lg tracking-[0.08em] text-phos underline underline-offset-[3px] aria-pressed:bg-phos aria-pressed:text-glass aria-pressed:no-underline aria-pressed:[text-shadow:none]"
           >
-            {decoded ? "ENCODE" : "DECODE"}
+            DECODE
           </button>
         </div>
       </div>
